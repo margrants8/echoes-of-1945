@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://your-org.github.io',
+  site: 'https://margrants8.github.io',
   base: '/echoes-of-1945',
   integrations: [mdx(), sitemap()],
   image: {
