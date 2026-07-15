@@ -15,6 +15,10 @@ sources:
     publisher: Princeton University Press
     year: 2013
     type: book
+  - title: "Bretton Woods-GATT, 1941-1947"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/bretton-woods
+    type: website
 ---
 
 The United Nations Monetary and Financial Conference, commonly known as the Bretton Woods Conference, convened delegates from 44 Allied nations at Bretton Woods, New Hampshire, from July 1 to July 22, 1944. Meeting while the war still raged, the delegates sought to design a stable international economic order that would avoid the competitive devaluations and trade barriers blamed for the economic disasters of the interwar years.

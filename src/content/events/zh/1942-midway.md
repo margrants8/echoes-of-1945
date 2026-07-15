@@ -22,6 +22,10 @@ sources:
     author: Gordon W. Prange
     year: 1982
     type: book
+  - title: "Battle of Midway | Date, Significance, Map, Casualties, & Outcome"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Midway
+    type: website
 ---
 
 中途岛海战于1942年6月4日至7日在中太平洋展开，是美国与日本帝国之间一场决定性的海战。日本联合舰队司令山本五十六企图在中途岛环礁附近设伏，诱歼美国航母舰队；然而美军密码破译人员已破解日本海军通信，事先向尼米兹上将预警了这一计划。

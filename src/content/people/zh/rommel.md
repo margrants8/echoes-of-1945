@@ -21,6 +21,10 @@ sources:
     publisher: Haus Publishing
     year: 2005
     type: book
+  - title: "Erwin Rommel | Biography, Death, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Erwin-Rommel
+    type: website
 ---
 
 埃尔温·隆美尔是德国陆军军官，二战期间晋升为元帅。他在1940年入侵法国时率装甲师作战而崭露头角，最为人所知的是其在北非战场的表现——他统率非洲军团，因而获得"沙漠之狐"的绰号。

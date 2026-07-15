@@ -20,6 +20,10 @@ sources:
     type: archive
   - title: "波茨坦协定 / 会议议定书（1945年8月1日）"
     type: document
+  - title: "The Potsdam Conference, 1945"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/potsdam-conf
+    type: website
 ---
 
 波茨坦会议于1945年7月17日至8月2日举行，是三巨头战时峰会的最后一次。德国已于5月投降，与会者也有所更替：杜鲁门接替已故的罗斯福，工党在英国大选中获胜后，艾德礼于会议中途取代了丘吉尔。

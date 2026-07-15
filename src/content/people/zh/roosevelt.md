@@ -21,6 +21,10 @@ sources:
     publisher: Viking
     year: 2017
     type: book
+  - title: "Franklin D. Roosevelt | Biography, Accomplishments, New Deal, Great Depression, World War II, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Franklin-D-Roosevelt
+    type: website
 ---
 
 富兰克林·罗斯福是美国第32任总统，自1933年任职至1945年4月逝世。他是美国历史上唯一连任四届的总统，领导美国先后度过了大萧条以及第二次世界大战的大部分时期。

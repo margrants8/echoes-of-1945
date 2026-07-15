@@ -15,6 +15,10 @@ sources:
     publisher: Cornell University Press
     year: 1955
     type: book
+  - title: "Marshall Plan, 1948"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1945-1952/marshall-plan
+    type: website
 ---
 
 The Marshall Plan, formally the European Recovery Program, was the principal United States initiative to aid the rebuilding of Western European economies after the Second World War. It grew from a speech delivered by Secretary of State George C. Marshall at Harvard University on June 5, 1947, in which he offered American assistance to a Europe struggling with economic dislocation, food shortages, and political instability. President Harry S. Truman signed the enabling legislation, the Economic Cooperation Act, into law on April 3, 1948.

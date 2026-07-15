@@ -15,6 +15,10 @@ sources:
     publisher: 康奈尔大学出版社
     year: 1955
     type: book
+  - title: "Marshall Plan, 1948"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1945-1952/marshall-plan
+    type: website
 ---
 
 马歇尔计划，正式名称为"欧洲复兴计划"，是二战结束后美国援助西欧各国重建经济的核心举措。其构想源于国务卿乔治·马歇尔于1947年6月5日在哈佛大学发表的演说，他在演说中提出向饱受经济崩溃、粮食短缺与政治动荡困扰的欧洲提供援助。1948年4月3日，美国总统杜鲁门签署了作为该计划法律依据的《经济合作法》。

@@ -21,6 +21,10 @@ sources:
     publisher: Alfred A. Knopf
     year: 2006
     type: book
+  - title: "Battle of Moscow (1941−42) | Description & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Moscow
+    type: website
 ---
 
 In October 1941, Germany launched Operation Typhoon, the drive to capture Moscow before winter. German panzer forces encircled large Soviet formations at Vyazma and Bryansk and pressed toward the capital, at some points reaching its outer suburbs. The Soviet government evacuated many institutions eastward, though Stalin remained in the city.

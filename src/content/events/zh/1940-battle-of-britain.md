@@ -23,6 +23,10 @@ sources:
     publisher: Bantam Press
     year: 2010
     type: book
+  - title: "Battle of Britain | History, Importance, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Britain-European-history-1940
+    type: website
 ---
 
 法国沦陷后，纳粹德国企图夺取英吉利海峡及英格兰南部的制空权，作为发动跨海峡登陆的前提。自1940年7月起，德国空军接连攻击海上运输、机场、雷达站，并最终转向城市，英国皇家空军战斗机司令部则以"飓风"和"喷火"式战斗机迎战。

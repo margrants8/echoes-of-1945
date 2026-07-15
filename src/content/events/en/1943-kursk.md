@@ -21,6 +21,10 @@ sources:
     publisher: Osprey Publishing
     year: 1992
     type: book
+  - title: "Battle of Kursk | Eastern Front, German Offensive, Soviet Counterattack"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Kursk
+    type: website
 ---
 
 In July 1943, Germany launched Operation Citadel against the Kursk salient, a large Soviet-held bulge in the front line. The plan called for pincer attacks from north and south to encircle the Red Army forces within it. Forewarned of the offensive, Soviet commanders had built deep defensive belts of minefields, trenches, and anti-tank positions.

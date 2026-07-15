@@ -22,6 +22,10 @@ sources:
     author: Jonathan Dimbleby
     year: 2012
     type: book
+  - title: "Battles of El-Alamein | Significance, Map, Casualties, Montgomery, & Rommel"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/battles-of-El-Alamein
+    type: website
 ---
 
 第二次阿拉曼战役于1942年10月23日打响。蒙哥马利将军指挥的英国第八集团军在埃及沙漠中对德意装甲集团军发动大规模攻势。攻击以千门火炮的密集炮击开路，力图在地中海海岸与无法通行的卡塔拉洼地之间这一狭窄正面上突破轴心国防线。

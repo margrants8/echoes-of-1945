@@ -21,6 +21,10 @@ sources:
     publisher: Little, Brown and Company
     year: 1963
     type: book
+  - title: "Chester W. Nimitz | Pacific Fleet Commander, WWII, Naval Strategist"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Chester-W-Nimitz
+    type: website
 ---
 
 Chester William Nimitz was a United States Navy officer who commanded the Pacific Fleet during the Second World War. A submarine specialist earlier in his career, he was appointed Commander in Chief of the Pacific Fleet shortly after the Japanese attack on Pearl Harbor in December 1941.

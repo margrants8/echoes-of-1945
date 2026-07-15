@@ -15,6 +15,10 @@ sources:
     publisher: 普林斯顿大学出版社
     year: 2013
     type: book
+  - title: "Bretton Woods-GATT, 1941-1947"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/bretton-woods
+    type: website
 ---
 
 联合国货币金融会议，通称"布雷顿森林会议"，于1944年7月1日至22日在美国新罕布什尔州的布雷顿森林召开，44个盟国的代表出席。会议在战争仍在进行之际举行，代表们力图设计一套稳定的国际经济秩序，以避免被认为导致两次大战之间经济灾难的竞争性货币贬值与贸易壁垒。

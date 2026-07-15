@@ -22,6 +22,10 @@ sources:
     author: Jonathan Dimbleby
     year: 2012
     type: book
+  - title: "Battles of El-Alamein | Significance, Map, Casualties, Montgomery, & Rommel"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/battles-of-El-Alamein
+    type: website
 ---
 
 The Second Battle of El Alamein began on October 23, 1942, when the British Eighth Army under General Bernard Montgomery launched a massive offensive against the German–Italian Panzer Army in the Egyptian desert. Preceded by a thousand-gun artillery barrage, the assault sought to break the Axis line at a narrow front bounded by the Mediterranean coast and the impassable Qattara Depression.

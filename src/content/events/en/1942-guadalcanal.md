@@ -22,6 +22,10 @@ sources:
     author: Samuel Eliot Morison
     year: 1949
     type: book
+  - title: "Battle of Guadalcanal | Facts, Map, Casualties, & Significance"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Guadalcanal
+    type: website
 ---
 
 The Guadalcanal Campaign opened on August 7, 1942, when U.S. Marines landed on Guadalcanal and neighboring islands in the Solomons to seize an airfield the Japanese were building there. Renamed Henderson Field, the airstrip became the focus of six months of grinding combat on land, at sea, and in the air as both sides fought to control it and the surrounding waters.

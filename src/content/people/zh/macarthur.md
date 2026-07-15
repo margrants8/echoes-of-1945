@@ -21,6 +21,10 @@ sources:
     publisher: Random House
     year: 1996
     type: book
+  - title: "Douglas MacArthur | Biography, Command, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Douglas-MacArthur
+    type: website
 ---
 
 道格拉斯·麦克阿瑟是美国陆军上将，在二战太平洋战场发挥了核心作用。他出身于高级军官家庭，毕业于西点军校，曾在第一次世界大战中表现出色，后来在菲律宾担任指挥。

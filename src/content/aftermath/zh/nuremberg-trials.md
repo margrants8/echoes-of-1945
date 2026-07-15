@@ -13,6 +13,10 @@ sources:
     publisher: 国际军事法庭
     year: 1947
     type: document
+  - title: "Nuremberg trials: Summary, Significance, Defendants, & Sentences"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Nurnberg-trials
+    type: website
 ---
 
 纽伦堡审判是二战结束后为起诉纳粹德国重要领导人而举行的一系列军事审判。其中最著名的一场由国际军事法庭主持，于1945年11月20日在纽伦堡开庭。该法庭依据1945年8月8日达成的《伦敦宪章》，由四个主要盟国——美国、苏联、英国和法国——共同组建。

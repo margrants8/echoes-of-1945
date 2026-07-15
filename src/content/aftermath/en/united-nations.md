@@ -7,6 +7,10 @@ sources:
   - title: Charter of the United Nations
     url: https://www.un.org/en/about-us/un-charter
   - title: Official History of the United Nations
+  - title: "The Formation of the United Nations, 1945"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/un
+    type: website
 ---
 
 On October 24, 1945, the United Nations Charter entered into force and the United Nations was officially established. This date is now observed annually as United Nations Day.

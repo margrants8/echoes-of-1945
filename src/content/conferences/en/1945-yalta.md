@@ -23,6 +23,10 @@ sources:
     publisher: Viking
     year: 2010
     type: book
+  - title: "The Yalta Conference, 1945"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/yalta-conf
+    type: website
 ---
 
 The Yalta Conference, held February 4–11, 1945, brought the Big Three together in the Crimean resort as Nazi Germany neared collapse. With victory in Europe imminent, the discussions turned decisively to the shape of the post-war world.

@@ -20,6 +20,10 @@ sources:
     publisher: Macmillan
     year: 2007
     type: book
+  - title: "Operation Barbarossa | History, Summary, Combatants, Casualties, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Operation-Barbarossa
+    type: website
 ---
 
 1941年6月22日，德国及其轴心国盟友发动"巴巴罗萨行动"，沿着从波罗的海到黑海的漫长战线入侵苏联。这是历史上规模最大的一次陆上入侵，投入三百多万轴心国军队，分为三个集团军群，分别指向列宁格勒、莫斯科和物产丰饶的南方。

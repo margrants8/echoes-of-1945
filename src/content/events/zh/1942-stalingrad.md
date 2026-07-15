@@ -25,6 +25,10 @@ sources:
     publisher: University Press of Kansas
     year: 1995
     type: book
+  - title: "Battle of Stalingrad | History, Summary, Location, Deaths, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Stalingrad
+    type: website
 ---
 
 斯大林格勒战役始于1942年夏，德国第六集团军作为向高加索油田总攻势的一翼，攻入这座伏尔加河畔的城市。8月下旬德国空军的猛烈轰炸几乎将全城摧毁，战斗随即演变为在废墟工厂与残破楼房间进行的惨烈近距离肉搏。

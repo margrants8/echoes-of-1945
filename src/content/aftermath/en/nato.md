@@ -16,6 +16,10 @@ sources:
     publisher: Praeger
     year: 2004
     type: book
+  - title: "North Atlantic Treaty Organization (NATO), 1949"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1945-1952/nato
+    type: website
 ---
 
 The North Atlantic Treaty Organization was established when twelve nations signed the North Atlantic Treaty in Washington, D.C., on April 4, 1949. The original signatories were the United States, Canada, Britain, France, Belgium, the Netherlands, Luxembourg, Denmark, Norway, Iceland, Italy, and Portugal. The alliance emerged from Western concern over Soviet expansion in Europe following the war, including the 1948 Communist coup in Czechoslovakia and the Berlin Blockade.

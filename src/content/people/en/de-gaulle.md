@@ -21,6 +21,10 @@ sources:
     publisher: John Wiley & Sons
     year: 1997
     type: book
+  - title: "Charles de Gaulle | Biography, World War II, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Charles-de-Gaulle-president-of-France
+    type: website
 ---
 
 Charles de Gaulle was a French general and statesman who led the Free French Forces during the Second World War. After France's defeat by Germany in June 1940, he rejected the armistice signed by the Vichy government and, from London, broadcast an appeal to continue resistance, becoming the leader of the Free French movement.

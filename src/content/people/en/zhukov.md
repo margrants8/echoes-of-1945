@@ -21,6 +21,10 @@ sources:
     publisher: Random House
     year: 2012
     type: book
+  - title: "Georgy Zhukov | Soviet Marshal & WWII Hero"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Georgy-Zhukov
+    type: website
 ---
 
 Georgy Zhukov was a Marshal of the Soviet Union and one of the most prominent Soviet military commanders of the Second World War. He rose to senior command on the strength of his performance at the Battle of Khalkhin Gol against Japanese forces in 1939 and his subsequent role as Chief of the General Staff.

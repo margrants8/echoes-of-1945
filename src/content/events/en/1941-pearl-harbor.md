@@ -22,6 +22,10 @@ sources:
     author: Craig Nelson
     year: 2016
     type: book
+  - title: "Pearl Harbor attack | Date, History, Map, Casualties, Timeline, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Pearl-Harbor-attack
+    type: website
 ---
 
 On the morning of December 7, 1941, aircraft of the Imperial Japanese Navy launched a surprise attack on the United States Pacific Fleet anchored at Pearl Harbor, Hawaii. Two waves of carrier-based aircraft struck the naval base and nearby airfields, sinking or damaging much of the fleet and destroying scores of aircraft on the ground.

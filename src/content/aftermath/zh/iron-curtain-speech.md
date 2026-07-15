@@ -15,6 +15,10 @@ sources:
     publisher: Henry Holt
     year: 1991
     type: book
+  - title: "Iron Curtain speech (1946): Summary, Meaning, & Significance"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/topic/Iron-Curtain-Speech
+    type: website
 ---
 
 1946年3月5日，英国前首相温斯顿·丘吉尔在密苏里州富尔顿的威斯敏斯特学院发表了题为《和平砥柱》的演说，美国总统杜鲁门就坐于其身旁。丘吉尔以平民身份借此机会，警示欧洲日益加深的分裂以及苏联对欧洲东部各国影响力的扩张。

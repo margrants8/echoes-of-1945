@@ -21,6 +21,10 @@ sources:
     publisher: John Wiley & Sons
     year: 1997
     type: book
+  - title: "Charles de Gaulle | Biography, World War II, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Charles-de-Gaulle-president-of-France
+    type: website
 ---
 
 夏尔·戴高乐是法国将军与政治家，在第二次世界大战期间领导自由法国部队。1940年6月法国败于德国后，他拒绝承认维希政府签署的停战协定，并从伦敦发表广播，号召继续抵抗，由此成为自由法国运动的领袖。

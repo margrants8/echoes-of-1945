@@ -8,7 +8,8 @@ role: 苏联领导人
 side: allies
 tags: [盟国, 苏联, 国家元首, 战时领袖]
 relatedEvents: [zh/1942-stalingrad]
-verificationStatus: verified
+verificationStatus: disputed
+disputed: "斯大林的出生日期在各类史料中记载不一。苏联时期的记录以及斯大林本人均称其生于1879年12月21日，但1990年后公开的党内档案显示其实际生于1878年12月18日（旧历12月6日）。本词条采用后者，这也是当前学界及《不列颠百科全书》所倾向的日期。"
 lastReviewed: "2026-07-15"
 sources:
   - title: "Stalin: The Court of the Red Tsar"
@@ -21,6 +22,10 @@ sources:
     publisher: Penguin Press
     year: 2014
     type: book
+  - title: "Joseph Stalin | Biography, World War II, Death, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Joseph-Stalin
+    type: website
 ---
 
 约瑟夫·斯大林自1920年代中期起领导苏联，直至1953年逝世，先后担任苏联共产党总书记及人民委员会主席等职。在第二次世界大战期间，苏联是主要同盟国之一。

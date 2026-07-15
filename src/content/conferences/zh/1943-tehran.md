@@ -21,6 +21,10 @@ sources:
     author: 温斯顿·丘吉尔
     year: 1948
     type: book
+  - title: "The Tehran Conference, 1943"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/tehran-conf
+    type: website
 ---
 
 德黑兰会议于1943年11月28日至12月1日举行，是"三巨头"——美国总统罗斯福、英国首相丘吉尔与苏联领导人斯大林——在战时的首次会晤。

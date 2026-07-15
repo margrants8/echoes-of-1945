@@ -21,6 +21,10 @@ sources:
     publisher: Doubleday
     year: 1948
     type: book
+  - title: "Dwight D. Eisenhower | Biography, Cold War, Presidency, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Dwight-D-Eisenhower
+    type: website
 ---
 
 德怀特·艾森豪威尔，绰号"艾克"（Ike），是二战盟军欧洲战区最高统帅。

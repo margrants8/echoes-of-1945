@@ -21,6 +21,10 @@ sources:
     publisher: Little, Brown and Company
     year: 1963
     type: book
+  - title: "Chester W. Nimitz | Pacific Fleet Commander, WWII, Naval Strategist"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Chester-W-Nimitz
+    type: website
 ---
 
 切斯特·威廉·尼米兹是美国海军将领，在二战期间统率太平洋舰队。他早年专攻潜艇，1941年12月日本偷袭珍珠港后不久，被任命为太平洋舰队总司令。

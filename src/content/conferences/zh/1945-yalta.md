@@ -23,6 +23,10 @@ sources:
     publisher: Viking
     year: 2010
     type: book
+  - title: "The Yalta Conference, 1945"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/yalta-conf
+    type: website
 ---
 
 雅尔塔会议于1945年2月4日至11日在克里米亚半岛的疗养地举行。此时纳粹德国已濒临崩溃，欧洲胜利在望，讨论的重心决定性地转向战后世界的格局。

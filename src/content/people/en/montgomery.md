@@ -21,6 +21,10 @@ sources:
     publisher: Collins
     year: 1958
     type: book
+  - title: "Bernard Law Montgomery, 1st Viscount Montgomery | Biography, Role in World War II, North Africa Campaign, & D-Day"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Bernard-Law-Montgomery-1st-Viscount-Montgomery
+    type: website
 ---
 
 Bernard Law Montgomery, 1st Viscount Montgomery of Alamein, was one of the most prominent British commanders of the Second World War. A veteran of the First World War, he rose to command the British Eighth Army in North Africa in 1942.

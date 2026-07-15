@@ -21,6 +21,10 @@ sources:
     publisher: Random House
     year: 2012
     type: book
+  - title: "Georgy Zhukov | Soviet Marshal & WWII Hero"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Georgy-Zhukov
+    type: website
 ---
 
 格奥尔基·朱可夫是苏联元帅，也是第二次世界大战中最杰出的苏联军事指挥官之一。他凭借1939年在哈勒欣河战役中对日军作战的表现以及此后出任总参谋长的经历，晋升至高级指挥岗位。

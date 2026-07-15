@@ -8,7 +8,8 @@ role: Leader of the Soviet Union
 side: allies
 tags: [Allied Powers, Soviet Union, Head of State, Wartime Leader]
 relatedEvents: [en/1942-stalingrad]
-verificationStatus: verified
+verificationStatus: disputed
+disputed: "Stalin's birth date is documented differently across sources. Soviet-era records and Stalin himself gave 21 December 1879, but party archives uncovered after 1990 indicate 18 December 1878 (6 December 1878, Old Style), the date used here and now favored by scholars and Encyclopaedia Britannica."
 lastReviewed: "2026-07-15"
 sources:
   - title: "Stalin: The Court of the Red Tsar"
@@ -21,6 +22,10 @@ sources:
     publisher: Penguin Press
     year: 2014
     type: book
+  - title: "Joseph Stalin | Biography, World War II, Death, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Joseph-Stalin
+    type: website
 ---
 
 Joseph Stalin was the leader of the Soviet Union from the mid-1920s until his death in 1953, holding the position of General Secretary of the Communist Party and later Chairman of the Council of People's Commissars. During the Second World War, the Soviet Union was one of the principal Allied powers.

@@ -24,6 +24,10 @@ sources:
     author: George Feifer
     year: 1992
     type: book
+  - title: "Battle of Okinawa | Map, Combatants, Facts, Casualties, & Outcome"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Okinawa
+    type: website
 ---
 
 冲绳岛战役于1945年4月1日打响，美军在距日本本土约340英里的琉球群岛最大岛屿冲绳登陆。冲绳被设想为进攻日本本土的前进基地，成为太平洋战争中规模最大的两栖登陆行动，也是其中最惨烈的战役之一。

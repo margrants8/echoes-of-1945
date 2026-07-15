@@ -21,6 +21,10 @@ sources:
     publisher: Little, Brown
     year: 1983
     type: book
+  - title: "Winston Churchill | Biography, World War II, Quotes, Books, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Winston-Churchill
+    type: website
 ---
 
 温斯顿·丘吉尔于1940年至1945年担任英国首相，领导英国度过了第二次世界大战的大部分时期。他于1940年5月在德军横扫西欧之际就任首相，拒绝与纳粹德国媾和，这一立场成为英国战时政策的核心特征。

@@ -22,6 +22,10 @@ sources:
     author: Craig Nelson
     year: 2016
     type: book
+  - title: "Pearl Harbor attack | Date, History, Map, Casualties, Timeline, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Pearl-Harbor-attack
+    type: website
 ---
 
 1941年12月7日清晨，日本帝国海军的舰载机对停泊在夏威夷珍珠港的美国太平洋舰队发动突然袭击。两波舰载机接连攻击海军基地及附近机场，重创停泊的舰只，并在地面摧毁大量飞机。

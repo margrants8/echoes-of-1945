@@ -21,6 +21,10 @@ sources:
     publisher: Viking
     year: 2017
     type: book
+  - title: "Franklin D. Roosevelt | Biography, Accomplishments, New Deal, Great Depression, World War II, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Franklin-D-Roosevelt
+    type: website
 ---
 
 Franklin D. Roosevelt was the 32nd President of the United States, serving from 1933 until his death in April 1945. The only U.S. president elected to four terms, he led the country through both the Great Depression and most of its involvement in the Second World War.

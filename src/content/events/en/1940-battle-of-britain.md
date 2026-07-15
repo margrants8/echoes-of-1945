@@ -23,6 +23,10 @@ sources:
     publisher: Bantam Press
     year: 2010
     type: book
+  - title: "Battle of Britain | History, Importance, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Britain-European-history-1940
+    type: website
 ---
 
 Following the fall of France, Nazi Germany sought air superiority over the English Channel and southern England as a precondition for a planned cross-Channel invasion. From July 1940, the Luftwaffe attacked shipping, airfields, radar stations, and eventually cities, while RAF Fighter Command defended with Hurricane and Spitfire squadrons.

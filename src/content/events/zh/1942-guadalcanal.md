@@ -22,6 +22,10 @@ sources:
     author: Samuel Eliot Morison
     year: 1949
     type: book
+  - title: "Battle of Guadalcanal | Facts, Map, Casualties, & Significance"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Guadalcanal
+    type: website
 ---
 
 瓜达尔卡纳尔岛战役于1942年8月7日打响，美国海军陆战队在所罗门群岛的瓜岛及邻近岛屿登陆，夺取日军正在当地修建的机场。该机场被更名为亨德森机场，成为此后六个月陆、海、空持续激战的焦点，双方为争夺机场及周边海域反复厮杀。

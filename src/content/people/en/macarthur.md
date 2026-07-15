@@ -21,6 +21,10 @@ sources:
     publisher: Random House
     year: 1996
     type: book
+  - title: "Douglas MacArthur | Biography, Command, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Douglas-MacArthur
+    type: website
 ---
 
 Douglas MacArthur was a United States Army general who played a central role in the Pacific theater of the Second World War. The son of a senior Army officer, he graduated from West Point and served with distinction in the First World War before commanding forces in the Philippines.

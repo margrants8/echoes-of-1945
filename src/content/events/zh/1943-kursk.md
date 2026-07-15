@@ -21,6 +21,10 @@ sources:
     publisher: Osprey Publishing
     year: 1992
     type: book
+  - title: "Battle of Kursk | Eastern Front, German Offensive, Soviet Counterattack"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Kursk
+    type: website
 ---
 
 1943年7月，德国针对库尔斯克突出部发动"堡垒行动"。这处突出部是战线上由苏军据守的巨大凸角，德军计划从南北两翼实施钳形攻势，将其中的红军部队合围。由于事先获知德军的进攻意图，苏军指挥部构筑了由雷区、堑壕和反坦克阵地组成的纵深防御地带。

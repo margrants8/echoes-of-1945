@@ -21,6 +21,10 @@ sources:
     publisher: Sidgwick & Jackson
     year: 2008
     type: book
+  - title: "Dunkirk evacuation | Facts, Map, Photos, Numbers, Timeline, & Summary"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Dunkirk-evacuation
+    type: website
 ---
 
 In late May 1940, the German advance through France and Belgium trapped the British Expeditionary Force and substantial French and Belgian forces against the English Channel around the port of Dunkirk. With encirclement threatening, the Admiralty launched Operation Dynamo on 26 May to evacuate the troops by sea.

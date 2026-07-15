@@ -16,6 +16,10 @@ sources:
     publisher: Random House
     year: 2001
     type: book
+  - title: "History of the Declaration"
+    publisher: United Nations
+    url: https://www.un.org/en/about-us/udhr/history-of-the-declaration
+    type: website
 ---
 
 《世界人权宣言》于1948年12月10日由联合国大会在巴黎通过。表决结果为48票赞成、无反对票、8票弃权。这一天如今被定为每年的"人权日"。该文件是在二战暴行的余波中起草的，当时国际社会力求为所有民族确立一套共同的权利标准。

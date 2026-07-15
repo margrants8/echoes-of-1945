@@ -25,6 +25,10 @@ sources:
     publisher: University Press of Kansas
     year: 1995
     type: book
+  - title: "Battle of Stalingrad | History, Summary, Location, Deaths, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Stalingrad
+    type: website
 ---
 
 The Battle of Stalingrad began in the summer of 1942 as the German Sixth Army, part of a wider drive toward the Caucasus oil fields, pushed into the city on the Volga. A massive Luftwaffe bombardment in late August devastated the city, and the fighting soon devolved into savage close-quarters combat among ruined factories and buildings.

@@ -24,6 +24,10 @@ sources:
     author: George Feifer
     year: 1992
     type: book
+  - title: "Battle of Okinawa | Map, Combatants, Facts, Casualties, & Outcome"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Okinawa
+    type: website
 ---
 
 The Battle of Okinawa began on April 1, 1945, when American forces landed on the largest of the Ryukyu Islands, some 340 miles from the Japanese mainland. Intended as a staging ground for the anticipated invasion of Japan itself, Okinawa became the largest amphibious assault of the Pacific War and one of its most ferocious battles.

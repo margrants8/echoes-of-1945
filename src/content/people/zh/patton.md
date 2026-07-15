@@ -21,6 +21,10 @@ sources:
     publisher: Houghton Mifflin
     year: 1974
     type: book
+  - title: "George Patton | Facts, Biography, Quotes, World War II, & Death"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/George-Smith-Patton
+    type: website
 ---
 
 小乔治·史密斯·巴顿是美国陆军上将，以在二战欧洲战场大胆指挥装甲部队而闻名。他是一名职业军官，曾参加1912年奥运会，并在第一次世界大战中服役，后来成为美军机动化装甲作战的杰出代表人物之一。

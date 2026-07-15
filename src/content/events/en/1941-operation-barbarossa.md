@@ -20,6 +20,10 @@ sources:
     publisher: Macmillan
     year: 2007
     type: book
+  - title: "Operation Barbarossa | History, Summary, Combatants, Casualties, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Operation-Barbarossa
+    type: website
 ---
 
 On 22 June 1941, Germany and its Axis partners launched Operation Barbarossa, the invasion of the Soviet Union, along a front stretching from the Baltic to the Black Sea. It was the largest land invasion in history, committing more than three million Axis troops across three army groups aimed at Leningrad, Moscow, and the resource-rich south.

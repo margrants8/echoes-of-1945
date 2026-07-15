@@ -21,6 +21,10 @@ sources:
     publisher: Little, Brown
     year: 1983
     type: book
+  - title: "Winston Churchill | Biography, World War II, Quotes, Books, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Winston-Churchill
+    type: website
 ---
 
 Winston Churchill served as Prime Minister of the United Kingdom from 1940 to 1945, leading Britain through most of the Second World War. He took office in May 1940 as German forces advanced across Western Europe, and his refusal to seek terms with Nazi Germany became a defining feature of British wartime policy.

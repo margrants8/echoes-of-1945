@@ -16,6 +16,10 @@ sources:
     publisher: Random House
     year: 2001
     type: book
+  - title: "History of the Declaration"
+    publisher: United Nations
+    url: https://www.un.org/en/about-us/udhr/history-of-the-declaration
+    type: website
 ---
 
 The Universal Declaration of Human Rights was adopted by the United Nations General Assembly in Paris on December 10, 1948. The vote was 48 in favor, none against, with eight abstentions. The date is now marked each year as Human Rights Day. The document was drafted in the aftermath of the atrocities of the Second World War, as the international community sought to articulate a common standard of rights for all peoples.

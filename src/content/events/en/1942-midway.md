@@ -22,6 +22,10 @@ sources:
     author: Gordon W. Prange
     year: 1982
     type: book
+  - title: "Battle of Midway | Date, Significance, Map, Casualties, & Outcome"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Midway
+    type: website
 ---
 
 The Battle of Midway, fought from June 4 to 7, 1942, was a decisive naval engagement between the United States and Imperial Japan in the central Pacific. Admiral Isoroku Yamamoto sought to lure the American carrier fleet into a trap near Midway Atoll and destroy it, but U.S. codebreakers had penetrated Japanese naval communications and forewarned Admiral Chester Nimitz of the plan.

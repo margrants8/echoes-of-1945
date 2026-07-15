@@ -21,6 +21,10 @@ sources:
     publisher: Sidgwick & Jackson
     year: 2008
     type: book
+  - title: "Dunkirk evacuation | Facts, Map, Photos, Numbers, Timeline, & Summary"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Dunkirk-evacuation
+    type: website
 ---
 
 1940年5月下旬，德军穿越法国与比利时的攻势将英国远征军以及大批法国、比利时部队压制在英吉利海峡沿岸的敦刻尔克港一带，随时面临被合围的危险。为把困守的部队从海路撤回，英国海军部于5月26日启动"发电机行动"。

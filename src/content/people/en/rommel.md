@@ -21,6 +21,10 @@ sources:
     publisher: Haus Publishing
     year: 2005
     type: book
+  - title: "Erwin Rommel | Biography, Death, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Erwin-Rommel
+    type: website
 ---
 
 Erwin Rommel was a German army officer who rose to the rank of Field Marshal during the Second World War. He first gained prominence commanding a panzer division during the 1940 invasion of France, and is most closely associated with the North African campaign, where his leadership of the Afrika Korps earned him the nickname "the Desert Fox."

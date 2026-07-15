@@ -21,6 +21,10 @@ sources:
     publisher: Alfred A. Knopf
     year: 2006
     type: book
+  - title: "Battle of Moscow (1941−42) | Description & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Moscow
+    type: website
 ---
 
 1941年10月，德国发动代号"台风"的行动，力图在入冬前攻占莫斯科。德军装甲部队在维亚济马和布良斯克合围了大批苏军，并向首都逼近，一度抵达其外围近郊。苏联政府将许多机构东撤，但斯大林仍留在城中。

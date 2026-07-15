@@ -21,6 +21,10 @@ sources:
     publisher: Houghton Mifflin
     year: 1974
     type: book
+  - title: "George Patton | Facts, Biography, Quotes, World War II, & Death"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/George-Smith-Patton
+    type: website
 ---
 
 George Smith Patton Jr. was a United States Army general known for his aggressive leadership of armored forces in the European theater of the Second World War. A career officer who had competed in the 1912 Olympics and served in the First World War, Patton became one of the foremost American practitioners of mobile, mechanized warfare.

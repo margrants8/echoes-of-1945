@@ -22,6 +22,10 @@ sources:
     author: Thomas J. Cutler
     year: 1994
     type: book
+  - title: "Battle of Leyte Gulf | Facts, Casualties, & Significance"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Leyte-Gulf
+    type: website
 ---
 
 The Battle of Leyte Gulf, fought from October 23 to 26, 1944, was the largest naval battle of the Second World War and, by many measures, the largest in history. It unfolded as the United States began liberating the Philippines, when the Imperial Japanese Navy committed nearly its entire remaining surface fleet to a complex plan aimed at destroying the American invasion shipping in Leyte Gulf.

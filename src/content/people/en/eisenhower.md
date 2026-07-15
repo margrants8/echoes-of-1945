@@ -21,6 +21,10 @@ sources:
     publisher: Doubleday
     year: 1948
     type: book
+  - title: "Dwight D. Eisenhower | Biography, Cold War, Presidency, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Dwight-D-Eisenhower
+    type: website
 ---
 
 Dwight D. Eisenhower — known universally as "Ike" — served as Supreme Commander of Allied Expeditionary Forces in Europe during World War II.

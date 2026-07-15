@@ -11,7 +11,8 @@ significance: major
 casualties:
   allies: 6800
   axis: 18000
-verificationStatus: verified
+verificationStatus: disputed
+disputed: "日军阵亡人数存在不确定性：守军约有2.1万人，几乎全部阵亡，仅约216至1000人被俘。各方史料对日军死亡人数的估计介于约1.8万至2.1万人之间。"
 lastReviewed: "2026-07-15"
 sources:
   - title: "Iwo Jima"
@@ -22,6 +23,10 @@ sources:
     author: Bill D. Ross
     year: 1985
     type: book
+  - title: "Battle of Iwo Jima"
+    publisher: The National WWII Museum
+    url: https://www.nationalww2museum.org/war/topics/battle-iwo-jima
+    type: website
 ---
 
 硫磺岛战役于1945年2月19日打响，美国海军陆战队在这座位于马里亚纳群岛与日本本土之间、大致居中的小火山岛上登陆。该岛机场既可用作战斗机护航基地，又可作为轰炸日本的机群紧急迫降之地，因此夺取该岛成为美军计划者的优先目标。

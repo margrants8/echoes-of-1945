@@ -13,6 +13,10 @@ sources:
     publisher: International Military Tribunal
     year: 1947
     type: document
+  - title: "Nuremberg trials: Summary, Significance, Defendants, & Sentences"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Nurnberg-trials
+    type: website
 ---
 
 The Nuremberg Trials were a series of military tribunals held after the Second World War to prosecute prominent leaders of Nazi Germany. The most famous proceeding, before the International Military Tribunal, opened in Nuremberg on November 20, 1945. The tribunal was constituted by the four principal Allied powers — the United States, the Soviet Union, Britain, and France — under the London Charter agreed on August 8, 1945.

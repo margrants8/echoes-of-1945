@@ -21,6 +21,10 @@ sources:
     author: Winston S. Churchill
     year: 1948
     type: book
+  - title: "The Tehran Conference, 1943"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/tehran-conf
+    type: website
 ---
 
 The Tehran Conference, held from November 28 to December 1, 1943, was the first wartime meeting of the "Big Three" — U.S. President Franklin D. Roosevelt, British Prime Minister Winston Churchill, and Soviet leader Joseph Stalin.

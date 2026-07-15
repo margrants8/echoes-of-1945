@@ -22,6 +22,10 @@ sources:
     author: Thomas J. Cutler
     year: 1994
     type: book
+  - title: "Battle of Leyte Gulf | Facts, Casualties, & Significance"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Leyte-Gulf
+    type: website
 ---
 
 莱特湾海战于1944年10月23日至26日展开，是第二次世界大战中规模最大的海战，按多项标准衡量亦是史上最大规模的海战。此役发生于美军着手解放菲律宾之际，日本帝国海军几乎倾尽残存的全部水面舰队，实施一套意在于莱特湾摧毁美军登陆船队的复杂作战计划。

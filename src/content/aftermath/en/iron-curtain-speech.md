@@ -15,6 +15,10 @@ sources:
     publisher: Henry Holt
     year: 1991
     type: book
+  - title: "Iron Curtain speech (1946): Summary, Meaning, & Significance"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/topic/Iron-Curtain-Speech
+    type: website
 ---
 
 On March 5, 1946, the former British Prime Minister Winston Churchill delivered an address titled "The Sinews of Peace" at Westminster College in Fulton, Missouri, with President Harry S. Truman seated beside him. Speaking as a private citizen, Churchill used the occasion to warn of the growing division of Europe and the expansion of Soviet influence over the nations of the continent's east.

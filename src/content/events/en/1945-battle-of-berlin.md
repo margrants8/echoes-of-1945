@@ -21,6 +21,10 @@ sources:
     publisher: Simon & Schuster
     year: 1966
     type: book
+  - title: "Battle of Berlin (1945) | Description & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Berlin
+    type: website
 ---
 
 On 16 April 1945, Soviet forces opened the final assault on Berlin, attacking from bridgeheads on the Oder and Neisse rivers with overwhelming numbers of troops, artillery, and armour. After breaking through the defences at the Seelow Heights, Red Army forces encircled the German capital within days.

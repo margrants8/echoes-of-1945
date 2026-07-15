@@ -16,6 +16,10 @@ sources:
     publisher: Praeger
     year: 2004
     type: book
+  - title: "North Atlantic Treaty Organization (NATO), 1949"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1945-1952/nato
+    type: website
 ---
 
 北大西洋公约组织于1949年4月4日在美国华盛顿特区由十二国签署《北大西洋公约》而成立。最初的签署国为美国、加拿大、英国、法国、比利时、荷兰、卢森堡、丹麦、挪威、冰岛、意大利和葡萄牙。这一联盟源于战后西方对苏联在欧洲扩张的忧虑，包括1948年捷克斯洛伐克的共产党政变以及柏林封锁。

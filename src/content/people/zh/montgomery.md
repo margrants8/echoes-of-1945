@@ -21,6 +21,10 @@ sources:
     publisher: Collins
     year: 1958
     type: book
+  - title: "Bernard Law Montgomery, 1st Viscount Montgomery | Biography, Role in World War II, North Africa Campaign, & D-Day"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Bernard-Law-Montgomery-1st-Viscount-Montgomery
+    type: website
 ---
 
 伯纳德·劳·蒙哥马利，第一代阿拉曼的蒙哥马利子爵，是二战期间英国最著名的将领之一。他曾参加第一次世界大战，1942年升任英国第八集团军司令。

@@ -21,6 +21,10 @@ sources:
     publisher: Simon & Schuster
     year: 1966
     type: book
+  - title: "Battle of Berlin (1945) | Description & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Battle-of-Berlin
+    type: website
 ---
 
 1945年4月16日，苏军从奥得河和尼斯河的登陆场发起对柏林的最后总攻，投入压倒性的兵力、火炮与装甲。在突破泽劳高地的防线后，红军在数日之内便合围了德国首都。
