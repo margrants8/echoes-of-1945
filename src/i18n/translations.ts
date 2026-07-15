@@ -3,6 +3,7 @@ export const translations = {
     nav: {
       events: 'Battles',
       people: 'Figures',
+      conferences: 'Conferences',
       settlements: 'War Settlements',
       aftermath: 'New Order',
       timeline: 'Timeline',
@@ -74,6 +75,13 @@ export const translations = {
         reparations: 'Reparations',
         judicial: 'Judicial',
       },
+      incomplete: 'Pending',
+    },
+    conferences: {
+      pageTitle: 'Allied Conferences & Diplomacy',
+      pageDesc: 'The summits where the Allied leaders shaped the war effort and the post-war world.',
+      participants: 'Participants',
+      outcomes: 'Key Outcomes',
     },
     timeline: {
       pageTitle: 'Timeline',
@@ -109,6 +117,7 @@ export const translations = {
     nav: {
       events: '战役',
       people: '人物',
+      conferences: '会议',
       settlements: '战后清算',
       aftermath: '战后秩序',
       timeline: '时间轴',
@@ -180,6 +189,13 @@ export const translations = {
         reparations: '赔偿',
         judicial: '司法清算',
       },
+      incomplete: '未完成',
+    },
+    conferences: {
+      pageTitle: '盟国会议与外交',
+      pageDesc: '盟国领导人在这些峰会上塑造了战争走向与战后世界秩序。',
+      participants: '与会方',
+      outcomes: '主要成果',
     },
     timeline: {
       pageTitle: '时间轴',

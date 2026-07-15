@@ -4,6 +4,7 @@ import Header from '../../../components/layout/Header.astro';
 import Footer from '../../../components/layout/Footer.astro';
 import CountryCard from '../../../components/settlements/CountryCard.astro';
 import type { SettlementData } from '../../../utils/settlements';
+import { pick } from '../../../utils/settlements';
 import { useTranslations } from '../../../i18n';
 
 import germanyData from '../../../content/settlements/germany.json';
@@ -40,7 +41,7 @@ const countries = [
             :class={`{ 'tab-btn--active': active === '${id}' }`}
             @click={`active = '${id}'`}
             :aria-selected={`active === '${id}'`}>
-            {data.displayName}
+            {pick(data.displayName, lang)}
           </button>
         ))}
       </div>

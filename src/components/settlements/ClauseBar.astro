@@ -1,5 +1,6 @@
 ---
 import type { Clause, ClauseStatus } from '../../utils/settlements';
+import { pick } from '../../utils/settlements';
 import type { Lang } from '../../i18n';
 import { useTranslations } from '../../i18n';
 
@@ -31,10 +32,10 @@ const statusLabelMap: Record<ClauseStatus, string> = {
        @keydown.enter="open = !open" @keydown.space.prevent="open = !open">
     <div class="clause-header-top">
       <span class="clause-label">
-        {clause.disputed && <span class="warn-icon" aria-label="存在争议">⚠</span>}
-        {clause.label}
+        {clause.disputed && <span class="warn-icon" aria-label={t.settlements.status.disputed}>⚠</span>}
+        {pick(clause.label, lang)}
       </span>
-      <span class="clause-year">{clause.executedYear ?? '未完成'}</span>
+      <span class="clause-year">{clause.executedYear ?? t.settlements.incomplete}</span>
     </div>
     <div class="clause-bar-row">
       <div class="progress-track">
@@ -49,11 +50,16 @@ const statusLabelMap: Record<ClauseStatus, string> = {
     </div>
   </div>
   <div class="clause-detail" x-show="open" x-transition style="display:none;">
-    <p>{clause.note}</p>
+    <p>{pick(clause.note, lang)}</p>
     {clause.sources && clause.sources.length > 0 && (
-      <ul class="clause-sources">
-        {clause.sources.map(s => <li>{s.title}</li>)}
-      </ul>
+      <div class="clause-sources">
+        <span class="clause-sources__label">{t.ui.source}</span>
+        <ul>
+          {clause.sources.map(s => (
+            <li>{s.url ? <a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}</a> : s.title}</li>
+          ))}
+        </ul>
+      </div>
     )}
   </div>
 </div>
@@ -143,9 +149,6 @@ const statusLabelMap: Record<ClauseStatus, string> = {
 }
 
 .clause-sources {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--color-text-muted);
@@ -154,7 +157,16 @@ const statusLabelMap: Record<ClauseStatus, string> = {
   margin-top: var(--space-2);
 }
 
-.clause-sources li::before {
-  content: '来源：';
+.clause-sources__label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3em;
+}
+
+.clause-sources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 </style>
