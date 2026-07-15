@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import CountryCard from '../../components/settlements/CountryCard.astro';
+import type { SettlementData } from '../../utils/settlements';
+import { useTranslations, localePath } from '../../i18n';
+
+import germanyData from '../../content/settlements/germany.json';
+import japanData from '../../content/settlements/japan.json';
+import italyData from '../../content/settlements/italy.json';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const countries = [
+  { id: 'germany', data: germanyData as SettlementData },
+  { id: 'japan',   data: japanData as SettlementData },
+  { id: 'italy',   data: italyData as SettlementData },
+];
+---
+
+<BaseLayout title={t.settlements.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/settlements/" />
+  <div class="container-wide page-content">
+    <div class="page-intro">
+      <h1 class="page-title">{t.settlements.pageTitle}</h1>
+      <p class="page-desc">{t.settlements.pageDesc}</p>
+      <div class="legend">
+        <span class="legend-item legend-item--executed">{t.settlements.status.executed}</span>
+        <span class="legend-item legend-item--partial">{t.settlements.status.partial}</span>
+        <span class="legend-item legend-item--not-executed">{t.settlements.status['not-executed']}</span>
+        <span class="legend-item legend-item--disputed">⚠ {t.settlements.status.disputed}</span>
+      </div>
+    </div>
+
+    <div class="countries-tabs" x-data="{ active: 'germany' }">
+      <div class="tab-buttons" role="tablist">
+        {countries.map(({ id, data }) => (
+          <button
+            role="tab"
+            class="tab-btn"
+            :class={`{ 'tab-btn--active': active === '${id}' }`}
+            @click={`active = '${id}'`}
+            :aria-selected={`active === '${id}'`}
+          >
+            {data.displayName}
+          </button>
+        ))}
+      </div>
+      {countries.map(({ id, data }) => (
+        <div x-show={`active === '${id}'`} style="display:none;">
+          <CountryCard data={data} lang={lang} />
+        </div>
+      ))}
+    </div>
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); }
+.page-intro { max-width: 700px; margin-bottom: var(--space-8); }
+.page-title { margin-bottom: var(--space-3); }
+.page-desc { color: var(--color-text-muted); line-height: 1.75; margin-bottom: var(--space-4); }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.legend-item { font-family: var(--font-mono); font-size: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.legend-item::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 2px; }
+.legend-item--executed::before   { background: var(--color-executed); }
+.legend-item--partial::before    { background: var(--color-partial); }
+.legend-item--not-executed::before { background: var(--color-not-executed); }
+.legend-item--disputed::before   { background: var(--color-disputed); }
+.tab-buttons { display: flex; gap: 0; border-bottom: 1px solid var(--color-border); margin-bottom: var(--space-4); }
+.tab-btn {
+  padding: var(--space-2) var(--space-4); background: transparent;
+  border: none; border-bottom: 2px solid transparent;
+  font-family: var(--font-serif); font-size: 1rem; font-weight: 700;
+  color: var(--color-text-muted); cursor: pointer;
+  transition: color 0.2s, border-color 0.2s; margin-bottom: -1px;
+}
+.tab-btn:hover { color: var(--color-text); }
+.tab-btn--active { color: var(--color-text) !important; border-bottom-color: var(--color-accent) !important; }
+</style>

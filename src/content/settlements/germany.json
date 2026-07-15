@@ -1,0 +1,66 @@
+{
+  "country": "germany",
+  "displayName": "德意志",
+  "treaty": "波茨坦协定（1945）/ 对德最终解决条约（1990）",
+  "occupationEnd": "1955",
+  "sovereigntyRestored": "1990",
+  "overallCompliance": 0.78,
+  "clauses": [
+    {
+      "id": "territorial-east-prussia",
+      "category": "territorial",
+      "label": "东普鲁士割让",
+      "status": "executed",
+      "executedYear": 1945,
+      "reversedAt": null,
+      "disputed": false,
+      "complianceScore": 1.0,
+      "note": "北部划归苏联（今俄罗斯加里宁格勒州），南部划归波兰",
+      "sources": [{ "title": "波茨坦协定第五条" }]
+    },
+    {
+      "id": "military-rearmament",
+      "category": "military",
+      "label": "军事限制 / 联邦国防军重建",
+      "status": "partial",
+      "executedYear": 1955,
+      "reversedAt": 1955,
+      "disputed": false,
+      "complianceScore": 0.6,
+      "note": "冷战背景下，西方允许西德重新武装并加入NATO，上限50万人。核武器禁止至今有效。"
+    },
+    {
+      "id": "reparations-israel",
+      "category": "reparations",
+      "label": "对以色列战争赔偿",
+      "status": "executed",
+      "executedYear": 1965,
+      "reversedAt": null,
+      "disputed": false,
+      "complianceScore": 1.0,
+      "note": "1952年《卢森堡协议》，德国向以色列支付约30亿马克，1965年完成",
+      "sources": [{ "title": "卢森堡协议（1952）" }]
+    },
+    {
+      "id": "reparations-poland",
+      "category": "reparations",
+      "label": "对波兰赔偿",
+      "status": "disputed",
+      "executedYear": null,
+      "disputed": true,
+      "complianceScore": 0.3,
+      "note": "波兰于2022年再次提出约1.3万亿美元索赔，德国拒绝，争议至今未解决"
+    },
+    {
+      "id": "denazification",
+      "category": "judicial",
+      "label": "去纳粹化 / 纽伦堡审判",
+      "status": "partial",
+      "executedYear": 1946,
+      "reversedAt": null,
+      "disputed": false,
+      "complianceScore": 0.7,
+      "note": "纽伦堡主审判1946年完成，但大量中下层纳粹成员未受审判，冷战后部分人员被重新启用"
+    }
+  ]
+}

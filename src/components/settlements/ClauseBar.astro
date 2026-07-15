@@ -1,0 +1,160 @@
+---
+import type { Clause, ClauseStatus } from '../../utils/settlements';
+import type { Lang } from '../../i18n';
+import { useTranslations } from '../../i18n';
+
+interface Props {
+  clause: Clause;
+  lang?: Lang;
+}
+
+const { clause, lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+
+const colorMap: Record<ClauseStatus, string> = {
+  executed:       'var(--color-executed)',
+  partial:        'var(--color-partial)',
+  'not-executed': 'var(--color-not-executed)',
+  disputed:       'var(--color-disputed)',
+};
+
+const statusLabelMap: Record<ClauseStatus, string> = {
+  executed:       t.settlements.status.executed,
+  partial:        t.settlements.status.partial,
+  'not-executed': t.settlements.status['not-executed'],
+  disputed:       t.settlements.status.disputed,
+};
+---
+
+<div class="clause-bar" x-data="{ open: false }">
+  <div class="clause-header" @click="open = !open" role="button" tabindex="0"
+       @keydown.enter="open = !open" @keydown.space.prevent="open = !open">
+    <div class="clause-header-top">
+      <span class="clause-label">
+        {clause.disputed && <span class="warn-icon" aria-label="存在争议">⚠</span>}
+        {clause.label}
+      </span>
+      <span class="clause-year">{clause.executedYear ?? '未完成'}</span>
+    </div>
+    <div class="clause-bar-row">
+      <div class="progress-track">
+        <div
+          class="progress-fill"
+          style={`width:${clause.complianceScore * 100}%;background:${colorMap[clause.status]}`}
+        />
+      </div>
+      <span class="clause-status" style={`color:${colorMap[clause.status]}`}>
+        {statusLabelMap[clause.status]}
+      </span>
+    </div>
+  </div>
+  <div class="clause-detail" x-show="open" x-transition style="display:none;">
+    <p>{clause.note}</p>
+    {clause.sources && clause.sources.length > 0 && (
+      <ul class="clause-sources">
+        {clause.sources.map(s => <li>{s.title}</li>)}
+      </ul>
+    )}
+  </div>
+</div>
+
+<style>
+.clause-bar {
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  margin-bottom: var(--space-2);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.clause-header {
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.clause-header:hover {
+  background: var(--color-bg-elevated);
+}
+
+.clause-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-1);
+}
+
+.clause-label {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.warn-icon {
+  color: var(--color-disputed);
+  margin-right: 0.3em;
+}
+
+.clause-year {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  margin-left: var(--space-2);
+}
+
+.clause-bar-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.clause-status {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.clause-detail {
+  padding: var(--space-2) var(--space-3) var(--space-3);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.clause-detail p {
+  margin-bottom: var(--space-2);
+}
+
+.clause-sources {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.clause-sources li::before {
+  content: '来源：';
+}
+</style>

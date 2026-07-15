@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import SourceCitation from '../../components/shared/SourceCitation.astro';
+import PhotoFrame from '../../components/shared/PhotoFrame.astro';
+import { getCollection, render } from 'astro:content';
+import { useTranslations, localePath } from '../../i18n';
+
+export async function getStaticPaths() {
+  const allEvents = await getCollection('events');
+  return allEvents
+    .filter(e => e.id.startsWith('en/'))
+    .map(event => ({
+      params: { slug: event.id.replace('en/', '') },
+      props: { event },
+    }));
+}
+
+const lang = 'en';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const { event } = Astro.props;
+const { Content } = await render(event);
+const slug = event.id.replace('en/', '');
+---
+
+<BaseLayout title={event.data.title} lang={lang} date={event.data.date} location={event.data.location}>
+  <Header slot="header" lang={lang} pathWithoutLocale={`/events/${slug}/`} />
+  <article class="event-article container-text">
+    <header class="event-header">
+      <div class="event-breadcrumb">
+        <a href={p('/events/')}>{t.nav.events}</a>
+        <span>›</span>
+        <span>{t.events.theater[event.data.theater]}</span>
+      </div>
+      <h1 class="event-title">{event.data.title}</h1>
+      {event.data.titleEn && event.data.title !== event.data.titleEn && (
+        <p class="event-title-en">{event.data.titleEn}</p>
+      )}
+      <dl class="event-meta">
+        <div>
+          <dt>{t.events.period}</dt>
+          <dd>{event.data.date}{event.data.dateEnd && ` — ${event.data.dateEnd}`}</dd>
+        </div>
+        <div>
+          <dt>{t.events.location}</dt>
+          <dd>{event.data.location}</dd>
+        </div>
+        <div>
+          <dt>{t.events.theater_label}</dt>
+          <dd>{t.events.theater[event.data.theater]}</dd>
+        </div>
+        {event.data.casualties && (
+          <div>
+            <dt>{t.events.casualties}</dt>
+            <dd>
+              {event.data.casualties.allies != null && `${t.events.allied} ${event.data.casualties.allies.toLocaleString()} `}
+              {event.data.casualties.axis != null && `${t.events.axis} ${event.data.casualties.axis.toLocaleString()} `}
+              {event.data.casualties.civilian != null && `${t.events.civilian} ${event.data.casualties.civilian.toLocaleString()}`}
+            </dd>
+          </div>
+        )}
+      </dl>
+      {event.data.cover && (
+        <PhotoFrame src={event.data.cover} alt={event.data.coverCaption ?? event.data.title} caption={event.data.coverCaption} />
+      )}
+    </header>
+    <div class="event-body"><Content /></div>
+    {event.data.sources && event.data.sources.length > 0 && (
+      <SourceCitation sources={event.data.sources} />
+    )}
+  </article>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.event-article { padding: var(--space-8) var(--space-4); }
+.event-breadcrumb {
+  display: flex; align-items: center; gap: var(--space-1);
+  font-size: 0.85rem; color: var(--color-text-muted);
+  margin-bottom: var(--space-4); font-family: var(--font-mono);
+}
+.event-breadcrumb a { color: var(--color-text-muted); }
+.event-title { margin-bottom: var(--space-2); }
+.event-title-en { font-family: var(--font-mono); font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: var(--space-4); }
+.event-meta {
+  display: flex; flex-wrap: wrap; gap: var(--space-4);
+  margin-bottom: var(--space-6); padding: var(--space-3);
+  background: var(--color-bg-elevated); border: 1px solid var(--color-border); border-radius: 3px;
+}
+.event-meta div { display: flex; flex-direction: column; }
+.event-meta dt { font-size: 0.7rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 0.2em; }
+.event-meta dd { font-size: 0.95rem; font-weight: 600; }
+.event-body { font-family: var(--font-body); font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.85; }
+</style>

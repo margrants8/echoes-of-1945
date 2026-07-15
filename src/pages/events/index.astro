@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations, localePath } from '../../i18n';
+
+const lang = 'en';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const allEvents = await getCollection('events');
+const events = allEvents
+  .filter(e => e.id.startsWith('en/'))
+  .sort((a, b) => a.data.date.localeCompare(b.data.date));
+---
+
+<BaseLayout title={t.events.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/events/" />
+  <div class="container-wide page-content">
+    <h1 class="page-title">{t.events.pageTitle}</h1>
+    <ul class="event-list">
+      {events.map(event => {
+        const slug = event.id.replace('en/', '');
+        return (
+          <li class="event-list-item">
+            <a href={p(`/events/${slug}/`)} class="event-list-link">
+              <span class="event-list-date">{event.data.date.slice(0, 7)}</span>
+              <span class="event-list-title">{event.data.title}</span>
+              <span class="event-list-theater">{t.events.theater[event.data.theater]}</span>
+              {event.data.significance === 'turning-point' && (
+                <span class="event-list-badge">{t.events.significance['turning-point']}</span>
+              )}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); }
+.page-title { margin-bottom: var(--space-6); padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+.event-list { list-style: none; padding: 0; }
+.event-list-item { border-bottom: 1px solid var(--color-border); }
+.event-list-link {
+  display: flex; align-items: baseline; gap: var(--space-3);
+  padding: var(--space-3) 0; color: var(--color-text);
+  text-decoration: none; transition: color 0.2s; flex-wrap: wrap;
+}
+.event-list-link:hover { color: var(--color-accent); text-decoration: none; }
+.event-list-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-text-muted); white-space: nowrap; }
+.event-list-title { font-weight: 600; font-size: 1rem; flex: 1; }
+.event-list-theater { font-size: 0.8rem; color: var(--color-text-muted); }
+.event-list-badge {
+  font-size: 0.7rem; font-family: var(--font-mono);
+  color: var(--color-accent); border: 1px solid var(--color-accent);
+  padding: 0.1em 0.4em; border-radius: 2px;
+}
+</style>

@@ -1,0 +1,44 @@
+{
+  "country": "japan",
+  "displayName": "日本",
+  "treaty": "旧金山和约（1951）",
+  "occupationEnd": "1952",
+  "sovereigntyRestored": "1952",
+  "overallCompliance": 0.65,
+  "clauses": [
+    {
+      "id": "territorial-okinawa",
+      "category": "territorial",
+      "label": "冲绳托管与归还",
+      "status": "executed",
+      "executedYear": 1972,
+      "reversedAt": null,
+      "disputed": false,
+      "complianceScore": 1.0,
+      "note": "冲绳1952年起由美国托管，1972年归还日本，但美军基地仍驻留至今"
+    },
+    {
+      "id": "military-article9",
+      "category": "military",
+      "label": "宪法第九条 / 放弃战争权",
+      "status": "partial",
+      "executedYear": 1947,
+      "reversedAt": null,
+      "disputed": true,
+      "complianceScore": 0.55,
+      "note": "1947年宪法第九条规定永远放弃战争。但日本自卫队逐步扩编，2015年解禁集体自卫权，宪法解释争议持续",
+      "sources": [{ "title": "日本国宪法第九条（1947）" }]
+    },
+    {
+      "id": "reparations-asia",
+      "category": "reparations",
+      "label": "对亚洲各国战争赔偿",
+      "status": "partial",
+      "executedYear": 1965,
+      "reversedAt": null,
+      "disputed": true,
+      "complianceScore": 0.45,
+      "note": "与韩国签订1965年协议，日本主张赔偿问题'完全最终解决'；中国、朝鲜等国的赔偿及慰安妇问题争议至今未解决"
+    }
+  ]
+}

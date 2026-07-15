@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations, localePath } from '../i18n';
+
+const lang = 'en';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const allEvents = await getCollection('events');
+const events = allEvents
+  .filter(e => e.id.startsWith('en/'))
+  .sort((a, b) => a.data.date.localeCompare(b.data.date));
+---
+
+<BaseLayout title={t.site.title} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/" />
+
+  <section class="hero">
+    <div class="hero-inner container-wide">
+      <p class="hero-eyebrow">{t.site.tagline}</p>
+      <h1 class="hero-title">{t.site.title}</h1>
+      <p class="hero-subtitle">{t.site.subtitle}</p>
+      <div class="hero-actions">
+        <a href={p('/events/')} class="btn-primary">{t.ui.browseEvents}</a>
+        <a href={p('/settlements/')} class="btn-secondary">{t.nav.settlements}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-year" id="1939">
+    <div class="container-wide">
+      <div class="year-section-header">
+        <span class="year-display" aria-hidden="true">1939</span>
+        <div class="year-section-text">
+          <h2>{t.ui.year1939}</h2>
+          <p>{t.ui.year1939desc}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-events" id="events">
+    <div class="container-wide">
+      <h2 class="section-title">{t.ui.keyBattles}</h2>
+      <div class="events-grid">
+        {events.map(event => {
+          const slug = event.id.replace('en/', '');
+          return (
+            <a href={p(`/events/${slug}/`)} class="event-card">
+              <div class="event-card__meta">
+                <span class="event-card__date">{event.data.date.slice(0, 4)}</span>
+                {event.data.significance === 'turning-point' && (
+                  <span class="event-card__significance">{t.events.significance['turning-point']}</span>
+                )}
+              </div>
+              <h3 class="event-card__title">{event.data.title}</h3>
+              <p class="event-card__location">{event.data.location}</p>
+              <div class="event-card__tags">
+                {event.data.tags.slice(0, 2).map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-settlements" id="settlements">
+    <div class="container-wide">
+      <div class="settlements-intro">
+        <h2 class="section-title">{t.ui.warSettlementsTitle}</h2>
+        <p>{t.ui.warSettlementsDesc}</p>
+        <a href={p('/settlements/')} class="btn-primary">{t.ui.viewSettlements}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-aftermath" id="aftermath">
+    <div class="container-wide">
+      <h2 class="section-title">{t.ui.newOrderTitle}</h2>
+      <p class="section-desc">{t.ui.newOrderDesc}</p>
+      <a href={p('/aftermath/')} class="btn-secondary">{t.ui.exploreAftermath}</a>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-border);
+}
+.hero-inner { padding: var(--space-16) var(--space-4); }
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-3);
+}
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+  max-width: 500px;
+}
+.hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.btn-primary {
+  display: inline-block; padding: 0.65em 1.5em;
+  background: var(--color-accent); color: #fff;
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+  border: 1px solid var(--color-accent); border-radius: 2px;
+  text-decoration: none; transition: opacity 0.2s ease;
+}
+.btn-primary:hover { opacity: 0.85; text-decoration: none; }
+.btn-secondary {
+  display: inline-block; padding: 0.65em 1.5em;
+  background: transparent; color: var(--color-text);
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+  border: 1px solid var(--color-border); border-radius: 2px;
+  text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease;
+}
+.btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
+.section-year { padding: var(--space-16) 0; overflow: hidden; }
+.year-section-header { display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: center; }
+.year-section-text h2 { margin-bottom: var(--space-2); }
+.year-section-text p { color: var(--color-text-muted); max-width: 480px; }
+.section-events { padding: var(--space-12) 0; }
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700;
+  margin-bottom: var(--space-6); padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+.events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-4); }
+.event-card {
+  background: var(--color-bg-elevated); border: 1px solid var(--color-border);
+  border-radius: 3px; padding: var(--space-4); text-decoration: none;
+  color: var(--color-text); transition: border-color 0.25s ease, transform 0.25s ease; display: block;
+}
+.event-card:hover { border-color: var(--color-accent); transform: translateY(-2px); text-decoration: none; }
+.event-card__meta { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2); }
+.event-card__date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-text-muted); }
+.event-card__significance {
+  font-size: 0.7rem; font-family: var(--font-mono);
+  color: var(--color-accent); border: 1px solid var(--color-accent);
+  padding: 0.1em 0.4em; border-radius: 2px;
+}
+.event-card__title { font-size: 1.1rem; font-weight: 700; margin-bottom: var(--space-1); }
+.event-card__location { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.event-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.tag {
+  font-size: 0.72rem; font-family: var(--font-mono); color: var(--color-text-muted);
+  background: var(--color-bg); border: 1px solid var(--color-border);
+  padding: 0.1em 0.45em; border-radius: 2px;
+}
+.section-settlements {
+  padding: var(--space-12) 0;
+  background: var(--color-bg-elevated);
+  border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);
+}
+.settlements-intro { max-width: 600px; }
+.settlements-intro p { color: var(--color-text-muted); margin-bottom: var(--space-4); }
+.section-aftermath { padding: var(--space-12) 0; }
+.section-desc { color: var(--color-text-muted); margin-bottom: var(--space-4); max-width: 560px; }
+</style>

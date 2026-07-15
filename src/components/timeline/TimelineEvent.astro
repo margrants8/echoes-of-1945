@@ -1,0 +1,180 @@
+---
+import type { Lang } from '../../i18n';
+import { useTranslations, localePath } from '../../i18n';
+
+interface Props {
+  event: {
+    title: string;
+    date: string;
+    dateEnd?: string;
+    location: string;
+    theater: string;
+    significance: string;
+    tags: string[];
+    cover?: string;
+    coverCaption?: string;
+    slug: string;
+  };
+  mode?: 'compact' | 'full';
+  lang?: Lang;
+}
+
+const { event, mode = 'compact', lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const eventHref = localePath(`/events/${event.slug}/`, lang);
+---
+
+<article class={`timeline-event timeline-event--${mode} timeline-event--${event.significance}`}>
+  <div class="timeline-event__marker">
+    <span class="timeline-event__dot"></span>
+  </div>
+  <div class="timeline-event__content">
+    <div class="timeline-event__meta">
+      <time class="timeline-event__date">{event.date.slice(0, 4)}</time>
+      <span class="timeline-event__theater">{t.events.theater[event.theater as keyof typeof t.events.theater] ?? event.theater}</span>
+      {event.significance === 'turning-point' && (
+        <span class="timeline-event__badge">{t.events.significance['turning-point']}</span>
+      )}
+    </div>
+    {mode === 'full' && event.cover && (
+      <img
+        class="timeline-event__cover"
+        src={event.cover}
+        alt={event.coverCaption ?? event.title}
+        loading="lazy"
+      />
+    )}
+    <h3 class="timeline-event__title">
+      <a href={eventHref}>{event.title}</a>
+    </h3>
+    <p class="timeline-event__location">{event.location}</p>
+    <div class="timeline-event__tags">
+      {event.tags.slice(0, 3).map(tag => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+  </div>
+</article>
+
+<style>
+.timeline-event {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: var(--space-3);
+  position: relative;
+  padding-bottom: var(--space-6);
+}
+
+.timeline-event::before {
+  content: '';
+  position: absolute;
+  left: 0.9rem;
+  top: 1.5rem;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.timeline-event:last-child::before {
+  display: none;
+}
+
+.timeline-event__marker {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.35rem;
+  z-index: 1;
+}
+
+.timeline-event__dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: 2px solid var(--color-bg);
+  flex-shrink: 0;
+}
+
+.timeline-event--turning-point .timeline-event__dot {
+  background: var(--color-accent);
+  width: 1rem;
+  height: 1rem;
+}
+
+.timeline-event__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.timeline-event__date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.timeline-event__theater {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  padding: 0.1em 0.5em;
+  border-radius: 2px;
+}
+
+.timeline-event__badge {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 0.1em 0.5em;
+  border-radius: 2px;
+}
+
+.timeline-event__cover {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  margin-bottom: var(--space-2);
+  filter: grayscale(100%) contrast(1.08) brightness(0.92);
+}
+
+.timeline-event__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.timeline-event__title a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.timeline-event__title a:hover {
+  color: var(--color-accent);
+}
+
+.timeline-event__location {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.timeline-event__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  padding: 0.1em 0.5em;
+  border-radius: 2px;
+}
+</style>

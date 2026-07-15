@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import Header from '../../../components/layout/Header.astro';
+import Footer from '../../../components/layout/Footer.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations, localePath } from '../../../i18n';
+
+const lang = 'zh';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const allPeople = await getCollection('people');
+const people = allPeople
+  .filter(e => e.id.startsWith('zh/'))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name, 'zh'));
+---
+
+<BaseLayout title={t.people.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/people/" />
+  <div class="container-wide page-content">
+    <h1 class="page-title">{t.people.pageTitle}</h1>
+    <div class="people-grid">
+      {people.map(person => {
+        const slug = person.id.replace('zh/', '');
+        return (
+          <a href={p(`/people/${slug}/`)} class="person-card">
+            <div class="person-card__side">{t.people.side[person.data.side]}</div>
+            <h3 class="person-card__name">{person.data.name}</h3>
+            {person.data.nameEn && <p class="person-card__name-en">{person.data.nameEn}</p>}
+            <p class="person-card__role">{person.data.role}</p>
+            <p class="person-card__nationality">{person.data.nationality}</p>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); }
+.page-title { margin-bottom: var(--space-6); padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+.people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-4); }
+.person-card { display: block; background: var(--color-bg-elevated); border: 1px solid var(--color-border); border-radius: 3px; padding: var(--space-4); text-decoration: none; color: var(--color-text); transition: border-color 0.2s, transform 0.2s; }
+.person-card:hover { border-color: var(--color-accent); transform: translateY(-2px); text-decoration: none; }
+.person-card__side { font-size: 0.7rem; font-family: var(--font-mono); color: var(--color-text-muted); border: 1px solid var(--color-border); display: inline-block; padding: 0.1em 0.4em; border-radius: 2px; margin-bottom: var(--space-2); }
+.person-card__name { font-size: 1.1rem; font-weight: 700; margin-bottom: var(--space-1); }
+.person-card__name-en { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: var(--space-1); }
+.person-card__role { font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: var(--space-1); }
+.person-card__nationality { font-size: 0.8rem; color: var(--color-text-muted); font-family: var(--font-mono); }
+</style>

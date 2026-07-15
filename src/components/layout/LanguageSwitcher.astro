@@ -1,0 +1,66 @@
+---
+import type { Lang } from '../../i18n';
+import { localePath } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+  pathWithoutLocale: string;
+}
+
+const { lang, pathWithoutLocale } = Astro.props;
+const enHref = localePath(pathWithoutLocale, 'en');
+const zhHref = localePath(pathWithoutLocale, 'zh');
+---
+
+<div class="lang-switcher" aria-label="Language switcher">
+  <a
+    href={enHref}
+    class={`lang-btn ${lang === 'en' ? 'lang-btn--active' : ''}`}
+    hreflang="en"
+    aria-current={lang === 'en' ? 'true' : undefined}
+  >EN</a>
+  <span class="lang-divider" aria-hidden="true">/</span>
+  <a
+    href={zhHref}
+    class={`lang-btn ${lang === 'zh' ? 'lang-btn--active' : ''}`}
+    hreflang="zh"
+    aria-current={lang === 'zh' ? 'true' : undefined}
+  >中</a>
+</div>
+
+<style>
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.lang-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 0.2em 0.4em;
+  border-radius: 2px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.lang-btn--active {
+  color: var(--color-text);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+}
+
+.lang-divider {
+  color: var(--color-border);
+  font-size: 0.7rem;
+  user-select: none;
+}
+</style>

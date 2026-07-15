@@ -1,0 +1,144 @@
+---
+import type { SettlementData } from '../../utils/settlements';
+import { compliancePercent } from '../../utils/settlements';
+import ClauseBar from './ClauseBar.astro';
+import type { Lang } from '../../i18n';
+import { useTranslations } from '../../i18n';
+
+interface Props {
+  data: SettlementData;
+  active?: boolean;
+  lang?: Lang;
+}
+
+const { data, active = false, lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+
+const grouped: Record<string, typeof data.clauses> = {};
+for (const clause of data.clauses) {
+  if (!grouped[clause.category]) grouped[clause.category] = [];
+  grouped[clause.category].push(clause);
+}
+---
+
+<div class={`country-card ${active ? 'country-card--active' : ''}`}>
+  <div class="country-card__overview">
+    <div class="country-card__info">
+      <h3 class="country-card__name">{data.displayName}</h3>
+      <p class="country-card__treaty">{data.treaty}</p>
+      <dl class="country-card__meta">
+        <div>
+          <dt>{t.settlements.occupationEnd}</dt>
+          <dd>{data.occupationEnd}</dd>
+        </div>
+        <div>
+          <dt>{t.settlements.sovereignty}</dt>
+          <dd>{data.sovereigntyRestored}</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="country-card__score">
+      <span class="score-number">{compliancePercent(data.overallCompliance)}</span>
+      <span class="score-label">{t.settlements.complianceRate}</span>
+    </div>
+  </div>
+
+  <div class="country-card__clauses">
+    {Object.entries(grouped).map(([cat, clauses]) => (
+      <div class="clause-category">
+        <h4 class="clause-category__title">{t.settlements.category[cat as keyof typeof t.settlements.category] ?? cat}</h4>
+        {clauses.map(clause => <ClauseBar clause={clause} lang={lang} />)}
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+.country-card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--space-4);
+}
+
+.country-card__overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.country-card__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.country-card__treaty {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-2);
+}
+
+.country-card__meta {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.country-card__meta div {
+  display: flex;
+  flex-direction: column;
+}
+
+.country-card__meta dt {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.country-card__meta dd {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.country-card__score {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.score-number {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+.clause-category {
+  margin-bottom: var(--space-4);
+}
+
+.clause-category__title {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--color-border);
+}
+</style>

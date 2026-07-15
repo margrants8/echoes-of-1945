@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { useTranslations, localePath } from '../../i18n';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={t.gallery.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/gallery/" />
+  <div class="container-wide page-content">
+    <h1 class="page-title">{t.gallery.pageTitle}</h1>
+    <p class="page-desc">{t.gallery.pageDesc}</p>
+    <div class="gallery-placeholder">
+      <p>{t.gallery.placeholder} —
+        <a href="https://github.com/your-org/echoes-of-1945/blob/main/CONTRIBUTING.md">
+          Contributing Guide
+        </a>
+      </p>
+    </div>
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); }
+.page-title { margin-bottom: var(--space-3); }
+.page-desc { color: var(--color-text-muted); max-width: 600px; margin-bottom: var(--space-6); }
+.gallery-placeholder {
+  border: 1px dashed var(--color-border); border-radius: 3px;
+  padding: var(--space-12); text-align: center;
+  color: var(--color-text-muted); font-family: var(--font-mono); font-size: 0.875rem;
+}
+</style>

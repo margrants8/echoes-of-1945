@@ -1,0 +1,65 @@
+---
+interface Source {
+  title: string;
+  url?: string;
+  author?: string;
+}
+
+interface Props {
+  sources: Source[];
+}
+
+const { sources } = Astro.props;
+---
+
+{sources.length > 0 && (
+  <aside class="source-citation">
+    <h4 class="source-citation__title">参考来源</h4>
+    <ol class="source-citation__list">
+      {sources.map(s => (
+        <li>
+          {s.author && <span class="source-author">{s.author}. </span>}
+          {s.url
+            ? <a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}</a>
+            : <span>{s.title}</span>
+          }
+        </li>
+      ))}
+    </ol>
+  </aside>
+)}
+
+<style>
+.source-citation {
+  margin-top: var(--space-6);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  border-radius: 3px;
+}
+
+.source-citation__title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.source-citation__list {
+  padding-left: var(--space-3);
+  margin: 0;
+}
+
+.source-citation__list li {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+  font-family: var(--font-body);
+}
+
+.source-author {
+  font-style: italic;
+}
+</style>

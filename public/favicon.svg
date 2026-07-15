@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#8B1A1A"/>
+  <!-- Outer border -->
+  <rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="#C4B99A" stroke-width="0.8"/>
+  <!-- Inner dashed border (stamp feel) -->
+  <rect x="3" y="3" width="26" height="26" fill="none" stroke="#C4B99A" stroke-width="0.5" stroke-dasharray="1.8,1.2" opacity="0.7"/>
+  <!-- Corner ornaments -->
+  <circle cx="3" cy="3" r="0.8" fill="#C4B99A" opacity="0.8"/>
+  <circle cx="29" cy="3" r="0.8" fill="#C4B99A" opacity="0.8"/>
+  <circle cx="3" cy="29" r="0.8" fill="#C4B99A" opacity="0.8"/>
+  <circle cx="29" cy="29" r="0.8" fill="#C4B99A" opacity="0.8"/>
+  <!-- Main numeral "45" -->
+  <text x="16" y="21.5"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="15"
+        font-weight="700"
+        fill="#F5F0E8"
+        text-anchor="middle"
+        letter-spacing="-0.5">45</text>
+  <!-- Thin rule below numeral -->
+  <line x1="10" y1="24" x2="22" y2="24" stroke="#C4B99A" stroke-width="0.6" opacity="0.8"/>
+</svg>

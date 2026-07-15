@@ -1,0 +1,44 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  size?: 'full' | 'half' | 'third';
+}
+
+const { src, alt, caption, size = 'full' } = Astro.props;
+---
+
+<figure class={`photo-frame photo-frame--${size}`}>
+  <img src={src} alt={alt} loading="lazy" />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+.photo-frame {
+  margin: var(--space-4) 0;
+}
+
+.photo-frame img {
+  width: 100%;
+  filter: grayscale(100%) contrast(1.08) brightness(0.92);
+  border: 1px solid var(--color-border);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15), inset 0 0 20px rgba(0,0,0,0.05);
+}
+
+.photo-frame--half {
+  max-width: 50%;
+}
+
+.photo-frame--third {
+  max-width: 33.333%;
+}
+
+figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+  line-height: 1.5;
+}
+</style>

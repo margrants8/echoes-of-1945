@@ -1,0 +1,70 @@
+---
+import '../../styles/global.css';
+import '../../styles/typography.css';
+import type { Lang } from '../../i18n';
+import { useTranslations } from '../../i18n';
+
+interface Props {
+  title: string;
+  lang?: Lang;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  date?: string;
+  location?: string;
+}
+
+const {
+  title,
+  lang = 'en',
+  ogImage,
+  canonicalUrl,
+  date,
+  location,
+} = Astro.props;
+
+const t = useTranslations(lang);
+const description = Astro.props.description ?? t.site.description;
+const siteTitle = title ? `${title} | Echoes of 1945` : 'Echoes of 1945';
+const htmlLang = lang === 'zh' ? 'zh-CN' : 'en';
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={description} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    {date && location && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "HistoricalEvent",
+        "name": title,
+        "startDate": date,
+        "location": location,
+      })} />
+    )}
+    <link rel="icon" type="image/svg+xml" href="/echoes-of-1945/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/echoes-of-1945/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/echoes-of-1945/favicon-512.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <slot name="header" />
+    <main>
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

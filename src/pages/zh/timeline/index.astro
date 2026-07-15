@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import Header from '../../../components/layout/Header.astro';
+import Footer from '../../../components/layout/Footer.astro';
+import TimelineEvent from '../../../components/timeline/TimelineEvent.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations, localePath } from '../../../i18n';
+
+const lang = 'zh';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const allEvents = await getCollection('events');
+const events = allEvents
+  .filter(e => e.id.startsWith('zh/'))
+  .sort((a, b) => a.data.date.localeCompare(b.data.date));
+---
+
+<BaseLayout title={t.timeline.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/timeline/" />
+  <div class="container-wide page-content">
+    <h1 class="page-title">
+      {t.timeline.pageTitle}
+      <span class="page-title-range">{t.timeline.range}</span>
+    </h1>
+    <div class="timeline">
+      {events.map(event => {
+        const slug = event.id.replace('zh/', '');
+        return (
+          <TimelineEvent
+            event={{ title: event.data.title, date: event.data.date, dateEnd: event.data.dateEnd, location: event.data.location, theater: event.data.theater, significance: event.data.significance, tags: event.data.tags, cover: event.data.cover, coverCaption: event.data.coverCaption, slug }}
+            mode="full"
+            lang={lang}
+          />
+        );
+      })}
+    </div>
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); }
+.page-title { margin-bottom: var(--space-8); padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+.page-title-range { font-family: var(--font-mono); font-size: 1rem; font-weight: 400; color: var(--color-text-muted); margin-left: var(--space-2); }
+.timeline { max-width: 680px; padding-top: var(--space-4); }
+</style>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.timeline-event').forEach(el => observer.observe(el));
+</script>

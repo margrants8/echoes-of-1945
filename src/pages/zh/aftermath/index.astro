@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import Header from '../../../components/layout/Header.astro';
+import Footer from '../../../components/layout/Footer.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations, localePath } from '../../../i18n';
+
+const lang = 'zh';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const allItems = await getCollection('aftermath');
+const items = allItems
+  .filter(e => e.id.startsWith('zh/'))
+  .sort((a, b) => a.data.date.localeCompare(b.data.date));
+---
+
+<BaseLayout title={t.aftermath.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/aftermath/" />
+  <div class="container-wide page-content">
+    <h1 class="page-title">{t.aftermath.pageTitle}</h1>
+    <div class="aftermath-grid">
+      {items.map(item => {
+        const slug = item.id.replace('zh/', '');
+        return (
+          <a href={p(`/aftermath/${slug}/`)} class="aftermath-card">
+            <span class="aftermath-card__category">{t.aftermath.category[item.data.category]}</span>
+            <h3 class="aftermath-card__title">{item.data.title}</h3>
+            <p class="aftermath-card__date">{item.data.date.slice(0, 4)}</p>
+            <div class="aftermath-card__tags">
+              {item.data.tags.slice(0, 3).map(tag => <span class="tag">{tag}</span>)}
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); }
+.page-title { margin-bottom: var(--space-6); padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+.aftermath-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-4); }
+.aftermath-card { display: block; background: var(--color-bg-elevated); border: 1px solid var(--color-border); border-radius: 3px; padding: var(--space-4); text-decoration: none; color: var(--color-text); transition: border-color 0.2s, transform 0.2s; }
+.aftermath-card:hover { border-color: var(--color-accent); transform: translateY(-2px); text-decoration: none; }
+.aftermath-card__category { font-size: 0.7rem; font-family: var(--font-mono); color: var(--color-text-muted); border: 1px solid var(--color-border); padding: 0.1em 0.4em; border-radius: 2px; display: inline-block; margin-bottom: var(--space-2); }
+.aftermath-card__title { font-size: 1.1rem; font-weight: 700; margin-bottom: var(--space-1); }
+.aftermath-card__date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.aftermath-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.tag { font-size: 0.72rem; font-family: var(--font-mono); color: var(--color-text-muted); background: var(--color-bg); border: 1px solid var(--color-border); padding: 0.1em 0.45em; border-radius: 2px; }
+</style>

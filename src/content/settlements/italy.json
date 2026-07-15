@@ -1,0 +1,43 @@
+{
+  "country": "italy",
+  "displayName": "意大利",
+  "treaty": "巴黎和约（1947）",
+  "occupationEnd": "1947",
+  "sovereigntyRestored": "1947",
+  "overallCompliance": 0.72,
+  "clauses": [
+    {
+      "id": "territorial-istria",
+      "category": "territorial",
+      "label": "伊斯特拉半岛割让",
+      "status": "executed",
+      "executedYear": 1947,
+      "reversedAt": null,
+      "disputed": false,
+      "complianceScore": 1.0,
+      "note": "伊斯特拉半岛大部划归南斯拉夫（今克罗地亚/斯洛文尼亚），里雅斯特自由区1954年分治"
+    },
+    {
+      "id": "military-limits",
+      "category": "military",
+      "label": "军事力量限制",
+      "status": "partial",
+      "executedYear": 1947,
+      "reversedAt": 1949,
+      "disputed": false,
+      "complianceScore": 0.5,
+      "note": "巴黎和约限制意大利陆海空军规模，但1949年加入NATO后限制实际松动"
+    },
+    {
+      "id": "reparations-yugoslavia",
+      "category": "reparations",
+      "label": "对南斯拉夫等国赔偿",
+      "status": "executed",
+      "executedYear": 1954,
+      "reversedAt": null,
+      "disputed": false,
+      "complianceScore": 0.8,
+      "note": "意大利向苏联、南斯拉夫、希腊、埃塞俄比亚等国共支付约3.6亿美元赔偿，总体执行完毕"
+    }
+  ]
+}

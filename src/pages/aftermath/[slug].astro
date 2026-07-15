@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { getCollection, render } from 'astro:content';
+import { useTranslations, localePath } from '../../i18n';
+
+export async function getStaticPaths() {
+  const allItems = await getCollection('aftermath');
+  return allItems
+    .filter(e => e.id.startsWith('en/'))
+    .map(item => ({
+      params: { slug: item.id.replace('en/', '') },
+      props: { item },
+    }));
+}
+
+const lang = 'en';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const slug = item.id.replace('en/', '');
+---
+
+<BaseLayout title={item.data.title} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale={`/aftermath/${slug}/`} />
+  <article class="aftermath-article container-text">
+    <header class="aftermath-header">
+      <div class="aftermath-breadcrumb">
+        <a href={p('/aftermath/')}>{t.nav.aftermath}</a>
+        <span>›</span>
+        <span>{t.aftermath.category[item.data.category]}</span>
+      </div>
+      <h1 class="aftermath-title">{item.data.title}</h1>
+      <p class="aftermath-date">{item.data.date}</p>
+      <div class="aftermath-tags">
+        {item.data.tags.map(tag => <span class="tag">{tag}</span>)}
+      </div>
+    </header>
+    <div class="aftermath-body"><Content /></div>
+  </article>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.aftermath-article { padding: var(--space-8) var(--space-4); }
+.aftermath-breadcrumb { display: flex; align-items: center; gap: var(--space-1); font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-4); font-family: var(--font-mono); }
+.aftermath-breadcrumb a { color: var(--color-text-muted); }
+.aftermath-title { margin-bottom: var(--space-2); }
+.aftermath-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-3); }
+.aftermath-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-6); }
+.tag { font-size: 0.72rem; font-family: var(--font-mono); color: var(--color-text-muted); background: var(--color-bg-elevated); border: 1px solid var(--color-border); padding: 0.1em 0.45em; border-radius: 2px; }
+.aftermath-body { font-family: var(--font-body); font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.85; }
+</style>

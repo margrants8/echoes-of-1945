@@ -1,0 +1,65 @@
+---
+import type { Lang } from '../../i18n';
+import { useTranslations } from '../../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<footer class="site-footer">
+  <div class="container-wide footer-inner">
+    <div class="footer-brand">
+      <p class="footer-title">Echoes of 1945</p>
+      <p class="footer-desc">{t.site.description}</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/your-org/echoes-of-1945" target="_blank" rel="noopener">
+        {t.ui.contribute}
+      </a>
+    </div>
+    <p class="footer-note">{t.ui.footerNote}</p>
+  </div>
+</footer>
+
+<style>
+.site-footer {
+  margin-top: var(--space-16);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-8) 0 var(--space-6);
+  background: var(--color-bg-elevated);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: var(--space-1);
+}
+
+.footer-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+.footer-links {
+  font-size: 0.875rem;
+}
+
+.footer-note {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 0;
+}
+</style>
