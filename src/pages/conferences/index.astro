@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations, localePath } from '../../i18n';
+
+const lang = 'en';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const all = await getCollection('conferences');
+const items = all
+  .filter(e => e.id.startsWith('en/'))
+  .sort((a, b) => a.data.date.localeCompare(b.data.date));
+---
+
+<BaseLayout title={t.conferences.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/conferences/" />
+  <div class="container-wide page-content">
+    <div class="page-intro">
+      <h1 class="page-title">{t.conferences.pageTitle}</h1>
+      <p class="page-desc">{t.conferences.pageDesc}</p>
+    </div>
+    <ul class="conf-list">
+      {items.map(item => {
+        const slug = item.id.replace('en/', '');
+        return (
+          <li class="conf-list-item">
+            <a href={p(`/conferences/${slug}/`)} class="conf-list-link">
+              <span class="conf-list-date">{item.data.date.slice(0, 7)}</span>
+              <span class="conf-list-title">{item.data.title}</span>
+              <span class="conf-list-loc">{item.data.location}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); }
+.page-intro { max-width: 700px; margin-bottom: var(--space-6); }
+.page-title { margin-bottom: var(--space-3); }
+.page-desc { color: var(--color-text-muted); line-height: 1.75; }
+.conf-list { list-style: none; padding: 0; }
+.conf-list-item { border-bottom: 1px solid var(--color-border); }
+.conf-list-link {
+  display: flex; align-items: baseline; gap: var(--space-3);
+  padding: var(--space-3) 0; color: var(--color-text);
+  text-decoration: none; transition: color 0.2s; flex-wrap: wrap;
+}
+.conf-list-link:hover { color: var(--color-accent); text-decoration: none; }
+.conf-list-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-text-muted); white-space: nowrap; }
+.conf-list-title { font-weight: 600; font-size: 1rem; flex: 1; }
+.conf-list-loc { font-size: 0.8rem; color: var(--color-text-muted); }
+</style>
