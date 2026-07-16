@@ -9,7 +9,10 @@
 | 新增战役/事件 | `src/content/events/{en,zh}/YYYY-事件名.md` | 见下方 |
 | 新增人物档案 | `src/content/people/{en,zh}/姓名拼音.md` | 见下方 |
 | 新增会议/外交 | `src/content/conferences/{en,zh}/YYYY-会议名.md` | 见下方 |
+| 新增武器/技术 | `src/content/technology/{en,zh}/名称.md` | type: aircraft/armor/naval/infantry/electronic/nuclear/other |
+| 新增暴行/审判 | `src/content/war-crimes/{en,zh}/名称.md` | type: genocide/massacre/tribunal/persecution/forced-labor；争议数字用 victims.estimateLow/High 区间 |
 | 新增战后专题 | `src/content/aftermath/{en,zh}/主题名.md` | 见下方 |
+| 更新伤亡数据 | `src/data/casualties.json` | 每国一条：name{en,zh}、total、side、source（数字为纯整数）|
 | 更新条约数据 | `src/content/settlements/country.json` | 见 JSON 结构说明 |
 
 > **双语要求**：内容按语言分目录，英文放 `en/`、中文放 `zh/`，两者用相同的文件名（slug）。请尽量同时提供中英两版。
