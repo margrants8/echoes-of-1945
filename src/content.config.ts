@@ -1,5 +1,5 @@
 import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
 
 // ---------------------------------------------------------------------------
 // Shared building blocks — reused across every collection so that sourcing and
@@ -130,4 +130,66 @@ const conferences = defineCollection({
     .superRefine(requireDisputedNote),
 });
 
-export const collections = { events, people, aftermath, conferences };
+const technology = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/technology' }),
+  schema: z
+    .object({
+      title: z.string(),
+      titleEn: z.string().optional(),
+      type: z.enum(['aircraft', 'armor', 'naval', 'infantry', 'electronic', 'nuclear', 'other']),
+      nation: z.string(),
+      introduced: z.string().optional(),
+      tags: z.array(z.string()),
+      cover: z.string().optional(),
+      coverCaption: z.string().optional(),
+      sources: sourceArray,
+      ...accuracyFields,
+    })
+    .superRefine(requireDisputedNote),
+});
+
+const warCrimes = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/war-crimes' }),
+  schema: z
+    .object({
+      title: z.string(),
+      titleEn: z.string().optional(),
+      date: z.string(),
+      location: z.string(),
+      type: z.enum(['genocide', 'massacre', 'tribunal', 'persecution', 'forced-labor', 'other']),
+      victims: z
+        .object({
+          group: z.string().optional(),
+          estimateLow: z.number().optional(),
+          estimateHigh: z.number().optional(),
+        })
+        .optional(),
+      tags: z.array(z.string()),
+      cover: z.string().optional(),
+      coverCaption: z.string().optional(),
+      sources: sourceArray,
+      ...accuracyFields,
+    })
+    .superRefine(requireDisputedNote),
+});
+
+// Data collection — per-country WWII deaths. Numeric + short localized name
+// only (no free-text notes), so it stays bilingual without per-row prose.
+const casualties = defineCollection({
+  loader: file('./src/data/casualties.json'),
+  schema: z
+    .object({
+      id: z.string(),
+      name: z.object({ en: z.string(), zh: z.string() }),
+      side: z.enum(['allies', 'axis', 'neutral']),
+      military: z.number().optional(),
+      civilian: z.number().optional(),
+      total: z.number(),
+      note: z.object({ en: z.string(), zh: z.string() }).optional(),
+      source: sourceObject,
+      ...accuracyFields,
+    })
+    .superRefine(requireDisputedNote),
+});
+
+export const collections = { events, people, aftermath, conferences, technology, warCrimes, casualties };

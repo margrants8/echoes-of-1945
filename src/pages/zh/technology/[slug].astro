@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import Header from '../../../components/layout/Header.astro';
+import Footer from '../../../components/layout/Footer.astro';
+import SourceCitation from '../../../components/shared/SourceCitation.astro';
+import { getCollection, render } from 'astro:content';
+import { useTranslations, localePath } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const all = await getCollection('technology');
+  return all
+    .filter(e => e.id.startsWith('zh/'))
+    .map(item => ({ params: { slug: item.id.replace('zh/', '') }, props: { item } }));
+}
+
+const lang = 'zh';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const slug = item.id.replace('zh/', '');
+---
+
+<BaseLayout title={item.data.title} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale={`/technology/${slug}/`} />
+  <article class="tech-article container-text">
+    <header class="tech-header">
+      <div class="tech-breadcrumb">
+        <a href={p('/technology/')}>{t.nav.technology}</a>
+        <span>›</span>
+        <span>{t.technology.type[item.data.type]}</span>
+      </div>
+      <h1 class="tech-title">{item.data.title}</h1>
+      {item.data.titleEn && item.data.title !== item.data.titleEn && (
+        <p class="tech-title-en">{item.data.titleEn}</p>
+      )}
+      <dl class="tech-meta">
+        <div><dt>{t.technology.nation}</dt><dd>{item.data.nation}</dd></div>
+        {item.data.introduced && <div><dt>{t.technology.introduced}</dt><dd>{item.data.introduced}</dd></div>}
+      </dl>
+    </header>
+    <div class="tech-body"><Content /></div>
+    {item.data.sources && item.data.sources.length > 0 && (
+      <SourceCitation sources={item.data.sources} lang={lang} />
+    )}
+  </article>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.tech-article { padding: var(--space-8) var(--space-4); }
+.tech-breadcrumb { display: flex; align-items: center; gap: var(--space-1); font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-4); font-family: var(--font-mono); }
+.tech-breadcrumb a { color: var(--color-text-muted); }
+.tech-title { margin-bottom: var(--space-2); }
+.tech-title-en { font-family: var(--font-mono); font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.tech-meta { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-6); padding: var(--space-3); background: var(--color-bg-elevated); border: 1px solid var(--color-border); border-radius: 3px; }
+.tech-meta div { display: flex; flex-direction: column; }
+.tech-meta dt { font-size: 0.7rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 0.2em; }
+.tech-meta dd { font-size: 0.95rem; font-weight: 600; }
+.tech-body { font-family: var(--font-body); font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.85; }
+</style>

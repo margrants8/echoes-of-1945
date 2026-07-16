@@ -1,0 +1,135 @@
+[
+  {
+    "id": "ussr",
+    "name": { "en": "Soviet Union", "zh": "苏联" },
+    "side": "allies",
+    "military": 8800000,
+    "civilian": 18000000,
+    "total": 27000000,
+    "note": {
+      "en": "The highest national death toll of the war; estimates commonly range from about 24 to 27 million.",
+      "zh": "全战争中死亡人数最高的国家；常见估计约为 2400 万至 2700 万。"
+    },
+    "source": { "title": "Research Starters: Worldwide Deaths in World War II", "publisher": "The National WWII Museum", "type": "website" },
+    "verificationStatus": "verified",
+    "lastReviewed": "2026-07-15"
+  },
+  {
+    "id": "china",
+    "name": { "en": "China", "zh": "中国" },
+    "side": "allies",
+    "military": 4000000,
+    "civilian": 16000000,
+    "total": 20000000,
+    "note": {
+      "en": "Estimates vary very widely, from roughly 15 to 20 million dead, reflecting the difficulty of wartime records.",
+      "zh": "估计差异极大，约为 1500 万至 2000 万，反映战时记录的困难。"
+    },
+    "source": { "title": "Research Starters: Worldwide Deaths in World War II", "publisher": "The National WWII Museum", "type": "website" },
+    "verificationStatus": "disputed",
+    "lastReviewed": "2026-07-15",
+    "disputed": "Chinese WWII deaths are estimated across a wide range (about 15–20 million) depending on how war-related famine and disease are counted."
+  },
+  {
+    "id": "germany",
+    "name": { "en": "Germany", "zh": "德国" },
+    "side": "axis",
+    "military": 5300000,
+    "civilian": 2000000,
+    "total": 7000000,
+    "note": {
+      "en": "Estimates range from about 6.9 to 7.4 million, including military and civilian dead.",
+      "zh": "估计约为 690 万至 740 万，含军人与平民。"
+    },
+    "source": { "title": "Deutsche militärische Verluste im Zweiten Weltkrieg", "author": "Rüdiger Overmans", "year": 2000, "type": "book" },
+    "verificationStatus": "verified",
+    "lastReviewed": "2026-07-15"
+  },
+  {
+    "id": "poland",
+    "name": { "en": "Poland", "zh": "波兰" },
+    "side": "allies",
+    "military": 240000,
+    "civilian": 5400000,
+    "total": 5600000,
+    "note": {
+      "en": "Overwhelmingly civilian deaths, including about 3 million Polish Jews murdered in the Holocaust.",
+      "zh": "绝大多数为平民死亡，包括约 300 万在大屠杀中遇害的波兰犹太人。"
+    },
+    "source": { "title": "Research Starters: Worldwide Deaths in World War II", "publisher": "The National WWII Museum", "type": "website" },
+    "verificationStatus": "verified",
+    "lastReviewed": "2026-07-15"
+  },
+  {
+    "id": "japan",
+    "name": { "en": "Japan", "zh": "日本" },
+    "side": "axis",
+    "military": 2100000,
+    "civilian": 800000,
+    "total": 2900000,
+    "note": {
+      "en": "Estimates range from about 2.5 to 3.1 million military and civilian dead.",
+      "zh": "估计约为 250 万至 310 万军人与平民死亡。"
+    },
+    "source": { "title": "Research Starters: Worldwide Deaths in World War II", "publisher": "The National WWII Museum", "type": "website" },
+    "verificationStatus": "verified",
+    "lastReviewed": "2026-07-15"
+  },
+  {
+    "id": "yugoslavia",
+    "name": { "en": "Yugoslavia", "zh": "南斯拉夫" },
+    "side": "allies",
+    "total": 1000000,
+    "note": {
+      "en": "Estimates range from about 1 to 1.7 million dead, including occupation, resistance, and internal conflict.",
+      "zh": "估计约为 100 万至 170 万死亡，含占领、抵抗与内部冲突。"
+    },
+    "source": { "title": "Research Starters: Worldwide Deaths in World War II", "publisher": "The National WWII Museum", "type": "website" },
+    "verificationStatus": "verified",
+    "lastReviewed": "2026-07-15"
+  },
+  {
+    "id": "france",
+    "name": { "en": "France", "zh": "法国" },
+    "side": "allies",
+    "military": 210000,
+    "civilian": 390000,
+    "total": 600000,
+    "source": { "title": "Research Starters: Worldwide Deaths in World War II", "publisher": "The National WWII Museum", "type": "website" },
+    "verificationStatus": "verified",
+    "lastReviewed": "2026-07-15"
+  },
+  {
+    "id": "italy",
+    "name": { "en": "Italy", "zh": "意大利" },
+    "side": "axis",
+    "military": 300000,
+    "civilian": 150000,
+    "total": 460000,
+    "source": { "title": "Research Starters: Worldwide Deaths in World War II", "publisher": "The National WWII Museum", "type": "website" },
+    "verificationStatus": "verified",
+    "lastReviewed": "2026-07-15"
+  },
+  {
+    "id": "uk",
+    "name": { "en": "United Kingdom", "zh": "英国" },
+    "side": "allies",
+    "military": 384000,
+    "civilian": 67000,
+    "total": 451000,
+    "source": { "title": "Research Starters: Worldwide Deaths in World War II", "publisher": "The National WWII Museum", "type": "website" },
+    "verificationStatus": "verified",
+    "lastReviewed": "2026-07-15"
+  },
+  {
+    "id": "usa",
+    "name": { "en": "United States", "zh": "美国" },
+    "side": "allies",
+    "military": 407000,
+    "civilian": 12000,
+    "total": 419000,
+    "source": { "title": "Research Starters: Worldwide Deaths in World War II", "publisher": "The National WWII Museum", "type": "website" },
+    "verificationStatus": "verified",
+    "lastReviewed": "2026-07-15"
+  }
+]
