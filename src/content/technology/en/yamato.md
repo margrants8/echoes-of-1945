@@ -17,6 +17,10 @@ sources:
     publisher: Naval Institute Press
     year: 1997
     type: book
+  - title: "Yamato | Japanese battleship"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/topic/Yamato-ship
+    type: website
 ---
 
 The Yamato-class were battleships of the Imperial Japanese Navy, the heaviest and most powerfully armed battleships ever constructed. The lead ship, Yamato, was completed in December 1941, followed by her sister ship Musashi. They displaced around 70,000 tons at full load and mounted nine 46 cm (18.1-inch) main guns, the largest calibre ever fitted to a warship.

@@ -21,6 +21,10 @@ sources:
     publisher: Viking Press
     year: 1966
     type: book
+  - title: "George C. Marshall | Biography, Facts, & Marshall Plan"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/biography/George-C-Marshall
+    type: website
 ---
 
 乔治·马歇尔是美国职业陆军军官，在整个第二次世界大战期间（1939年至1945年）担任陆军参谋长。任内他主持了美国陆军的大规模扩充，并与盟国领导人协同制定美军战略，被誉为美国战争努力的主要缔造者。

@@ -17,6 +17,10 @@ sources:
     publisher: Westholme Publishing
     year: 2005
     type: book
+  - title: "V-2 rocket | History, Inventor, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/technology/V-2-rocket
+    type: website
 ---
 
 The V-2, designated Aggregat 4 (A-4) by its developers, was a German liquid-fuelled ballistic missile and the first man-made object to reach the edge of space. Developed at the Peenemünde research centre under a team including Wernher von Braun, it was powered by an alcohol-and-liquid-oxygen engine and followed a ballistic trajectory to its target.

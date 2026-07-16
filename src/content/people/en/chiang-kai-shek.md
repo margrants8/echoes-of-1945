@@ -21,6 +21,10 @@ sources:
     publisher: Carroll & Graf
     year: 2004
     type: book
+  - title: "Chiang Kai-shek | Biography & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Chiang-Kai-shek
+    type: website
 ---
 
 Chiang Kai-shek was the leader of the Republic of China and the commander-in-chief of its armed forces during the Second World War. As head of the Nationalist government and the Kuomintang party, he led China's resistance to the Japanese invasion that began with full-scale war in 1937.

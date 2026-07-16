@@ -17,6 +17,10 @@ sources:
     publisher: Hutchinson
     year: 1961
     type: book
+  - title: "Spitfire | British WW2 Fighter Aircraft"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/technology/Spitfire
+    type: website
 ---
 
 The Supermarine Spitfire was a British single-seat fighter designed by R. J. Mitchell and first flown in 1936, entering Royal Air Force service in 1938. Its distinctive elliptical wing and Rolls-Royce Merlin engine gave it high speed and excellent manoeuvrability, making it one of the most recognisable aircraft of the Second World War.

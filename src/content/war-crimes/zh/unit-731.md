@@ -20,6 +20,10 @@ sources:
     publisher: Charles E. Tuttle
     year: 1996
     type: book
+  - title: "Unit 731 | Japanese military unit"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/topic/Unit-731
+    type: website
 ---
 
 731 部队是日本帝国陆军一支秘密的生物与化学战研究部队，于 1930 年代中期设立，总部位于日占满洲哈尔滨附近的平房区。该部队由陆军军官兼医生石井四郎领导，对外以供水净化部门为掩护，实则从事武器研究。

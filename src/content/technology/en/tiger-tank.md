@@ -17,6 +17,10 @@ sources:
     publisher: Schiffer Publishing
     year: 1997
     type: book
+  - title: "Pz. VI | tank"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/technology/Pz-VI
+    type: website
 ---
 
 The Tiger I was a German heavy tank that entered service in 1942, officially designated Panzerkampfwagen VI Tiger. It mounted an 88 mm gun derived from the anti-aircraft and anti-tank weapon of the same calibre, and carried thick frontal armour that made it formidable in combat against Allied tanks.

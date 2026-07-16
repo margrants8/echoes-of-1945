@@ -20,6 +20,10 @@ sources:
     publisher: Carroll & Graf
     year: 1994
     type: book
+  - title: "Josip Broz Tito | Biography & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Josip-Broz-Tito
+    type: website
 ---
 
 Josip Broz, known as Tito, was a Yugoslav communist revolutionary who led the Partisan resistance movement against Axis occupation during the Second World War. Following the invasion and partition of Yugoslavia by Germany and its allies in 1941, he organized an armed uprising and became commander of the People's Liberation Army.

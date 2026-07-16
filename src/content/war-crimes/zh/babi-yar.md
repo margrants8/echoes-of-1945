@@ -20,6 +20,10 @@ sources:
     publisher: Palgrave Macmillan
     year: 2008
     type: book
+  - title: "Mass Shootings at Babyn Yar (Babi Yar)"
+    publisher: 美国大屠杀纪念馆
+    url: https://encyclopedia.ushmm.org/content/en/article/kiev-and-babi-yar
+    type: website
 ---
 
 娘子谷大屠杀是 1941 年 9 月 29 日至 30 日，在德军占领基辅后不久，于该市郊外一处峡谷对犹太平民进行的大规模枪杀。行凶者为党卫队与德国警察部队，主要是 C 别动队下属的第 4a 特别行动队，并有辅助部队协助。

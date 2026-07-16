@@ -18,6 +18,10 @@ sources:
     publisher: Westholme Publishing
     year: 2005
     type: book
+  - title: "V-2 rocket | History, Inventor, & Facts"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/technology/V-2-rocket
+    type: website
 ---
 
 V-2（研制方称其为 A-4，即"聚合体 4 号"）是一款德国液体燃料弹道导弹，也是人类首个抵达太空边缘的人造物体。它在佩内明德研究中心研制，团队成员包括沃纳·冯·布劳恩，采用酒精与液氧发动机，沿弹道轨迹飞向目标。

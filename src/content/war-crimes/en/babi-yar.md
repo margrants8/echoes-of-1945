@@ -20,6 +20,10 @@ sources:
     publisher: Palgrave Macmillan
     year: 2008
     type: book
+  - title: "Mass Shootings at Babyn Yar (Babi Yar)"
+    publisher: U.S. Holocaust Memorial Museum
+    url: https://encyclopedia.ushmm.org/content/en/article/kiev-and-babi-yar
+    type: website
 ---
 
 The Babi Yar massacre was the mass shooting of Jewish civilians at a ravine on the outskirts of Kyiv on 29 and 30 September 1941, shortly after German forces occupied the city. It was carried out by SS and German police units, principally Sonderkommando 4a of Einsatzgruppe C, with the assistance of auxiliary forces.

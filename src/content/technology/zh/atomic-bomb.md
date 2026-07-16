@@ -16,6 +16,10 @@ sources:
   - title: "The Manhattan Project"
     publisher: 美国能源部
     type: document
+  - title: "Manhattan Project | Definition, Scientists, Timeline, Locations, Facts, & Significance"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/event/Manhattan-Project
+    type: website
 ---
 
 曼哈顿计划是二战期间盟国秘密进行的研究与工程项目，制造出人类历史上首批核武器。该计划由美国陆军的莱斯利·格罗夫斯将军主持，物理学家罗伯特·奥本海默领导洛斯阿拉莫斯实验室，汇集数千名科学家，耗资约二十亿美元。

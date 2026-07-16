@@ -21,6 +21,10 @@ sources:
     publisher: Viking Press
     year: 1966
     type: book
+  - title: "George C. Marshall | Biography, Facts, & Marshall Plan"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/George-C-Marshall
+    type: website
 ---
 
 George C. Marshall was a career U.S. Army officer who served as Army Chief of Staff throughout the Second World War, from 1939 to 1945. In that role he oversaw the vast expansion of the U.S. Army and directed American strategy in cooperation with Allied leaders, earning a reputation as the principal architect of the American war effort.

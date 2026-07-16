@@ -20,6 +20,10 @@ sources:
     publisher: Yale University Press
     year: 1961
     type: book
+  - title: "Introduction to the Holocaust: What was the Holocaust?"
+    publisher: 美国大屠杀纪念馆
+    url: https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust
+    type: website
 ---
 
 犹太人大屠杀是 1941 至 1945 年间纳粹德国及其协从者对六百万欧洲犹太人有组织、由国家推行的迫害与屠杀，是历史上记录最为详尽的罪行之一。

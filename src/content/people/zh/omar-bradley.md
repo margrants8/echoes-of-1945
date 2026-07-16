@@ -21,6 +21,10 @@ sources:
     publisher: Henry Holt
     year: 1951
     type: book
+  - title: "Omar Bradley | WWII General, Army Chief of Staff"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/biography/Omar-Nelson-Bradley
+    type: website
 ---
 
 奥马尔·布莱德利是美国陆军高级军官，第二次世界大战期间指挥欧洲战区的美国地面部队。他毕业于西点军校，1943年在北非和西西里战役中首次率部作战，先后在德怀特·艾森豪威尔、乔治·巴顿等将领麾下及身旁效力。

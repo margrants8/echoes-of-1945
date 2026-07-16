@@ -29,6 +29,10 @@ sources:
     publisher: Basic Books
     year: 1997
     type: book
+  - title: "Nanjing Massacre | History, Summary, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Nanjing-Massacre
+    type: website
 ---
 
 The Nanjing Massacre was a period of mass killing and widespread sexual violence committed by Imperial Japanese Army forces after they captured Nanjing, then the capital of the Republic of China, on 13 December 1937. Over roughly six weeks, Japanese troops killed large numbers of surrendered soldiers and unarmed civilians and carried out extensive looting, arson, and rape across the city.

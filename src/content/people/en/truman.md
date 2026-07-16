@@ -21,6 +21,10 @@ sources:
     publisher: Oxford University Press
     year: 1995
     type: book
+  - title: "Harry S. Truman | Biography, Presidency, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Harry-S-Truman
+    type: website
 ---
 
 Harry S. Truman was the 33rd President of the United States, serving from 1945 to 1953. A Democrat from Missouri, he had been a U.S. senator and briefly vice president before the death of Franklin D. Roosevelt on April 12, 1945, elevated him to the presidency less than four months into the term.

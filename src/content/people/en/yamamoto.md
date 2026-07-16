@@ -21,6 +21,10 @@ sources:
     publisher: McGraw-Hill
     year: 1990
     type: book
+  - title: "Yamamoto Isoroku | Japanese Naval Strategist & WWII Commander"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Yamamoto-Isoroku
+    type: website
 ---
 
 Isoroku Yamamoto was a Japanese naval officer who served as commander-in-chief of the Imperial Japanese Navy's Combined Fleet from 1939. Having studied and served in the United States earlier in his career, he was familiar with American industrial capacity and had expressed reservations about the prospect of a prolonged war with the United States.

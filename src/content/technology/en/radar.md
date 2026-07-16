@@ -17,6 +17,10 @@ sources:
     publisher: Institute of Physics Publishing
     year: 1999
     type: book
+  - title: "Chain Home | radar technology"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/technology/Chain-Home
+    type: website
 ---
 
 Radar, or radio detection and ranging, uses radio waves to detect the range, direction, and altitude of distant objects such as aircraft and ships. Several nations developed radar in the 1930s, but Britain was among the first to build it into an operational, integrated air-defence network before the Second World War.

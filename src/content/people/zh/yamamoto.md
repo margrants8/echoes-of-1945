@@ -21,6 +21,10 @@ sources:
     publisher: McGraw-Hill
     year: 1990
     type: book
+  - title: "Yamamoto Isoroku | Japanese Naval Strategist & WWII Commander"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/biography/Yamamoto-Isoroku
+    type: website
 ---
 
 山本五十六是日本海军军官，自1939年起担任日本帝国海军联合舰队司令长官。他早年曾在美国留学并任职，熟悉美国的工业实力，并曾对与美国进行持久战争的前景表示过疑虑。

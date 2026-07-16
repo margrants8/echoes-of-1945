@@ -20,6 +20,10 @@ sources:
     publisher: Doubleday
     year: 2001
     type: book
+  - title: "Bataan Death March | Definition, Date, Facts & Significance"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Bataan-Death-March
+    type: website
 ---
 
 The Bataan Death March was the forced transfer of Filipino and American prisoners of war by the Imperial Japanese Army following the surrender of Allied forces on the Bataan Peninsula in the Philippines on 9 April 1942. Tens of thousands of prisoners, weakened by months of fighting, disease, and short rations, were compelled to march roughly 100 kilometers northward toward railheads and prison camps.

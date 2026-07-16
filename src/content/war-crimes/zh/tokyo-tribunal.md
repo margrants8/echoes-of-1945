@@ -18,6 +18,10 @@ sources:
     publisher: W. W. Norton
     year: 1999
     type: book
+  - title: "International Military Tribunal for the Far East"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/topic/International-Military-Tribunal-for-the-Far-East
+    type: website
 ---
 
 远东国际军事法庭，通称东京审判，由同盟国设立，用以追诉日本帝国高层领导人在第二次世界大战之前及期间所犯的罪行。法庭于 1946 年 5 月 3 日在东京开庭，审理持续至 1948 年 11 月，法官来自十一个同盟国，由澳大利亚法学家韦伯爵士（Sir William Webb）担任庭长。

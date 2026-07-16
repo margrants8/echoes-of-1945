@@ -16,6 +16,10 @@ sources:
   - title: "The Manhattan Project"
     publisher: U.S. Department of Energy
     type: document
+  - title: "Manhattan Project | Definition, Scientists, Timeline, Locations, Facts, & Significance"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Manhattan-Project
+    type: website
 ---
 
 The Manhattan Project was the secret Allied research and engineering effort that produced the first nuclear weapons during the Second World War. Directed by the U.S. Army under General Leslie Groves with physicist J. Robert Oppenheimer leading the Los Alamos laboratory, it drew on the work of thousands of scientists and cost roughly two billion dollars.

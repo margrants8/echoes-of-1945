@@ -20,6 +20,10 @@ sources:
     publisher: Doubleday
     year: 2001
     type: book
+  - title: "Bataan Death March | Definition, Date, Facts & Significance"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/event/Bataan-Death-March
+    type: website
 ---
 
 巴丹死亡行军是日本帝国陆军在 1942 年 4 月 9 日盟军于菲律宾巴丹半岛投降后，强行押解菲律宾与美国战俘的过程。数以万计因数月战斗、疾病与口粮短缺而虚弱不堪的战俘，被迫向北行进约 100 公里，前往铁路终点站与战俘营。

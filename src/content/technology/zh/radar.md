@@ -18,6 +18,10 @@ sources:
     publisher: Institute of Physics Publishing
     year: 1999
     type: book
+  - title: "Chain Home | radar technology"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/technology/Chain-Home
+    type: website
 ---
 
 雷达（无线电探测与测距）利用无线电波来探测飞机、舰船等远处目标的距离、方位与高度。多个国家在 1930 年代都研发了雷达，但英国是最早在二战前将其建成可实战运作的一体化防空网络的国家之一。

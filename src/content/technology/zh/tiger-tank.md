@@ -18,6 +18,10 @@ sources:
     publisher: Schiffer Publishing
     year: 1997
     type: book
+  - title: "Pz. VI | tank"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/technology/Pz-VI
+    type: website
 ---
 
 虎式坦克（虎 I）是一款德国重型坦克，于 1942 年投入服役，正式编号为六号坦克"虎式"。它装备一门由同口径高射炮及反坦克炮衍生而来的 88 毫米火炮，并拥有厚重的正面装甲，在与盟军坦克的作战中极为强悍。

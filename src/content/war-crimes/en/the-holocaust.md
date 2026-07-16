@@ -20,6 +20,10 @@ sources:
     publisher: Yale University Press
     year: 1961
     type: book
+  - title: "Introduction to the Holocaust: What was the Holocaust?"
+    publisher: U.S. Holocaust Memorial Museum
+    url: https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust
+    type: website
 ---
 
 The Holocaust was the systematic, state-sponsored persecution and murder of six million European Jews by Nazi Germany and its collaborators between 1941 and 1945. It is among the most thoroughly documented crimes in history.

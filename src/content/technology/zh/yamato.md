@@ -18,6 +18,10 @@ sources:
     publisher: Naval Institute Press
     year: 1997
     type: book
+  - title: "Yamato | Japanese battleship"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/topic/Yamato-ship
+    type: website
 ---
 
 大和级是日本帝国海军的战列舰，也是有史以来吨位最大、火力最强的战列舰。首舰"大和"号于 1941 年 12 月竣工，其姊妹舰"武藏"号随后建成。它们满载排水量约 7 万吨，装备九门 460 毫米（18.1 英寸）主炮，是有史以来军舰上口径最大的火炮。

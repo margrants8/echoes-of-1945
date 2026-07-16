@@ -20,6 +20,10 @@ sources:
     publisher: Charles E. Tuttle
     year: 1996
     type: book
+  - title: "Unit 731 | Japanese military unit"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/topic/Unit-731
+    type: website
 ---
 
 Unit 731 was a covert biological and chemical warfare research unit of the Imperial Japanese Army, established in the mid-1930s and headquartered in the Pingfang district near Harbin in Japanese-occupied Manchuria. Led by army officer and physician Shiro Ishii, it operated under the cover of a water-purification department while conducting weapons research.

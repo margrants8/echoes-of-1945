@@ -21,6 +21,10 @@ sources:
     publisher: Carroll & Graf
     year: 2004
     type: book
+  - title: "Chiang Kai-shek | Biography & Facts"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/biography/Chiang-Kai-shek
+    type: website
 ---
 
 蒋介石是第二次世界大战期间中华民国的领导人及其武装力量的最高统帅。作为国民政府和中国国民党的首脑，他领导中国抵抗自1937年全面爆发的日本侵华战争。

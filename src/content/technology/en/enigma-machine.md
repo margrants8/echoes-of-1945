@@ -17,6 +17,10 @@ sources:
     publisher: Houghton Mifflin
     year: 1991
     type: book
+  - title: "Enigma | Definition, Machine, History, Alan Turing, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/topic/Enigma-German-code-device
+    type: website
 ---
 
 Enigma was an electro-mechanical cipher machine used by Nazi Germany to encrypt military and diplomatic communications. Employing a system of rotating wheels and a plugboard, it scrambled each letter into a different one, producing a cipher the Germans believed to be effectively unbreakable. Variants were used by the army, navy, and air force throughout the war.

@@ -20,6 +20,10 @@ sources:
     publisher: Carroll & Graf
     year: 1994
     type: book
+  - title: "Josip Broz Tito | Biography & Facts"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/biography/Josip-Broz-Tito
+    type: website
 ---
 
 约瑟普·布罗兹，人称铁托，是南斯拉夫的共产主义革命者，在第二次世界大战期间领导游击队抵抗运动，反抗轴心国占领。1941年德国及其盟国入侵并瓜分南斯拉夫后，他组织武装起义，成为人民解放军的统帅。

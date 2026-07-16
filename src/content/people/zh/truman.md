@@ -21,6 +21,10 @@ sources:
     publisher: Oxford University Press
     year: 1995
     type: book
+  - title: "Harry S. Truman | Biography, Presidency, & Facts"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/biography/Harry-S-Truman
+    type: website
 ---
 
 哈里·杜鲁门是美国第33任总统，自1945年任职至1953年。他来自密苏里州，是民主党人，曾任美国参议员，并短暂担任副总统。1945年4月12日富兰克林·罗斯福逝世后，就任副总统尚不足四个月的杜鲁门继任总统。

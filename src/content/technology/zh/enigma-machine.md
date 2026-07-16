@@ -18,6 +18,10 @@ sources:
     publisher: Houghton Mifflin
     year: 1991
     type: book
+  - title: "Enigma | Definition, Machine, History, Alan Turing, & Facts"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/topic/Enigma-German-code-device
+    type: website
 ---
 
 恩尼格玛是纳粹德国用于加密军事与外交通信的机电式密码机。它通过一套转轮与接线板系统，将每个字母替换为另一个字母，生成德国人认为几乎无法破解的密码。陆军、海军与空军在整个战争期间都使用了它的各种型号。

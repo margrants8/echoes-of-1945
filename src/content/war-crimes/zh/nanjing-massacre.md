@@ -27,6 +27,10 @@ sources:
     publisher: Basic Books
     year: 1997
     type: book
+  - title: "Nanjing Massacre | History, Summary, & Facts"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/event/Nanjing-Massacre
+    type: website
 ---
 
 南京大屠杀是日本帝国陆军于 1937 年 12 月 13 日攻占当时中华民国首都南京后，实施大规模屠杀与广泛性暴力的时期。在约六周的时间里，日军杀害了大量放下武器的士兵与手无寸铁的平民，并在全城进行大规模抢劫、纵火与强奸。

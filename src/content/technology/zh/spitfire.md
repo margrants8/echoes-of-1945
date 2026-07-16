@@ -18,6 +18,10 @@ sources:
     publisher: Hutchinson
     year: 1961
     type: book
+  - title: "Spitfire | British WW2 Fighter Aircraft"
+    publisher: 大英百科全书
+    url: https://www.britannica.com/technology/Spitfire
+    type: website
 ---
 
 超级马林喷火式战斗机是一款英国单座战斗机，由 R. J. 米切尔设计，于 1936 年首飞，1938 年开始装备英国皇家空军。其标志性的椭圆形机翼与罗尔斯·罗伊斯"梅林"发动机赋予它高速与出色的机动性，使之成为二战中最具辨识度的飞机之一。

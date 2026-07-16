@@ -21,6 +21,10 @@ sources:
     publisher: Henry Holt
     year: 1951
     type: book
+  - title: "Omar Bradley | WWII General, Army Chief of Staff"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Omar-Nelson-Bradley
+    type: website
 ---
 
 Omar Bradley was a senior U.S. Army officer who commanded American ground forces in the European theater during the Second World War. A West Point graduate, he first led troops in combat in the North African and Sicilian campaigns of 1943, serving under and alongside generals such as Dwight D. Eisenhower and George S. Patton.

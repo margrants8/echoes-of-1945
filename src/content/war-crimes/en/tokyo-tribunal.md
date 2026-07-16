@@ -18,6 +18,10 @@ sources:
     publisher: W. W. Norton
     year: 1999
     type: book
+  - title: "International Military Tribunal for the Far East"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/topic/International-Military-Tribunal-for-the-Far-East
+    type: website
 ---
 
 The International Military Tribunal for the Far East, commonly known as the Tokyo Trial, was convened by the Allied powers to prosecute senior leaders of the Empire of Japan for crimes committed before and during the Second World War. The tribunal's proceedings opened in Tokyo on 3 May 1946 and continued until November 1948, with judges drawn from eleven Allied nations and the Australian jurist Sir William Webb presiding.
