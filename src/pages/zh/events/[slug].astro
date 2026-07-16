@@ -55,7 +55,7 @@ const slug = event.id.replace('zh/', '');
       {event.data.cover && <PhotoFrame src={event.data.cover} alt={event.data.coverCaption ?? event.data.title} caption={event.data.coverCaption} />}
     </header>
     <div class="event-body"><Content /></div>
-    {event.data.sources && event.data.sources.length > 0 && <SourceCitation sources={event.data.sources} />}
+    {event.data.sources && event.data.sources.length > 0 && <SourceCitation sources={event.data.sources} lang={lang} />}
   </article>
   <Footer slot="footer" lang={lang} />
 </BaseLayout>

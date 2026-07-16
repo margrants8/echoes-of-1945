@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import SourceCitation from '../../components/shared/SourceCitation.astro';
+import { getCollection, render } from 'astro:content';
+import { useTranslations, localePath } from '../../i18n';
+
+export async function getStaticPaths() {
+  const all = await getCollection('warCrimes');
+  return all
+    .filter(e => e.id.startsWith('en/'))
+    .map(item => ({ params: { slug: item.id.replace('en/', '') }, props: { item } }));
+}
+
+const lang = 'en';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const slug = item.id.replace('en/', '');
+
+function victimRange(v: { estimateLow?: number; estimateHigh?: number }): string {
+  const lo = v.estimateLow?.toLocaleString();
+  const hi = v.estimateHigh?.toLocaleString();
+  if (lo && hi) return lo === hi ? lo : `${lo}–${hi}`;
+  return lo ?? hi ?? '';
+}
+---
+
+<BaseLayout title={item.data.title} lang={lang} date={item.data.date} location={item.data.location}>
+  <Header slot="header" lang={lang} pathWithoutLocale={`/war-crimes/${slug}/`} />
+  <article class="wc-article container-text">
+    <header class="wc-header">
+      <div class="wc-breadcrumb">
+        <a href={p('/war-crimes/')}>{t.nav.warCrimes}</a>
+        <span>›</span>
+        <span>{t.warCrimes.type[item.data.type]}</span>
+      </div>
+      <h1 class="wc-title">{item.data.title}</h1>
+      {item.data.titleEn && item.data.title !== item.data.titleEn && (
+        <p class="wc-title-en">{item.data.titleEn}</p>
+      )}
+      <dl class="wc-meta">
+        <div><dt>{t.events.period}</dt><dd>{item.data.date}</dd></div>
+        <div><dt>{t.events.location}</dt><dd>{item.data.location}</dd></div>
+        {item.data.victims && (
+          <div>
+            <dt>{t.warCrimes.victims}</dt>
+            <dd>
+              {item.data.victims.group}
+              {victimRange(item.data.victims) && ` · ${victimRange(item.data.victims)}`}
+            </dd>
+          </div>
+        )}
+      </dl>
+    </header>
+    <div class="wc-body"><Content /></div>
+    {item.data.sources && item.data.sources.length > 0 && (
+      <SourceCitation sources={item.data.sources} lang={lang} />
+    )}
+  </article>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.wc-article { padding: var(--space-8) var(--space-4); }
+.wc-breadcrumb { display: flex; align-items: center; gap: var(--space-1); font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-4); font-family: var(--font-mono); }
+.wc-breadcrumb a { color: var(--color-text-muted); }
+.wc-title { margin-bottom: var(--space-2); }
+.wc-title-en { font-family: var(--font-mono); font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.wc-meta { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-6); padding: var(--space-3); background: var(--color-bg-elevated); border: 1px solid var(--color-border); border-radius: 3px; }
+.wc-meta div { display: flex; flex-direction: column; }
+.wc-meta dt { font-size: 0.7rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 0.2em; }
+.wc-meta dd { font-size: 0.95rem; font-weight: 600; }
+.wc-body { font-family: var(--font-body); font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.85; }
+</style>

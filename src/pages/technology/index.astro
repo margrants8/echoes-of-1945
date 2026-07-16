@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations, localePath } from '../../i18n';
+
+const lang = 'en';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const all = await getCollection('technology');
+const items = all
+  .filter(e => e.id.startsWith('en/'))
+  .sort((a, b) => (a.data.introduced ?? '').localeCompare(b.data.introduced ?? ''));
+
+const order = ['aircraft', 'armor', 'naval', 'infantry', 'electronic', 'nuclear', 'other'];
+const grouped = order
+  .map(type => ({ type, items: items.filter(i => i.data.type === type) }))
+  .filter(g => g.items.length > 0);
+---
+
+<BaseLayout title={t.technology.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/technology/" />
+  <div class="container-wide page-content">
+    <div class="page-intro">
+      <h1 class="page-title">{t.technology.pageTitle}</h1>
+      <p class="page-desc">{t.technology.pageDesc}</p>
+    </div>
+    {grouped.map(({ type, items }) => (
+      <section class="tech-group">
+        <h2 class="tech-group__title">{t.technology.type[type as keyof typeof t.technology.type]}</h2>
+        <div class="tech-grid">
+          {items.map(item => {
+            const slug = item.id.replace('en/', '');
+            return (
+              <a href={p(`/technology/${slug}/`)} class="tech-card">
+                <h3 class="tech-card__title">{item.data.title}</h3>
+                <p class="tech-card__meta">{item.data.nation}{item.data.introduced && ` · ${item.data.introduced}`}</p>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    ))}
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); }
+.page-intro { max-width: 700px; margin-bottom: var(--space-6); }
+.page-title { margin-bottom: var(--space-3); }
+.page-desc { color: var(--color-text-muted); line-height: 1.75; }
+.tech-group { margin-bottom: var(--space-6); }
+.tech-group__title {
+  font-size: 0.8rem; font-family: var(--font-mono); text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--color-text-muted);
+  margin-bottom: var(--space-3); padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--color-border);
+}
+.tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-3); }
+.tech-card {
+  background: var(--color-bg-elevated); border: 1px solid var(--color-border);
+  border-radius: 3px; padding: var(--space-3); text-decoration: none;
+  color: var(--color-text); transition: border-color 0.25s, transform 0.25s; display: block;
+}
+.tech-card:hover { border-color: var(--color-accent); transform: translateY(-2px); text-decoration: none; }
+.tech-card__title { font-size: 1rem; font-weight: 700; margin-bottom: var(--space-1); }
+.tech-card__meta { font-size: 0.8rem; color: var(--color-text-muted); font-family: var(--font-mono); }
+</style>

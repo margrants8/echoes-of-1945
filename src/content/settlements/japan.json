@@ -1,7 +1,10 @@
 {
   "country": "japan",
-  "displayName": "日本",
-  "treaty": "旧金山和约（1951）",
+  "displayName": { "en": "Japan", "zh": "日本" },
+  "treaty": {
+    "en": "Treaty of San Francisco (1951)",
+    "zh": "旧金山和约（1951）"
+  },
   "occupationEnd": "1952",
   "sovereigntyRestored": "1952",
   "overallCompliance": 0.65,
@@ -9,36 +12,56 @@
     {
       "id": "territorial-okinawa",
       "category": "territorial",
-      "label": "冲绳托管与归还",
+      "label": { "en": "Trusteeship and return of Okinawa", "zh": "冲绳托管与归还" },
       "status": "executed",
       "executedYear": 1972,
       "reversedAt": null,
       "disputed": false,
       "complianceScore": 1.0,
-      "note": "冲绳1952年起由美国托管，1972年归还日本，但美军基地仍驻留至今"
+      "note": {
+        "en": "Okinawa was administered by the United States from 1952 and returned to Japan in 1972 under the Okinawa Reversion Agreement, though US military bases remain on the islands to this day.",
+        "zh": "冲绳自1952年起由美国管理，1972年依据《冲绳返还协定》归还日本，但美军基地至今仍驻留于该群岛。"
+      },
+      "sources": [
+        { "title": "Treaty of San Francisco, Article 3 (1951)", "type": "document" },
+        { "title": "Okinawa Reversion Agreement (1971)", "type": "document" }
+      ]
     },
     {
       "id": "military-article9",
       "category": "military",
-      "label": "宪法第九条 / 放弃战争权",
+      "label": { "en": "Article 9 / renunciation of war", "zh": "宪法第九条 / 放弃战争权" },
       "status": "partial",
       "executedYear": 1947,
       "reversedAt": null,
       "disputed": true,
       "complianceScore": 0.55,
-      "note": "1947年宪法第九条规定永远放弃战争。但日本自卫队逐步扩编，2015年解禁集体自卫权，宪法解释争议持续",
-      "sources": [{ "title": "日本国宪法第九条（1947）" }]
+      "note": {
+        "en": "Article 9 of the 1947 Constitution renounces war forever. In practice the Japan Self-Defense Forces expanded steadily; a 2015 reinterpretation permitted collective self-defense, and constitutional debate over Article 9 continues.",
+        "zh": "1947年宪法第九条规定永远放弃战争。但日本自卫队逐步扩编，2015年重新解释解禁集体自卫权，关于第九条的宪法争议持续至今。"
+      },
+      "sources": [
+        { "title": "Constitution of Japan, Article 9 (1947)", "type": "document" },
+        { "title": "Cabinet Decision on the Development of Seamless Security Legislation (Japan, 2014/2015)", "type": "document" }
+      ]
     },
     {
       "id": "reparations-asia",
       "category": "reparations",
-      "label": "对亚洲各国战争赔偿",
+      "label": { "en": "War reparations to Asian nations", "zh": "对亚洲各国战争赔偿" },
       "status": "partial",
       "executedYear": 1965,
       "reversedAt": null,
       "disputed": true,
       "complianceScore": 0.45,
-      "note": "与韩国签订1965年协议，日本主张赔偿问题'完全最终解决'；中国、朝鲜等国的赔偿及慰安妇问题争议至今未解决"
+      "note": {
+        "en": "Japan concluded reparations and economic-cooperation agreements with several countries (e.g. the Philippines, Burma, Indonesia) and the 1965 treaty with South Korea. Japan holds that claims were 'finally and completely' settled; reparations and the 'comfort women' issue with China, the Koreas, and others remain disputed.",
+        "zh": "日本与菲律宾、缅甸、印尼等国及1965年对韩条约签订赔偿与经济合作协议，主张相关请求已'完全并最终'解决；对中国、朝鲜半岛等国的赔偿及'慰安妇'问题争议至今未解决。"
+      },
+      "sources": [
+        { "title": "Treaty of San Francisco, Article 14 (1951)", "type": "document" },
+        { "title": "Treaty on Basic Relations between Japan and the Republic of Korea (1965)", "type": "document" }
+      ]
     }
   ]
 }

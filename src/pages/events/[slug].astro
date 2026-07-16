@@ -69,7 +69,7 @@ const slug = event.id.replace('en/', '');
     </header>
     <div class="event-body"><Content /></div>
     {event.data.sources && event.data.sources.length > 0 && (
-      <SourceCitation sources={event.data.sources} />
+      <SourceCitation sources={event.data.sources} lang={lang} />
     )}
   </article>
   <Footer slot="footer" lang={lang} />

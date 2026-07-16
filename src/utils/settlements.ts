@@ -1,34 +1,50 @@
+import type { Lang } from '../i18n';
+
 export type ClauseStatus = 'executed' | 'partial' | 'not-executed' | 'disputed';
+
+/** A short text available in both site languages. */
+export interface LocalizedText {
+  en: string;
+  zh: string;
+}
+
+/** Resolve a LocalizedText for the current language (falls back to the other). */
+export function pick(value: LocalizedText, lang: Lang): string {
+  return value[lang] ?? value.en ?? value.zh;
+}
+
+export interface Source {
+  title: string;
+  url?: string;
+  author?: string;
+  publisher?: string;
+  year?: number;
+  page?: string;
+  type?: 'book' | 'article' | 'document' | 'archive' | 'website' | 'other';
+}
 
 export interface Clause {
   id: string;
   category: string;
-  label: string;
+  label: LocalizedText;
   status: ClauseStatus;
   executedYear: number | null;
   reversedAt?: number | null;
   disputed: boolean;
   complianceScore: number;
-  note: string;
-  sources?: { title: string }[];
+  note: LocalizedText;
+  sources?: Source[];
 }
 
 export interface SettlementData {
   country: string;
-  displayName: string;
-  treaty: string;
+  displayName: LocalizedText;
+  treaty: LocalizedText;
   occupationEnd: string;
   sovereigntyRestored: string;
   overallCompliance: number;
   clauses: Clause[];
 }
-
-export const statusLabel: Record<ClauseStatus, string> = {
-  executed: '已执行',
-  partial: '部分执行',
-  'not-executed': '未执行',
-  disputed: '存在争议',
-};
 
 export const statusColor: Record<ClauseStatus, string> = {
   executed: 'var(--color-executed)',
@@ -48,10 +64,3 @@ export function groupByCategory(clauses: Clause[]): Record<string, Clause[]> {
     return acc;
   }, {} as Record<string, Clause[]>);
 }
-
-export const categoryLabel: Record<string, string> = {
-  territorial: '领土',
-  military: '军事',
-  reparations: '赔偿',
-  judicial: '司法清算',
-};

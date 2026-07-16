@@ -1,6 +1,6 @@
 ---
 import type { SettlementData } from '../../utils/settlements';
-import { compliancePercent } from '../../utils/settlements';
+import { compliancePercent, pick } from '../../utils/settlements';
 import ClauseBar from './ClauseBar.astro';
 import type { Lang } from '../../i18n';
 import { useTranslations } from '../../i18n';
@@ -24,8 +24,8 @@ for (const clause of data.clauses) {
 <div class={`country-card ${active ? 'country-card--active' : ''}`}>
   <div class="country-card__overview">
     <div class="country-card__info">
-      <h3 class="country-card__name">{data.displayName}</h3>
-      <p class="country-card__treaty">{data.treaty}</p>
+      <h3 class="country-card__name">{pick(data.displayName, lang)}</h3>
+      <p class="country-card__treaty">{pick(data.treaty, lang)}</p>
       <dl class="country-card__meta">
         <div>
           <dt>{t.settlements.occupationEnd}</dt>

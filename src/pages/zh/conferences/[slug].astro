@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import Header from '../../../components/layout/Header.astro';
+import Footer from '../../../components/layout/Footer.astro';
+import SourceCitation from '../../../components/shared/SourceCitation.astro';
+import { getCollection, render } from 'astro:content';
+import { useTranslations, localePath } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const all = await getCollection('conferences');
+  return all
+    .filter(e => e.id.startsWith('zh/'))
+    .map(item => ({
+      params: { slug: item.id.replace('zh/', '') },
+      props: { item },
+    }));
+}
+
+const lang = 'zh';
+const t = useTranslations(lang);
+const p = (path: string) => localePath(path, lang);
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const slug = item.id.replace('zh/', '');
+---
+
+<BaseLayout title={item.data.title} lang={lang} date={item.data.date} location={item.data.location}>
+  <Header slot="header" lang={lang} pathWithoutLocale={`/conferences/${slug}/`} />
+  <article class="conf-article container-text">
+    <header class="conf-header">
+      <div class="conf-breadcrumb">
+        <a href={p('/conferences/')}>{t.nav.conferences}</a>
+        <span>›</span>
+        <span>{item.data.location}</span>
+      </div>
+      <h1 class="conf-title">{item.data.title}</h1>
+      {item.data.titleEn && item.data.title !== item.data.titleEn && (
+        <p class="conf-title-en">{item.data.titleEn}</p>
+      )}
+      <p class="conf-date">{item.data.date}{item.data.dateEnd && ` — ${item.data.dateEnd}`}</p>
+      <dl class="conf-meta">
+        <div>
+          <dt>{t.conferences.participants}</dt>
+          <dd>{item.data.participants.join(' · ')}</dd>
+        </div>
+      </dl>
+      {item.data.outcomes.length > 0 && (
+        <div class="conf-outcomes">
+          <h2 class="conf-outcomes-title">{t.conferences.outcomes}</h2>
+          <ul>{item.data.outcomes.map(o => <li>{o}</li>)}</ul>
+        </div>
+      )}
+    </header>
+    <div class="conf-body"><Content /></div>
+    {item.data.sources && item.data.sources.length > 0 && (
+      <SourceCitation sources={item.data.sources} lang={lang} />
+    )}
+  </article>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.conf-article { padding: var(--space-8) var(--space-4); }
+.conf-breadcrumb { display: flex; align-items: center; gap: var(--space-1); font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-4); font-family: var(--font-mono); }
+.conf-breadcrumb a { color: var(--color-text-muted); }
+.conf-title { margin-bottom: var(--space-2); }
+.conf-title-en { font-family: var(--font-mono); font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.conf-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-4); }
+.conf-meta { margin-bottom: var(--space-4); padding: var(--space-3); background: var(--color-bg-elevated); border: 1px solid var(--color-border); border-radius: 3px; }
+.conf-meta dt { font-size: 0.7rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 0.2em; }
+.conf-meta dd { font-size: 0.95rem; font-weight: 600; }
+.conf-outcomes { margin-bottom: var(--space-4); }
+.conf-outcomes-title { font-size: 0.75rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.conf-outcomes ul { padding-left: var(--space-3); }
+.conf-outcomes li { margin-bottom: var(--space-1); line-height: 1.6; }
+.conf-body { font-family: var(--font-body); font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.85; }
+</style>

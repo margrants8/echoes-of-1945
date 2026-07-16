@@ -7,7 +7,24 @@ nationality: 美国
 role: 盟军最高统帅，美国第34任总统
 side: allies
 tags: [盟军, 美国, 统帅, 诺曼底]
-relatedEvents: [1944-normandy-landing]
+relatedEvents: [zh/1944-normandy-landing]
+verificationStatus: verified
+lastReviewed: "2026-07-15"
+sources:
+  - title: "Eisenhower: Soldier and President"
+    author: Stephen E. Ambrose
+    publisher: Simon & Schuster
+    year: 1990
+    type: book
+  - title: "远征欧陆（Crusade in Europe）"
+    author: Dwight D. Eisenhower
+    publisher: Doubleday
+    year: 1948
+    type: book
+  - title: "Dwight D. Eisenhower | Biography, Cold War, Presidency, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/biography/Dwight-D-Eisenhower
+    type: website
 ---
 
 德怀特·艾森豪威尔，绰号"艾克"（Ike），是二战盟军欧洲战区最高统帅。

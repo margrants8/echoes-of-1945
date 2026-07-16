@@ -1,20 +1,33 @@
 ---
+import type { Lang } from '../../i18n';
+import { useTranslations } from '../../i18n';
+
 interface Source {
   title: string;
   url?: string;
   author?: string;
+  publisher?: string;
+  year?: number;
+  page?: string;
+  type?: string;
 }
 
 interface Props {
   sources: Source[];
+  lang?: Lang;
 }
 
-const { sources } = Astro.props;
+const { sources, lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+
+function meta(s: Source): string {
+  return [s.publisher, s.year, s.page].filter(Boolean).join(', ');
+}
 ---
 
 {sources.length > 0 && (
   <aside class="source-citation">
-    <h4 class="source-citation__title">参考来源</h4>
+    <h4 class="source-citation__title">{t.ui.source}</h4>
     <ol class="source-citation__list">
       {sources.map(s => (
         <li>
@@ -23,6 +36,7 @@ const { sources } = Astro.props;
             ? <a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}</a>
             : <span>{s.title}</span>
           }
+          {meta(s) && <span class="source-meta"> — {meta(s)}</span>}
         </li>
       ))}
     </ol>
@@ -61,5 +75,10 @@ const { sources } = Astro.props;
 
 .source-author {
   font-style: italic;
+}
+
+.source-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
 }
 </style>

@@ -7,6 +7,10 @@ sources:
   - title: 《联合国宪章》
     url: https://www.un.org/zh/charter-united-nations/
   - title: 联合国官方史
+  - title: "The Formation of the United Nations, 1945"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/un
+    type: website
 ---
 
 1945年10月24日，《联合国宪章》正式生效，联合国宣告成立。这一天后来被定为"联合国日"。

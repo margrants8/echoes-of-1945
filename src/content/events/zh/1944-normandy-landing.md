@@ -17,6 +17,10 @@ sources:
     author: Max Hastings
   - title: "The Longest Day"
     author: Cornelius Ryan
+  - title: "Normandy Invasion | Definition, Beaches, Map, Photos, Casualties, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Normandy-Invasion
+    type: website
 ---
 
 1944年6月6日凌晨，盟军发动代号"霸王行动"（Operation Overlord）的诺曼底登陆战役，这是人类历史上规模最大的两栖登陆作战。

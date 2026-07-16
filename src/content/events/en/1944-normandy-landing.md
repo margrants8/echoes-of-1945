@@ -17,6 +17,10 @@ sources:
     author: Max Hastings
   - title: "The Longest Day"
     author: Cornelius Ryan
+  - title: "Normandy Invasion | Definition, Beaches, Map, Photos, Casualties, & Facts"
+    publisher: Encyclopaedia Britannica
+    url: https://www.britannica.com/event/Normandy-Invasion
+    type: website
 ---
 
 On June 6, 1944, the Allied forces launched Operation Overlord — the Normandy landings — the largest amphibious assault in human history.

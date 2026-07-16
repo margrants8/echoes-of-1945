@@ -1,0 +1,28 @@
+---
+title: 布雷顿森林会议与布雷顿森林体系
+date: "1944-07-22"
+category: institution
+tags: [布雷顿森林, 国际货币基金组织, 世界银行, 国际货币体系]
+verificationStatus: verified
+lastReviewed: "2026-07-15"
+sources:
+  - title: 《国际货币基金组织协定》
+    publisher: 国际货币基金组织
+    year: 1944
+    type: document
+  - title: The Battle of Bretton Woods
+    author: Benn Steil
+    publisher: 普林斯顿大学出版社
+    year: 2013
+    type: book
+  - title: "Bretton Woods-GATT, 1941-1947"
+    publisher: U.S. Dept. of State, Office of the Historian
+    url: https://history.state.gov/milestones/1937-1945/bretton-woods
+    type: website
+---
+
+联合国货币金融会议，通称"布雷顿森林会议"，于1944年7月1日至22日在美国新罕布什尔州的布雷顿森林召开，44个盟国的代表出席。会议在战争仍在进行之际举行，代表们力图设计一套稳定的国际经济秩序，以避免被认为导致两次大战之间经济灾难的竞争性货币贬值与贸易壁垒。
+
+会议达成协议，创建了两个延续至今的机构：国际货币基金组织，负责监督汇率稳定并向面临国际收支困难的国家提供短期支持；以及国际复兴开发银行，即后来世界银行集团的核心，负责为战后重建与发展提供融资。谈判主要由英国经济学家约翰·梅纳德·凯恩斯与美国的哈里·德克斯特·怀特主导。
+
+由此形成的布雷顿森林体系将参与国货币与美元挂钩，而美元又按固定价格可兑换黄金。这一框架支撑了战后数十年国际贸易与金融的扩张，直至美国于1971年终止美元与黄金的兑换。国际货币基金组织与世界银行至今仍是全球经济的核心机构。

@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import Header from '../../../components/layout/Header.astro';
+import Footer from '../../../components/layout/Footer.astro';
+import SourceCitation from '../../../components/shared/SourceCitation.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations } from '../../../i18n';
+
+const lang = 'zh';
+const t = useTranslations(lang);
+
+const rows = (await getCollection('casualties')).sort((a, b) => b.data.total - a.data.total);
+const max = Math.max(...rows.map(r => r.data.total), 1);
+const sideColor: Record<string, string> = {
+  allies: '#4a6670',
+  axis: 'var(--color-accent)',
+  neutral: 'var(--color-not-executed)',
+};
+const fmt = (n: number) => n.toLocaleString('en-US');
+const allSources = rows.map(r => r.data.source);
+---
+
+<BaseLayout title={t.stats.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/stats/" />
+  <div class="container-wide page-content">
+    <div class="page-intro">
+      <h1 class="page-title">{t.stats.pageTitle}</h1>
+      <p class="page-desc">{t.stats.pageDesc}</p>
+      <div class="legend">
+        <span class="legend-item"><span class="swatch" style={`background:${sideColor.allies}`}></span>{t.stats.side.allies}</span>
+        <span class="legend-item"><span class="swatch" style={`background:${sideColor.axis}`}></span>{t.stats.side.axis}</span>
+        <span class="legend-item"><span class="swatch" style={`background:${sideColor.neutral}`}></span>{t.stats.side.neutral}</span>
+      </div>
+    </div>
+
+    <div class="chart">
+      {rows.map(r => (
+        <div class="bar-row">
+          <div class="bar-label">{r.data.name[lang]}</div>
+          <div class="bar-track">
+            <div class="bar-fill" style={`width:${(r.data.total / max) * 100}%;background:${sideColor[r.data.side]}`}></div>
+          </div>
+          <div class="bar-value">{fmt(r.data.total)}</div>
+        </div>
+      ))}
+    </div>
+
+    <table class="detail-table">
+      <thead>
+        <tr>
+          <th>{t.people.nationality}</th>
+          <th class="num">{t.stats.military}</th>
+          <th class="num">{t.stats.civilian}</th>
+          <th class="num">{t.stats.total}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(r => (
+          <tr>
+            <td>{r.data.name[lang]}</td>
+            <td class="num">{r.data.military != null ? fmt(r.data.military) : '—'}</td>
+            <td class="num">{r.data.civilian != null ? fmt(r.data.civilian) : '—'}</td>
+            <td class="num strong">{fmt(r.data.total)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <SourceCitation sources={allSources} lang={lang} />
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); }
+.page-intro { max-width: 760px; margin-bottom: var(--space-6); }
+.page-title { margin-bottom: var(--space-3); }
+.page-desc { color: var(--color-text-muted); line-height: 1.75; margin-bottom: var(--space-3); }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.legend-item { font-family: var(--font-mono); font-size: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.swatch { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+.chart { margin-bottom: var(--space-8); }
+.bar-row { display: grid; grid-template-columns: 130px 1fr 90px; align-items: center; gap: var(--space-2); margin-bottom: var(--space-1); }
+.bar-label { font-size: 0.85rem; font-weight: 600; text-align: right; }
+.bar-track { background: var(--color-bg-elevated); border: 1px solid var(--color-border); border-radius: 2px; height: 20px; overflow: hidden; }
+.bar-fill { height: 100%; transition: width 0.6s ease; }
+.bar-value { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-text-muted); }
+.detail-table { width: 100%; border-collapse: collapse; margin-bottom: var(--space-6); font-size: 0.9rem; }
+.detail-table th, .detail-table td { padding: var(--space-2); border-bottom: 1px solid var(--color-border); text-align: left; }
+.detail-table th { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); }
+.detail-table .num { text-align: right; font-family: var(--font-mono); }
+.detail-table .strong { font-weight: 700; color: var(--color-accent); }
+@media (max-width: 600px) {
+  .bar-row { grid-template-columns: 90px 1fr 70px; }
+  .bar-label { font-size: 0.75rem; }
+}
+</style>

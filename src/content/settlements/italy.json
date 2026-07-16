@@ -1,7 +1,10 @@
 {
   "country": "italy",
-  "displayName": "意大利",
-  "treaty": "巴黎和约（1947）",
+  "displayName": { "en": "Italy", "zh": "意大利" },
+  "treaty": {
+    "en": "Paris Peace Treaty (1947)",
+    "zh": "巴黎和约（1947）"
+  },
   "occupationEnd": "1947",
   "sovereigntyRestored": "1947",
   "overallCompliance": 0.72,
@@ -9,35 +12,55 @@
     {
       "id": "territorial-istria",
       "category": "territorial",
-      "label": "伊斯特拉半岛割让",
+      "label": { "en": "Cession of Istria", "zh": "伊斯特拉半岛割让" },
       "status": "executed",
       "executedYear": 1947,
       "reversedAt": null,
       "disputed": false,
       "complianceScore": 1.0,
-      "note": "伊斯特拉半岛大部划归南斯拉夫（今克罗地亚/斯洛文尼亚），里雅斯特自由区1954年分治"
+      "note": {
+        "en": "Most of the Istrian peninsula passed to Yugoslavia (today Croatia and Slovenia). The Free Territory of Trieste was partitioned between Italy and Yugoslavia in 1954 under the London Memorandum.",
+        "zh": "伊斯特拉半岛大部划归南斯拉夫（今克罗地亚与斯洛文尼亚）。的里雅斯特自由区于1954年依据《伦敦备忘录》由意大利与南斯拉夫分治。"
+      },
+      "sources": [
+        { "title": "Paris Peace Treaty with Italy (1947)", "type": "document" },
+        { "title": "Memorandum of Understanding on the Free Territory of Trieste (London, 1954)", "type": "document" }
+      ]
     },
     {
       "id": "military-limits",
       "category": "military",
-      "label": "军事力量限制",
+      "label": { "en": "Limits on armed forces", "zh": "军事力量限制" },
       "status": "partial",
       "executedYear": 1947,
       "reversedAt": 1949,
       "disputed": false,
       "complianceScore": 0.5,
-      "note": "巴黎和约限制意大利陆海空军规模，但1949年加入NATO后限制实际松动"
+      "note": {
+        "en": "The Paris treaty capped the size of Italy's army, navy, and air force, but the limits were effectively loosened after Italy joined NATO in 1949.",
+        "zh": "《巴黎和约》限制意大利陆、海、空军规模，但意大利于1949年加入北约后，限制实际松动。"
+      },
+      "sources": [
+        { "title": "Paris Peace Treaty with Italy, Military Clauses (1947)", "type": "document" },
+        { "title": "North Atlantic Treaty, founding membership (1949)", "type": "document" }
+      ]
     },
     {
       "id": "reparations-yugoslavia",
       "category": "reparations",
-      "label": "对南斯拉夫等国赔偿",
+      "label": { "en": "Reparations to Yugoslavia and others", "zh": "对南斯拉夫等国赔偿" },
       "status": "executed",
       "executedYear": 1954,
       "reversedAt": null,
       "disputed": false,
       "complianceScore": 0.8,
-      "note": "意大利向苏联、南斯拉夫、希腊、埃塞俄比亚等国共支付约3.6亿美元赔偿，总体执行完毕"
+      "note": {
+        "en": "Under the Paris treaty Italy owed reparations to the USSR, Yugoslavia, Greece, Ethiopia, and Albania totalling about 360 million US dollars, which were largely paid.",
+        "zh": "依据《巴黎和约》，意大利须向苏联、南斯拉夫、希腊、埃塞俄比亚、阿尔巴尼亚等国支付约3.6亿美元赔偿，总体执行完毕。"
+      },
+      "sources": [
+        { "title": "Paris Peace Treaty with Italy, Reparations Clauses (Article 74), 1947", "type": "document" }
+      ]
     }
   ]
 }
