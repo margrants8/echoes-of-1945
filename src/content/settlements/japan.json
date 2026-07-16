@@ -8,6 +8,60 @@
   "occupationEnd": "1952",
   "sovereigntyRestored": "1952",
   "overallCompliance": 0.65,
+  "scorecard": {
+    "execution": {
+      "score": 0.65,
+      "verdict": { "en": "Treaty terms met; regional claims unresolved", "zh": "条约条款履行，区域争议未决" },
+      "note": {
+        "en": "Japan implemented the San Francisco Treaty and concluded reparations and economic-cooperation agreements with several states, but reparations and historical-justice disputes with China, the Koreas and others remain contested to this day.",
+        "zh": "日本履行了《旧金山和约》并与多国签订赔偿与经济合作协议，但与中国、朝鲜半岛等国的赔偿与历史正义争议至今存在。"
+      },
+      "disputed": false,
+      "sources": [
+        { "title": "Treaty of San Francisco (1951)", "type": "document" },
+        { "title": "Treaty on Basic Relations between Japan and the Republic of Korea (1965)", "type": "document" }
+      ]
+    },
+    "military": {
+      "score": 0.5,
+      "verdict": { "en": "Pacifist clause eroding in practice", "zh": "和平条款在实践中弱化" },
+      "note": {
+        "en": "Article 9 renounces war, but the Self-Defense Forces expanded steadily, a 2015 reinterpretation permitted collective self-defence, and the December 2022 National Security Strategy adopted 'counterstrike' capability and pledged to raise defence spending toward 2% of GDP by 2027. Whether this remains 'exclusively defensive' is contested at home and abroad.",
+        "zh": "宪法第九条放弃战争权，但自卫队持续扩编，2015年重新解释解禁集体自卫权，2022年12月《国家安全保障战略》引入'反击能力'并承诺到2027年将军费提升至GDP的2%。其是否仍属'专守防卫'在国内外均有争议。"
+      },
+      "disputed": true,
+      "sources": [
+        { "title": "Constitution of Japan, Article 9 (1947)", "type": "document" },
+        { "title": "National Security Strategy of Japan (December 2022)", "type": "document" }
+      ]
+    },
+    "apology": {
+      "score": 0.4,
+      "verdict": { "en": "Apologies issued, then blunted by revisionism", "zh": "曾道歉，却被修正主义反复冲淡" },
+      "note": {
+        "en": "The 1993 Kono and 1995 Murayama statements expressed apology and remorse, but official Yasukuni Shrine visits, textbook revisions and recurring disputes over the 'comfort women' and forced labour with China and Korea have repeatedly undercut them. The reckoning is widely seen as incomplete and politically contested.",
+        "zh": "1993年河野谈话与1995年村山谈话表达了道歉与反省，但官方参拜靖国神社、修改教科书，以及与中韩围绕'慰安妇'和强征劳工的反复争议一再削弱其效果。外界普遍认为清算不彻底且充满政治争议。"
+      },
+      "disputed": true,
+      "sources": [
+        { "title": "Statement by Prime Minister Tomiichi Murayama on the 50th anniversary of the war's end (15 August 1995)", "url": "https://www.mofa.go.jp/announce/press/pm/murayama/9508.html", "type": "document" },
+        { "title": "Statement by Chief Cabinet Secretary Yohei Kono on the 'comfort women' (1993)", "type": "document" }
+      ]
+    },
+    "warmongering": {
+      "score": 0.6,
+      "verdict": { "en": "No aggression, but rapid rearmament", "zh": "无侵略行为，但加速重整军备" },
+      "note": {
+        "en": "Japan retains its pacifist constitution and has not used force abroad since 1945, but its post-2022 defence build-up and counterstrike acquisitions, amid regional tensions with China and North Korea, draw domestic and neighbouring concern about the erosion of its 'exclusively defensive' posture.",
+        "zh": "日本保留和平宪法，1945年以来未在海外动武；但2022年后的军力扩张与'反击能力'采购，加之与中国、朝鲜的区域紧张，引发国内与周边对其'专守防卫'姿态被侵蚀的担忧。"
+      },
+      "disputed": true,
+      "sources": [
+        { "title": "Constitution of Japan, Article 9 (1947)", "type": "document" },
+        { "title": "National Security Strategy of Japan (December 2022)", "type": "document" }
+      ]
+    }
+  },
   "clauses": [
     {
       "id": "territorial-okinawa",

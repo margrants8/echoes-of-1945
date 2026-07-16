@@ -18,6 +18,12 @@ export const translations = {
       tagline: '1939 — 1955',
       subtitle: 'WWII Memorial · Post-War Reconstruction · Open Collaboration',
     },
+    home: {
+      heroSubtitle:
+        'Eighty years on — how have the defeated Axis nations reckoned with their wartime past? The scoreboard, ranked.',
+      seeScoreboard: 'See the Scoreboard',
+      viewCountryDetail: "View Each Nation's Full Record",
+    },
     events: {
       pageTitle: 'Battles & Events',
       theater: {
@@ -79,6 +85,23 @@ export const translations = {
         judicial: 'Judicial',
       },
       incomplete: 'Pending',
+      reckoning: {
+        heading: 'Post-War Reckoning Scoreboard',
+        desc: 'A present-day comparison of how each defeated Axis nation has reckoned with its wartime past — ranked best to worst. A higher score means a fuller reckoning: obligations met, a military kept peaceful and constrained, and a genuine apology. Every rating is sourced; contested judgements are flagged.',
+        country: 'Nation',
+        overall: 'Overall',
+        dimension: {
+          execution: 'Treaty Execution',
+          military: 'Military Restraint',
+          apology: 'Apology & Repentance',
+          warmongering: 'Peace Commitment',
+        },
+        scale: {
+          good: 'Reckoned / Peaceful',
+          mixed: 'Mixed',
+          concerning: 'Concerning',
+        },
+      },
     },
     conferences: {
       pageTitle: 'Allied Conferences & Diplomacy',
@@ -171,6 +194,11 @@ export const translations = {
       tagline: '1939 — 1955',
       subtitle: '二战历史纪念 · 战后秩序重建 · 开源协作内容',
     },
+    home: {
+      heroSubtitle: '战后八十年——战败的轴心国对那段历史清算得如何？一张记分板，一目排名。',
+      seeScoreboard: '查看清算记分板',
+      viewCountryDetail: '查看每国逐条档案',
+    },
     events: {
       pageTitle: '战役与事件',
       theater: {
@@ -232,6 +260,23 @@ export const translations = {
         judicial: '司法清算',
       },
       incomplete: '未完成',
+      reckoning: {
+        heading: '战后清算对比总览',
+        desc: '以当代视角对比各战败轴心国对其战争历史的清算程度，由高到低排序。分数越高代表清算越彻底：义务已履行、军队保持和平克制、道歉真诚。所有评分均附来源，存在争议的判断已标注。',
+        country: '国家',
+        overall: '综合',
+        dimension: {
+          execution: '条约执行',
+          military: '军事克制',
+          apology: '道歉与悔改',
+          warmongering: '和平承诺',
+        },
+        scale: {
+          good: '已清算 / 和平',
+          mixed: '参差',
+          concerning: '值得警惕',
+        },
+      },
     },
     conferences: {
       pageTitle: '盟国会议与外交',

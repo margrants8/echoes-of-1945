@@ -8,6 +8,59 @@
   "occupationEnd": "1947",
   "sovereigntyRestored": "1947",
   "overallCompliance": 0.72,
+  "scorecard": {
+    "execution": {
+      "score": 0.72,
+      "verdict": { "en": "Peace-treaty terms largely fulfilled", "zh": "和约条款基本履行" },
+      "note": {
+        "en": "Italy carried out the territorial, reparations and disarmament terms of the 1947 Treaty of Peace — ceding territory and losing its colonies — and rejoined the Western community as a founding member of NATO and the European Economic Community.",
+        "zh": "意大利执行了1947年《对意和约》的领土、赔偿与裁军条款——割让领土并丧失殖民地——并作为北约与欧洲经济共同体创始成员重返西方阵营。"
+      },
+      "disputed": false,
+      "sources": [
+        { "title": "Treaty of Peace with Italy (Paris, 1947)", "type": "document" }
+      ]
+    },
+    "military": {
+      "score": 0.85,
+      "verdict": { "en": "Democratic, alliance-constrained forces", "zh": "民主国家，受联盟约束的军队" },
+      "note": {
+        "en": "Article 11 of the 1948 Constitution repudiates war as an instrument of aggression. Italy has been a founding NATO member since 1949, and its armed forces operate within NATO and EU frameworks with no territorial claims.",
+        "zh": "1948年宪法第十一条否弃以战争作为侵略工具。意大利自1949年即为北约创始成员，其武装部队在北约与欧盟框架内运作，且无领土主张。"
+      },
+      "disputed": false,
+      "sources": [
+        { "title": "Constitution of the Italian Republic, Article 11 (1948)", "type": "document" },
+        { "title": "NATO — Italy country profile", "type": "website" }
+      ]
+    },
+    "apology": {
+      "score": 0.55,
+      "verdict": { "en": "Reckoning blunted by the 'good Italian' myth", "zh": "清算受'善良意大利人'神话钝化" },
+      "note": {
+        "en": "Italy held no Nuremberg-style national tribunal, and the postwar 'italiani brava gente' (good Italians) myth long minimised Fascist Italy's role in aggression, colonial atrocities and the Holocaust. Historians such as Filippo Focardi date serious public deconstruction of the myth only to the 2000s, and the memory remains contested.",
+        "zh": "意大利未设立纽伦堡式的国家审判，战后'善良意大利人'（italiani brava gente）神话长期淡化法西斯意大利在侵略、殖民暴行与大屠杀中的角色。历史学家福卡尔迪（Filippo Focardi）等指出，对该神话的严肃公共解构迟至2000年代才开始，相关记忆至今存在争议。"
+      },
+      "disputed": true,
+      "sources": [
+        { "title": "Filippo Focardi, 'Il cattivo tedesco e il bravo italiano' (2013)", "type": "book" },
+        { "title": "'Italiani brava gente' — historiography of Italian war memory", "type": "article" }
+      ]
+    },
+    "warmongering": {
+      "score": 0.85,
+      "verdict": { "en": "No aggressive intent; firmly Euro-Atlantic", "zh": "无侵略意图，稳固的欧洲-大西洋阵营" },
+      "note": {
+        "en": "Italy holds no territorial claims against its neighbours and its constitution repudiates aggressive war. Deeply embedded in the EU and NATO, it shows no measurable signs of renewed militarism.",
+        "zh": "意大利对邻国无领土主张，宪法否弃侵略战争。其深度嵌入欧盟与北约，无可测的军国主义复苏迹象。"
+      },
+      "disputed": false,
+      "sources": [
+        { "title": "Constitution of the Italian Republic, Article 11 (1948)", "type": "document" },
+        { "title": "NATO — Italy country profile", "type": "website" }
+      ]
+    }
+  },
   "clauses": [
     {
       "id": "territorial-istria",

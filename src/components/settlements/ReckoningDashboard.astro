@@ -1,0 +1,217 @@
+---
+import type { SettlementData, Source } from '../../utils/settlements';
+import {
+  SCORECARD_DIMENSIONS,
+  compliancePercent,
+  pick,
+  reckoningScore,
+  scoreBand,
+} from '../../utils/settlements';
+import type { Lang } from '../../i18n';
+import { useTranslations } from '../../i18n';
+import SourceCitation from '../shared/SourceCitation.astro';
+
+interface Props {
+  countries: { id: string; data: SettlementData }[];
+  lang: Lang;
+  /** Render the aggregated source list beneath the board. Off on the homepage,
+   *  where the full citations live on the linked /settlements/ page. */
+  showSources?: boolean;
+}
+
+const { countries, lang, showSources = true } = Astro.props;
+const t = useTranslations(lang);
+
+// Rank best → worst by the mean of the four dimension scores. Sort is stable in
+// modern V8, but tie-break on country name for fully deterministic output.
+const ranked = countries
+  .map(({ id, data }) => ({ id, data, overall: reckoningScore(data.scorecard) }))
+  .sort((a, b) => b.overall - a.overall || a.data.country.localeCompare(b.data.country));
+
+// Aggregate every dimension's sources once, de-duplicated by title, so the board
+// visibly cites its claims (matching the site-wide "every claim is sourced" rule).
+const seen = new Set<string>();
+const allSources: Source[] = [];
+for (const { data } of ranked) {
+  for (const dim of SCORECARD_DIMENSIONS) {
+    for (const s of data.scorecard[dim].sources ?? []) {
+      if (seen.has(s.title)) continue;
+      seen.add(s.title);
+      allSources.push(s);
+    }
+  }
+}
+---
+
+<section class="reckoning" aria-labelledby="reckoning-heading">
+  <div class="reckoning__head">
+    <h2 id="reckoning-heading" class="reckoning__title">{t.settlements.reckoning.heading}</h2>
+    <p class="reckoning__desc">{t.settlements.reckoning.desc}</p>
+    <div class="reckoning__legend">
+      <span class="rk-legend" data-band="good">{t.settlements.reckoning.scale.good}</span>
+      <span class="rk-legend" data-band="mixed">{t.settlements.reckoning.scale.mixed}</span>
+      <span class="rk-legend" data-band="concerning">{t.settlements.reckoning.scale.concerning}</span>
+    </div>
+  </div>
+
+  <div class="reckoning__grid" role="table" aria-label={t.settlements.reckoning.heading}>
+    <div class="rk-row rk-row--head" role="row">
+      <span class="rk-th rk-th--country" role="columnheader">{t.settlements.reckoning.country}</span>
+      {SCORECARD_DIMENSIONS.map((d) => (
+        <span class="rk-th" role="columnheader">{t.settlements.reckoning.dimension[d]}</span>
+      ))}
+      <span class="rk-th rk-th--overall" role="columnheader">{t.settlements.reckoning.overall}</span>
+    </div>
+
+    {ranked.map(({ id, data, overall }, i) => (
+      <div class="rk-row" role="row">
+        <span class="rk-country" role="rowheader">
+          <span class="rk-rank">{i + 1}</span>
+          <span class="rk-country__name">{pick(data.displayName, lang)}</span>
+        </span>
+
+        {SCORECARD_DIMENSIONS.map((d) => {
+          const entry = data.scorecard[d];
+          return (
+            <span class="rk-cell" role="cell" data-band={scoreBand(entry.score)}>
+              <span class="rk-cell__label" aria-hidden="true">{t.settlements.reckoning.dimension[d]}</span>
+              <span class="rk-meter"><span class="rk-fill" style={`width:${entry.score * 100}%`}></span></span>
+              <span class="rk-cell__foot">
+                <span class="rk-num">{compliancePercent(entry.score)}</span>
+                <span class="rk-verdict">
+                  {entry.disputed && <span class="rk-warn" title={t.settlements.status.disputed}>⚠</span>}
+                  {pick(entry.verdict, lang)}
+                </span>
+              </span>
+            </span>
+          );
+        })}
+
+        <span class="rk-cell rk-cell--overall" role="cell" data-band={scoreBand(overall)}>
+          <span class="rk-cell__label" aria-hidden="true">{t.settlements.reckoning.overall}</span>
+          <span class="rk-meter"><span class="rk-fill" style={`width:${overall * 100}%`}></span></span>
+          <span class="rk-cell__foot">
+            <span class="rk-num rk-num--strong">{compliancePercent(overall)}</span>
+          </span>
+        </span>
+      </div>
+    ))}
+  </div>
+
+  {showSources && <SourceCitation sources={allSources} lang={lang} />}
+</section>
+
+<style>
+.reckoning {
+  /* No green token exists in global.css; scope a muted, dark-mode-safe one here.
+     Mixed / concerning reuse existing tokens so the palette stays on-brand. */
+  --band-good: #3e6b4a;
+  --band-mixed: var(--color-partial);
+  --band-concerning: var(--color-disputed);
+  margin-bottom: var(--space-8);
+}
+
+.reckoning__head { max-width: 820px; margin-bottom: var(--space-4); }
+.reckoning__title { font-size: 1.4rem; margin-bottom: var(--space-2); }
+.reckoning__desc { color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-3); }
+
+.reckoning__legend { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.rk-legend {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--color-text-muted);
+}
+.rk-legend::before { content: ''; width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+.rk-legend[data-band='good']::before { background: var(--band-good); }
+.rk-legend[data-band='mixed']::before { background: var(--band-mixed); }
+.rk-legend[data-band='concerning']::before { background: var(--band-concerning); }
+
+.reckoning__grid {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--color-bg-elevated);
+}
+
+/* Shared column geometry for header + data rows. */
+.rk-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 1.1fr) repeat(4, 1fr) 0.9fr;
+  gap: var(--space-3);
+  align-items: stretch;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.rk-row:last-child { border-bottom: none; }
+.rk-row--head { background: var(--color-bg); }
+
+.rk-th {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  align-self: center;
+}
+.rk-th--overall { font-weight: 700; color: var(--color-accent); }
+
+.rk-country { display: flex; align-items: center; gap: var(--space-2); align-self: center; }
+.rk-rank {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-bg-elevated);
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+.rk-country__name { font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem; }
+
+.rk-cell { display: flex; flex-direction: column; gap: 0.35rem; justify-content: flex-start; }
+.rk-cell__label { display: none; } /* desktop: header row supplies labels */
+
+.rk-meter {
+  height: 8px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.rk-fill { display: block; height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.rk-cell[data-band='good'] .rk-fill { background: var(--band-good); }
+.rk-cell[data-band='mixed'] .rk-fill { background: var(--band-mixed); }
+.rk-cell[data-band='concerning'] .rk-fill { background: var(--band-concerning); }
+
+.rk-cell__foot { display: flex; flex-direction: column; gap: 0.15rem; }
+.rk-num { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; }
+.rk-num--strong { font-size: 1.05rem; font-weight: 700; color: var(--color-accent); }
+.rk-verdict { font-size: 0.72rem; line-height: 1.35; color: var(--color-text-muted); }
+.rk-warn { color: var(--color-disputed); margin-right: 0.25em; }
+
+/* Collapse the matrix into stacked per-country cards on narrow screens. */
+@media (max-width: 720px) {
+  .rk-row--head { display: none; }
+  .rk-row {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+  .rk-country { grid-column: 1 / -1; padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+  .rk-cell--overall { grid-column: 1 / -1; }
+  .rk-cell__label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+}
+</style>
