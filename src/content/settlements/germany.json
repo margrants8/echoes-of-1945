@@ -8,6 +8,61 @@
   "occupationEnd": "1955",
   "sovereigntyRestored": "1990",
   "overallCompliance": 0.78,
+  "scorecard": {
+    "execution": {
+      "score": 0.78,
+      "verdict": { "en": "Obligations substantially met", "zh": "义务基本履行" },
+      "note": {
+        "en": "Territorial and reparations terms were largely carried out and the eastern border was finally settled by the 1990 Two-plus-Four Treaty; the main unresolved item is the disputed Polish reparations claim.",
+        "zh": "领土与赔偿条款基本落实，东部边界经1990年《对德最终解决条约》最终确定；主要未决事项为与波兰的赔偿争议。"
+      },
+      "disputed": false,
+      "sources": [
+        { "title": "Treaty on the Final Settlement with Respect to Germany (Two-plus-Four Treaty), 1990", "type": "document" },
+        { "title": "Potsdam Agreement (1945)", "type": "document" }
+      ]
+    },
+    "military": {
+      "score": 0.8,
+      "verdict": { "en": "Rearmed, but bound within NATO / EU", "zh": "重新武装，但受北约 / 欧盟约束" },
+      "note": {
+        "en": "West Germany renounced nuclear, biological and chemical weapons under the 1954 Paris Agreements — a restriction still in force. After Russia's 2022 invasion of Ukraine the 'Zeitenwende' launched a EUR 100 billion fund and Germany met NATO's 2% spending target in 2024, but its forces remain embedded in NATO / EU collective defence with no territorial claims.",
+        "zh": "西德依据1954年《巴黎协定》放弃核生化武器，该限制至今有效。2022年俄乌战争后，'时代转折'（Zeitenwende）设立1000亿欧元基金，德国于2024年达到北约2%军费目标，但其军队始终嵌入北约 / 欧盟集体防御，且无领土主张。"
+      },
+      "disputed": false,
+      "sources": [
+        { "title": "Protocol No. III on the Control of Armaments (Western European Union, 1954)", "type": "document" },
+        { "title": "NATO — Defence Expenditure of NATO Countries (2014–2024)", "type": "website" },
+        { "title": "SIPRI Military Expenditure Database — Germany", "type": "document" }
+      ]
+    },
+    "apology": {
+      "score": 0.95,
+      "verdict": { "en": "Sustained, institutionalised reckoning", "zh": "持续且制度化的清算" },
+      "note": {
+        "en": "Germany's 'Vergangenheitsbewältigung' (working off the past) is widely regarded as a model: Chancellor Brandt's 1970 Warsaw genuflection, the central Holocaust memorial in Berlin, compulsory history education, and continuing reparations and remembrance are entrenched as state policy.",
+        "zh": "德国的'历史清算'（Vergangenheitsbewältigung）被广泛视为典范：勃兰特1970年华沙之跪、柏林大屠杀纪念碑、强制历史教育，以及持续的赔偿与纪念均已确立为国家政策。"
+      },
+      "disputed": false,
+      "sources": [
+        { "title": "Vergangenheitsbewältigung — historiographical overview", "type": "website" },
+        { "title": "Luxembourg Agreement (Reparations Agreement between Israel and West Germany), 1952", "type": "document" }
+      ]
+    },
+    "warmongering": {
+      "score": 0.9,
+      "verdict": { "en": "Strong peace commitment; no aggressive intent", "zh": "和平承诺牢固，无侵略迹象" },
+      "note": {
+        "en": "Germany holds no territorial claims against its neighbours and is bound by constitution and treaty within the EU and NATO. Its post-2022 defence increases are framed as collective deterrence rather than power projection.",
+        "zh": "德国对邻国无领土主张，并在宪法与条约上受欧盟和北约约束。2022年后的国防增长被定位为集体威慑，而非力量投射。"
+      },
+      "disputed": false,
+      "sources": [
+        { "title": "Treaty on the Final Settlement with Respect to Germany, 1990", "type": "document" },
+        { "title": "NATO — Germany country profile", "type": "website" }
+      ]
+    }
+  },
   "clauses": [
     {
       "id": "territorial-east-prussia",

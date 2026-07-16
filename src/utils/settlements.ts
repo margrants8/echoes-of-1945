@@ -36,6 +36,31 @@ export interface Clause {
   sources?: Source[];
 }
 
+/**
+ * Fixed order of the post-war reckoning scorecard dimensions. Also used as the
+ * i18n lookup keys (`t.settlements.reckoning.dimension[key]`) and as the column
+ * order in the comparison dashboard, so the order here is significant.
+ */
+export const SCORECARD_DIMENSIONS = ['execution', 'military', 'apology', 'warmongering'] as const;
+export type ScorecardDimension = (typeof SCORECARD_DIMENSIONS)[number];
+
+/**
+ * One assessed dimension of a defeated nation's post-war reckoning.
+ * All scores are directionally consistent: 1 = best behaved. Note that
+ * `warmongering` is scored as a *peace commitment* (1 = no aggressive signs,
+ * strong peace commitment; 0 = active warmongering) so the four dimensions can
+ * be averaged into a single "who reckoned best" ranking.
+ */
+export interface ScorecardEntry {
+  score: number; // 0..1, higher = more fully reckoned / more peaceful & constrained
+  verdict: LocalizedText; // one-line summary shown in the dashboard cell
+  note: LocalizedText; // longer, sourced explanation
+  disputed?: boolean;
+  sources?: Source[];
+}
+
+export type Scorecard = Record<ScorecardDimension, ScorecardEntry>;
+
 export interface SettlementData {
   country: string;
   displayName: LocalizedText;
@@ -43,6 +68,7 @@ export interface SettlementData {
   occupationEnd: string;
   sovereigntyRestored: string;
   overallCompliance: number;
+  scorecard: Scorecard;
   clauses: Clause[];
 }
 
@@ -55,6 +81,22 @@ export const statusColor: Record<ClauseStatus, string> = {
 
 export function compliancePercent(score: number): string {
   return `${Math.round(score * 100)}%`;
+}
+
+/** Mean of the four dimension scores (0-1). All dimensions are equally weighted. */
+export function reckoningScore(card: Scorecard): number {
+  const values = SCORECARD_DIMENSIONS.map((d) => card[d].score);
+  return values.reduce((a, b) => a + b, 0) / values.length;
+}
+
+/** Goodness band driving the green→amber→red scale in the dashboard. */
+export type ScoreBand = 'good' | 'mixed' | 'concerning';
+
+/** Thresholds are UI banding only (they never alter stored scores). */
+export function scoreBand(score: number): ScoreBand {
+  if (score >= 0.7) return 'good';
+  if (score >= 0.4) return 'mixed';
+  return 'concerning';
 }
 
 export function groupByCategory(clauses: Clause[]): Record<string, Clause[]> {
