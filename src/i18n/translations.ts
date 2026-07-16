@@ -18,6 +18,12 @@ export const translations = {
       tagline: '1939 — 1955',
       subtitle: 'WWII Memorial · Post-War Reconstruction · Open Collaboration',
     },
+    home: {
+      heroSubtitle:
+        'Eighty years on — how have the defeated Axis nations reckoned with their wartime past? The scoreboard, ranked.',
+      seeScoreboard: 'See the Scoreboard',
+      viewCountryDetail: "View Each Nation's Full Record",
+    },
     events: {
       pageTitle: 'Battles & Events',
       theater: {
@@ -187,6 +193,11 @@ export const translations = {
       description: '二战纪念与战后秩序展示站点',
       tagline: '1939 — 1955',
       subtitle: '二战历史纪念 · 战后秩序重建 · 开源协作内容',
+    },
+    home: {
+      heroSubtitle: '战后八十年——战败的轴心国对那段历史清算得如何？一张记分板，一目排名。',
+      seeScoreboard: '查看清算记分板',
+      viewCountryDetail: '查看每国逐条档案',
     },
     events: {
       pageTitle: '战役与事件',

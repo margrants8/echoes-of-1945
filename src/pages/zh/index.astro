@@ -2,12 +2,24 @@
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
+import ReckoningDashboard from '../../components/settlements/ReckoningDashboard.astro';
+import type { SettlementData } from '../../utils/settlements';
 import { getCollection } from 'astro:content';
 import { useTranslations, localePath } from '../../i18n';
+
+import germanyData from '../../content/settlements/germany.json';
+import japanData from '../../content/settlements/japan.json';
+import italyData from '../../content/settlements/italy.json';
 
 const lang = 'zh';
 const t = useTranslations(lang);
 const p = (path: string) => localePath(path, lang);
+
+const countries = [
+  { id: 'germany', data: germanyData as SettlementData },
+  { id: 'japan',   data: japanData as SettlementData },
+  { id: 'italy',   data: italyData as SettlementData },
+];
 
 const allEvents = await getCollection('events');
 const events = allEvents
@@ -18,26 +30,23 @@ const events = allEvents
 <BaseLayout title={t.site.title} lang={lang}>
   <Header slot="header" lang={lang} pathWithoutLocale="/" />
 
-  <section class="hero">
+  <section class="hero hero--compact">
     <div class="hero-inner container-wide">
       <p class="hero-eyebrow">{t.site.tagline}</p>
       <h1 class="hero-title">{t.site.title}</h1>
-      <p class="hero-subtitle">{t.site.subtitle}</p>
+      <p class="hero-subtitle">{t.home.heroSubtitle}</p>
       <div class="hero-actions">
-        <a href={p('/events/')} class="btn-primary">{t.ui.browseEvents}</a>
-        <a href={p('/settlements/')} class="btn-secondary">{t.nav.settlements}</a>
+        <a href="#reckoning" class="btn-primary">{t.home.seeScoreboard}</a>
+        <a href={p('/events/')} class="btn-secondary">{t.ui.browseEvents}</a>
       </div>
     </div>
   </section>
 
-  <section class="section-year" id="1939">
+  <section class="section-reckoning" id="reckoning">
     <div class="container-wide">
-      <div class="year-section-header">
-        <span class="year-display" aria-hidden="true">1939</span>
-        <div class="year-section-text">
-          <h2>{t.ui.year1939}</h2>
-          <p>{t.ui.year1939desc}</p>
-        </div>
+      <ReckoningDashboard countries={countries} lang={lang} showSources={false} />
+      <div class="reckoning-cta">
+        <a href={p('/settlements/')} class="btn-primary">{t.home.viewCountryDetail}</a>
       </div>
     </div>
   </section>
@@ -70,16 +79,6 @@ const events = allEvents
     </div>
   </section>
 
-  <section class="section-settlements" id="settlements">
-    <div class="container-wide">
-      <div class="settlements-intro">
-        <h2 class="section-title">{t.ui.warSettlementsTitle}</h2>
-        <p>{t.ui.warSettlementsDesc}</p>
-        <a href={p('/settlements/')} class="btn-primary">{t.ui.viewSettlements}</a>
-      </div>
-    </div>
-  </section>
-
   <section class="section-aftermath" id="aftermath">
     <div class="container-wide">
       <h2 class="section-title">{t.ui.newOrderTitle}</h2>
@@ -93,6 +92,8 @@ const events = allEvents
 
 <style>
 .hero { min-height: 60vh; display: flex; align-items: center; background: var(--color-bg-elevated); border-bottom: 1px solid var(--color-border); }
+.hero--compact { min-height: 40vh; }
+.hero--compact .hero-inner { padding: var(--space-12) var(--space-4); }
 .hero-inner { padding: var(--space-16) var(--space-4); }
 .hero-eyebrow { font-family: var(--font-mono); font-size: 0.875rem; color: var(--color-text-muted); letter-spacing: 0.15em; margin-bottom: var(--space-3); }
 .hero-title { font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 7rem); font-weight: 900; line-height: 0.9; letter-spacing: -0.02em; margin-bottom: var(--space-4); color: var(--color-text); }
@@ -102,10 +103,8 @@ const events = allEvents
 .btn-primary:hover { opacity: 0.85; text-decoration: none; }
 .btn-secondary { display: inline-block; padding: 0.65em 1.5em; background: transparent; color: var(--color-text); font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; border: 1px solid var(--color-border); border-radius: 2px; text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease; }
 .btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
-.section-year { padding: var(--space-16) 0; overflow: hidden; }
-.year-section-header { display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: center; }
-.year-section-text h2 { margin-bottom: var(--space-2); }
-.year-section-text p { color: var(--color-text-muted); max-width: 480px; }
+.section-reckoning { padding: var(--space-12) 0 var(--space-8); }
+.reckoning-cta { margin-top: var(--space-2); }
 .section-events { padding: var(--space-12) 0; }
 .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: var(--space-6); padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
 .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-4); }
@@ -118,9 +117,6 @@ const events = allEvents
 .event-card__location { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-2); }
 .event-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
 .tag { font-size: 0.72rem; font-family: var(--font-mono); color: var(--color-text-muted); background: var(--color-bg); border: 1px solid var(--color-border); padding: 0.1em 0.45em; border-radius: 2px; }
-.section-settlements { padding: var(--space-12) 0; background: var(--color-bg-elevated); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-.settlements-intro { max-width: 600px; }
-.settlements-intro p { color: var(--color-text-muted); margin-bottom: var(--space-4); }
-.section-aftermath { padding: var(--space-12) 0; }
+.section-aftermath { padding: var(--space-12) 0; background: var(--color-bg-elevated); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
 .section-desc { color: var(--color-text-muted); margin-bottom: var(--space-4); max-width: 560px; }
 </style>

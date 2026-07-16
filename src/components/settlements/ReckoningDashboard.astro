@@ -14,9 +14,12 @@ import SourceCitation from '../shared/SourceCitation.astro';
 interface Props {
   countries: { id: string; data: SettlementData }[];
   lang: Lang;
+  /** Render the aggregated source list beneath the board. Off on the homepage,
+   *  where the full citations live on the linked /settlements/ page. */
+  showSources?: boolean;
 }
 
-const { countries, lang } = Astro.props;
+const { countries, lang, showSources = true } = Astro.props;
 const t = useTranslations(lang);
 
 // Rank best → worst by the mean of the four dimension scores. Sort is stable in
@@ -95,7 +98,7 @@ for (const { data } of ranked) {
     ))}
   </div>
 
-  <SourceCitation sources={allSources} lang={lang} />
+  {showSources && <SourceCitation sources={allSources} lang={lang} />}
 </section>
 
 <style>
