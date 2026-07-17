@@ -5,7 +5,7 @@ import Footer from '../../components/layout/Footer.astro';
 import ReckoningDashboard from '../../components/settlements/ReckoningDashboard.astro';
 import DisputeGrid from '../../components/disputes/DisputeGrid.astro';
 import type { SettlementData } from '../../utils/settlements';
-import type { Dispute } from '../../utils/disputes';
+import { attachSocialPosts, type Dispute } from '../../utils/disputes';
 import { getCollection } from 'astro:content';
 import { useTranslations, localePath } from '../../i18n';
 
@@ -28,7 +28,7 @@ const events = allEvents
   .filter(e => e.id.startsWith('zh/'))
   .sort((a, b) => a.data.date.localeCompare(b.data.date));
 
-const disputes = (await getCollection('disputes')).map(e => e.data as Dispute);
+const disputes = attachSocialPosts((await getCollection('disputes')).map(e => e.data as Dispute));
 ---
 
 <BaseLayout title={t.site.title} lang={lang}>

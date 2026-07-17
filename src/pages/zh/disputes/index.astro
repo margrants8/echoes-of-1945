@@ -5,12 +5,12 @@ import Footer from '../../../components/layout/Footer.astro';
 import DisputeGrid from '../../../components/disputes/DisputeGrid.astro';
 import { getCollection } from 'astro:content';
 import { useTranslations } from '../../../i18n';
-import { coveredCountries, longestUnresolvedYears, type Dispute } from '../../../utils/disputes';
+import { attachSocialPosts, coveredCountries, longestUnresolvedYears, type Dispute } from '../../../utils/disputes';
 
 const lang = 'zh';
 const t = useTranslations(lang);
 
-const disputes = (await getCollection('disputes')).map((e) => e.data as Dispute);
+const disputes = attachSocialPosts((await getCollection('disputes')).map((e) => e.data as Dispute));
 const stats = {
   total: disputes.length,
   countries: coveredCountries(disputes).length,

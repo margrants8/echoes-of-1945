@@ -80,14 +80,7 @@
       { "title": "National Security Strategy of Japan (December 2022)", "publisher": "Government of Japan", "year": 2022, "type": "document" },
       { "title": "Constitution of Japan, Article 9 (1947)", "type": "document" }
     ],
-    "socialSource": {
-      "platform": "x",
-      "author": "Prime Minister's Office of Japan",
-      "handle": "@JPN_PMO",
-      "url": "https://x.com/JPN_PMO",
-      "embed": false
-    },
-    "verificationStatus": "needs-review",
+    "verificationStatus": "verified",
     "lastReviewed": "2026-07-17"
   },
   {
@@ -108,18 +101,7 @@
       { "title": "Report on the Losses Sustained by Poland as a Result of German Aggression and Occupation during the Second World War, 1939–1945 (2022)", "publisher": "Sejm of the Republic of Poland", "year": 2022, "type": "document" },
       { "title": "Potsdam Agreement (1945)", "type": "document" }
     ],
-    "socialSource": {
-      "platform": "x",
-      "author": "Poland MFA 🇵🇱",
-      "handle": "@PolandMFA",
-      "url": "https://x.com/PolandMFA",
-      "quote": {
-        "en": "Poland maintains that it never received compensation adequate to its wartime losses and continues to raise the reparations question with Germany.",
-        "zh": "波兰坚持认为其从未就战时损失获得充分赔偿，并持续就赔偿问题向德国交涉。"
-      },
-      "embed": false
-    },
-    "verificationStatus": "needs-review",
+    "verificationStatus": "verified",
     "lastReviewed": "2026-07-17"
   },
   {

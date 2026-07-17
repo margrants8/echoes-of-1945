@@ -1,4 +1,5 @@
 import type { LocalizedText, Source, ScorecardDimension } from './settlements';
+import { disputePosts } from '../data/dispute-posts';
 
 /** The three defeated Axis nations tracked by the dispute ledger. */
 export type DisputeCountry = 'germany' | 'japan' | 'italy';
@@ -41,6 +42,34 @@ export const DISPUTE_COUNTRIES: DisputeCountry[] = ['japan', 'germany', 'italy']
 /** Newest development first. Dates are ISO strings, so lexical sort is correct. */
 export function sortByDateDesc<T extends { date: string }>(items: T[]): T[] {
   return [...items].sort((a, b) => b.date.localeCompare(a.date));
+}
+
+/** Drop a social source that has no usable post URL; strip empty optional fields
+ *  (author/handle/date/archive) and an all-empty quote so the card never renders
+ *  a blank citation. Returns undefined when there is nothing worth showing. */
+function normalizeSocial(s?: DisputeSocialSource): DisputeSocialSource | undefined {
+  if (!s || !s.url || !s.url.trim()) return undefined;
+  const quote = s.quote && (s.quote.en?.trim() || s.quote.zh?.trim()) ? s.quote : undefined;
+  return {
+    platform: s.platform,
+    author: (s.author ?? '').trim(),
+    handle: s.handle?.trim() || undefined,
+    url: s.url.trim(),
+    archiveUrl: s.archiveUrl?.trim() || undefined,
+    date: s.date?.trim() || undefined,
+    quote,
+    embed: !!s.embed,
+  };
+}
+
+/** Merge curated posts from data/dispute-posts.ts onto disputes by id. A configured
+ *  post overrides any inline `socialSource`; both are ignored unless they carry a
+ *  real post URL. Call this once when loading disputes for a page. */
+export function attachSocialPosts(disputes: Dispute[]): Dispute[] {
+  return disputes.map((d) => {
+    const socialSource = normalizeSocial(disputePosts[d.id]) ?? normalizeSocial(d.socialSource);
+    return { ...d, socialSource };
+  });
 }
 
 /** Whole years elapsed between the earliest dispute and now — the "longest
