@@ -1,0 +1,205 @@
+---
+import type { Lang } from '../../i18n';
+import { useTranslations } from '../../i18n';
+import { pick } from '../../utils/settlements';
+import type { Dispute } from '../../utils/disputes';
+import XEmbed from './XEmbed.astro';
+
+interface Props {
+  dispute: Dispute;
+  lang: Lang;
+}
+
+const { dispute, lang } = Astro.props;
+const t = useTranslations(lang);
+const s = dispute.socialSource;
+// The primary source shown in the compact card footer; the rest live on the
+// detail sources of the entry (kept short here to preserve the card rhythm).
+const primarySource = dispute.sources[0];
+const extraSources = Math.max(0, dispute.sources.length - 1);
+---
+
+<article class="dispute-card" data-status={dispute.status} data-country={dispute.country}>
+  <div class="dispute-card__meta">
+    <time class="dispute-card__date">{dispute.date}</time>
+    <span class="dispute-card__country">{t.disputes.country[dispute.country]}</span>
+    <span class="dispute-card__status">{t.disputes.status[dispute.status]}</span>
+  </div>
+
+  <h3 class="dispute-card__headline">{pick(dispute.headline, lang)}</h3>
+  <p class="dispute-card__summary">{pick(dispute.summary, lang)}</p>
+
+  {s && (s.embed && s.platform === 'x'
+    ? <XEmbed url={s.url} />
+    : (
+      <figure class="dispute-social">
+        <figcaption class="dispute-social__head">
+          <span class="dispute-social__label">{t.disputes.socialLabel}</span>
+          <span class="dispute-social__author">
+            {s.author}{s.handle && <span class="dispute-social__handle"> {s.handle}</span>}
+          </span>
+        </figcaption>
+        {s.quote && <blockquote class="dispute-social__quote">{pick(s.quote, lang)}</blockquote>}
+        <div class="dispute-social__links">
+          <a href={s.url} target="_blank" rel="noopener noreferrer">
+            {s.platform === 'x' ? t.disputes.viewOnX : t.disputes.viewPost}
+          </a>
+          {s.archiveUrl && (
+            <a href={s.archiveUrl} target="_blank" rel="noopener noreferrer">{t.disputes.archived}</a>
+          )}
+        </div>
+      </figure>
+    ))}
+
+  <footer class="dispute-card__foot">
+    <span class="dispute-card__dimension">{t.settlements.reckoning.dimension[dispute.dimension]}</span>
+    {primarySource && (
+      <span class="dispute-card__source">
+        <span class="dispute-card__source-label">{t.ui.source}:</span>{' '}
+        {primarySource.url
+          ? <a href={primarySource.url} target="_blank" rel="noopener noreferrer">{primarySource.title}</a>
+          : <span>{primarySource.title}</span>}
+        {extraSources > 0 && <span class="dispute-card__source-more"> +{extraSources}</span>}
+      </span>
+    )}
+  </footer>
+</article>
+
+<style>
+.dispute-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-disputed);
+  border-radius: 3px;
+  padding: var(--space-4);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.dispute-card:hover {
+  border-color: var(--color-accent);
+  border-left-color: var(--color-disputed);
+  transform: translateY(-2px);
+}
+
+.dispute-card__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+  margin-bottom: var(--space-2);
+}
+.dispute-card__date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+.dispute-card__country {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 0.1em 0.5em;
+  border-radius: 2px;
+}
+.dispute-card__status {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-disputed);
+  border: 1px solid var(--color-disputed);
+  padding: 0.1em 0.5em;
+  border-radius: 2px;
+  margin-left: auto;
+}
+
+.dispute-card__headline {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: var(--space-1);
+}
+.dispute-card__summary {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.dispute-social {
+  margin: 0 0 var(--space-3);
+  padding: var(--space-2);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+}
+.dispute-social__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5em;
+  margin-bottom: 0.4em;
+}
+.dispute-social__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+.dispute-social__author {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.dispute-social__handle { color: var(--color-text-muted); }
+.dispute-social__quote {
+  border-left: 2px solid var(--color-border);
+  padding: 0.2em 0 0.2em var(--space-2);
+  margin: 0 0 0.5em;
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--color-text);
+}
+.dispute-social__links {
+  display: flex;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+}
+
+.dispute-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+.dispute-card__dimension {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+}
+.dispute-card__source {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+.dispute-card__source-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+}
+.dispute-card__source-more { font-family: var(--font-mono); }
+</style>

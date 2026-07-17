@@ -1,0 +1,94 @@
+---
+import type { Lang } from '../../i18n';
+import { useTranslations } from '../../i18n';
+import { sortByDateDesc, coveredCountries, type Dispute } from '../../utils/disputes';
+import DisputeCard from './DisputeCard.astro';
+
+interface Props {
+  disputes: Dispute[];
+  lang: Lang;
+  /** Cap the number of cards shown (used on the homepage teaser). */
+  limit?: number;
+  /** Show the Alpine country filter above the grid (used on the full page). */
+  filterable?: boolean;
+}
+
+const { disputes, lang, limit, filterable = false } = Astro.props;
+const t = useTranslations(lang);
+
+const sorted = sortByDateDesc(disputes);
+const shown = typeof limit === 'number' ? sorted.slice(0, limit) : sorted;
+const countries = coveredCountries(shown);
+---
+
+{filterable && (
+  <div class="dispute-filter" x-data="{ active: 'all' }">
+    <div class="dispute-filter__tabs" role="tablist" aria-label={t.disputes.filterLabel}>
+      <button
+        role="tab"
+        class="dispute-filter__tab"
+        :class="{ 'dispute-filter__tab--active': active === 'all' }"
+        @click="active = 'all'"
+        :aria-selected="active === 'all'"
+      >{t.disputes.all}</button>
+      {countries.map((c) => (
+        <button
+          role="tab"
+          class="dispute-filter__tab"
+          :class={`{ 'dispute-filter__tab--active': active === '${c}' }`}
+          @click={`active = '${c}'`}
+          :aria-selected={`active === '${c}'`}
+        >{t.disputes.country[c]}</button>
+      ))}
+    </div>
+
+    <div class="dispute-grid">
+      {shown.map((dispute) => (
+        <div x-show={`active === 'all' || active === '${dispute.country}'`}>
+          <DisputeCard dispute={dispute} lang={lang} />
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+{!filterable && (
+  <div class="dispute-grid">
+    {shown.map((dispute) => <DisputeCard dispute={dispute} lang={lang} />)}
+  </div>
+)}
+
+<style>
+.dispute-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.dispute-filter__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-4);
+}
+.dispute-filter__tab {
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  margin-bottom: -1px;
+}
+.dispute-filter__tab:hover { color: var(--color-text); }
+.dispute-filter__tab--active {
+  color: var(--color-text) !important;
+  border-bottom-color: var(--color-accent) !important;
+}
+</style>

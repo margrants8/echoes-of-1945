@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import DisputeGrid from '../../components/disputes/DisputeGrid.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations } from '../../i18n';
+import { attachSocialPosts, coveredCountries, longestUnresolvedYears, type Dispute } from '../../utils/disputes';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const disputes = attachSocialPosts((await getCollection('disputes')).map((e) => e.data as Dispute));
+const stats = {
+  total: disputes.length,
+  countries: coveredCountries(disputes).length,
+  years: longestUnresolvedYears(disputes),
+};
+---
+
+<BaseLayout title={t.disputes.pageTitle} lang={lang}>
+  <Header slot="header" lang={lang} pathWithoutLocale="/disputes/" />
+  <div class="container-wide page-content">
+    <div class="page-intro">
+      <h1 class="page-title">{t.disputes.pageTitle}</h1>
+      <p class="page-desc">{t.disputes.pageDesc}</p>
+    </div>
+
+    <div class="dispute-stats">
+      <div class="dispute-stat">
+        <span class="stat-number">{stats.total}</span>
+        <span class="dispute-stat__label">{t.disputes.stats.total}</span>
+      </div>
+      <div class="dispute-stat">
+        <span class="stat-number">{stats.countries}</span>
+        <span class="dispute-stat__label">{t.disputes.stats.countries}</span>
+      </div>
+      <div class="dispute-stat">
+        <span class="stat-number">{stats.years}</span>
+        <span class="dispute-stat__label">{t.disputes.stats.longestUnresolved}</span>
+      </div>
+    </div>
+
+    <DisputeGrid disputes={disputes} lang={lang} filterable />
+  </div>
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>
+
+<style>
+.page-content { padding-top: var(--space-8); padding-bottom: var(--space-12); }
+.page-intro { max-width: 720px; margin-bottom: var(--space-6); }
+.page-title { margin-bottom: var(--space-3); }
+.page-desc { color: var(--color-text-muted); line-height: 1.75; }
+
+.dispute-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding: var(--space-4) 0 var(--space-6);
+  margin-bottom: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.dispute-stat { display: flex; flex-direction: column; gap: var(--space-1); }
+.dispute-stat .stat-number { font-size: clamp(2rem, 5vw, 3rem); line-height: 1; }
+.dispute-stat__label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+</style>
