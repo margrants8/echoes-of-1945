@@ -1,0 +1,36 @@
+---
+// Optional, opt-in official X (Twitter) embed for a single curated post.
+// Enabled per entry via `socialSource.embed: true`. Trade-offs are deliberate
+// and documented: it loads X's third-party widgets.js (tracks the visitor) and
+// renders blank if the post is later deleted — hence curated citation is the
+// default. widgets.js is loaded at most once per page via the id guard below.
+interface Props {
+  url: string;
+}
+const { url } = Astro.props;
+---
+
+<div class="x-embed">
+  <blockquote class="twitter-tweet" data-dnt="true" data-conversation="none">
+    <a href={url}></a>
+  </blockquote>
+</div>
+
+<script is:inline>
+  if (!document.getElementById('x-widgets-js')) {
+    const el = document.createElement('script');
+    el.id = 'x-widgets-js';
+    el.async = true;
+    el.src = 'https://platform.twitter.com/widgets.js';
+    document.head.appendChild(el);
+  } else if (window.twttr && window.twttr.widgets) {
+    window.twttr.widgets.load();
+  }
+</script>
+
+<style>
+.x-embed {
+  margin: 0 0 var(--space-3);
+  min-height: 2rem;
+}
+</style>

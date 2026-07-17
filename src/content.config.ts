@@ -173,6 +173,45 @@ const warCrimes = defineCollection({
     .superRefine(requireDisputedNote),
 });
 
+// Data collection — ongoing post-war disputes ("持续争议"). Each entry is a
+// dated, sourced controversy that keeps a defeated nation's reckoning contested
+// (e.g. Yasukuni visits, reparations claims). Bilingual inline text, so it lives
+// in one JSON file rather than per-language markdown. An optional `socialSource`
+// carries a curated, verifiable public post (e.g. an official X account) as a
+// primary source — rendered in the site's own style, never via a live feed.
+const localizedText = z.object({ en: z.string(), zh: z.string() });
+
+const disputes = defineCollection({
+  loader: file('./src/data/disputes.json'),
+  schema: z
+    .object({
+      id: z.string(),
+      date: z.string(), // ISO "YYYY-MM-DD"; latest development, used to sort newest-first
+      country: z.enum(['germany', 'japan', 'italy']),
+      // Reuses the reckoning scorecard's four dimensions so each dispute links
+      // back to the score it presses on (see utils/settlements SCORECARD_DIMENSIONS).
+      dimension: z.enum(['execution', 'military', 'apology', 'warmongering']),
+      status: z.enum(['recurring', 'unresolved', 'escalating', 'ongoing']),
+      headline: localizedText,
+      summary: localizedText,
+      socialSource: z
+        .object({
+          platform: z.enum(['x', 'other']),
+          author: z.string(),
+          handle: z.string().optional(),
+          url: z.string().url(),
+          archiveUrl: z.string().url().optional(),
+          date: z.string().optional(),
+          quote: localizedText.optional(),
+          embed: z.boolean().default(false),
+        })
+        .optional(),
+      sources: sourceArray,
+      ...accuracyFields,
+    })
+    .superRefine(requireDisputedNote),
+});
+
 // Data collection — per-country WWII deaths. Numeric + short localized name
 // only (no free-text notes), so it stays bilingual without per-row prose.
 const casualties = defineCollection({
@@ -192,4 +231,4 @@ const casualties = defineCollection({
     .superRefine(requireDisputedNote),
 });
 
-export const collections = { events, people, aftermath, conferences, technology, warCrimes, casualties };
+export const collections = { events, people, aftermath, conferences, technology, warCrimes, casualties, disputes };

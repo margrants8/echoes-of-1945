@@ -3,7 +3,9 @@ import BaseLayout from '../../components/layout/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 import ReckoningDashboard from '../../components/settlements/ReckoningDashboard.astro';
+import DisputeGrid from '../../components/disputes/DisputeGrid.astro';
 import type { SettlementData } from '../../utils/settlements';
+import type { Dispute } from '../../utils/disputes';
 import { getCollection } from 'astro:content';
 import { useTranslations, localePath } from '../../i18n';
 
@@ -25,6 +27,8 @@ const allEvents = await getCollection('events');
 const events = allEvents
   .filter(e => e.id.startsWith('zh/'))
   .sort((a, b) => a.data.date.localeCompare(b.data.date));
+
+const disputes = (await getCollection('disputes')).map(e => e.data as Dispute);
 ---
 
 <BaseLayout title={t.site.title} lang={lang}>
@@ -47,6 +51,18 @@ const events = allEvents
       <ReckoningDashboard countries={countries} lang={lang} showSources={false} />
       <div class="reckoning-cta">
         <a href={p('/settlements/')} class="btn-primary">{t.home.viewCountryDetail}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-disputes" id="disputes">
+    <div class="container-wide">
+      <p class="disputes-eyebrow">{t.disputes.homeEyebrow}</p>
+      <h2 class="section-title">{t.disputes.homeTitle}</h2>
+      <p class="section-desc">{t.disputes.homeDesc}</p>
+      <DisputeGrid disputes={disputes} lang={lang} limit={6} />
+      <div class="disputes-cta">
+        <a href={p('/disputes/')} class="btn-primary">{t.disputes.viewAll}</a>
       </div>
     </div>
   </section>
@@ -105,6 +121,9 @@ const events = allEvents
 .btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
 .section-reckoning { padding: var(--space-12) 0 var(--space-8); }
 .reckoning-cta { margin-top: var(--space-2); }
+.section-disputes { padding: var(--space-12) 0; background: var(--color-bg-elevated); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.disputes-eyebrow { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-disputed); margin-bottom: var(--space-2); }
+.disputes-cta { margin-top: var(--space-6); }
 .section-events { padding: var(--space-12) 0; }
 .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: var(--space-6); padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
 .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-4); }
